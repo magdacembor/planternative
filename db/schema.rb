@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_120603) do
+ActiveRecord::Schema.define(version: 2020_03_03_123422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2020_03_03_120603) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "water_saved"
+    t.integer "energy_saved"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -86,6 +88,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_120603) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "mark_as_done", default: false
     t.index ["user_id"], name: "index_shopping_lists_on_user_id"
   end
 
