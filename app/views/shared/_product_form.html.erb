@@ -1,0 +1,22 @@
+<%= simple_form_for @product do |f| %>
+  <p>General product information</p>
+  <%= f.input :name, label: false, placeholder: 'Product name' %>
+  <%= f.input :description, label: false, placeholder: 'Description' %>
+  <%= f.input :ingredients, label: false, placeholder: 'Ingredients' %>
+  <%= f.input :price_range, collection: ['£', '££', '£££'], label: false, prompt: 'Price range' %>
+  <p>Nutrition information</p>
+  <%= f.input :calories_per_100g, label: false, placeholder: 'Energy per 100g' %>
+  <%= f.input :fat_per_100g, label: false, placeholder: 'Fat per 100g' %>
+  <%= f.input :carbs_per_100g, label: false, placeholder: 'Carbohydrate per 100g' %>
+  <%= f.input :protein_per_100g, label: false, placeholder: 'Protein per 100g' %>
+  <p>How eco-friendly is that product?</p>
+  <%= f.input :water_saved, label: false, placeholder: 'Water saved' %>
+  <%= f.input :energy_saved, label: false, placeholder: 'Energy saved' %>
+  <p>Extra features</p>
+  <%= f.input :low_cal, as: :boolean, checked_value: true, unchecked_value: false, boolean_style: :inline, label: 'Low calorie' %>
+  <%= f.input :high_protein, as: :boolean, checked_value: true, unchecked_value: false, label: 'High in protein' %>
+  <%= f.input :gluten_free, as: :boolean, checked_value: true, unchecked_value: false, label: 'Gluten free' %>
+  <p>Add some pictures!</p>
+  <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
+  <%= f.submit 'Search', class: "btn btn-dark btn-block" %>
+<% end %>
