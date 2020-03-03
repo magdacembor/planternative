@@ -31,7 +31,7 @@
 }
 
 @media (min-width: 550px) {
-  /* For a screen < 540px, this CSS will be read */
+  /* For a screen > 550px, this CSS will be read */
   .navbar-lewagon .navbar-collapse {
     width: 20%;
     margin-left: 80%;

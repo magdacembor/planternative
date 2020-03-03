@@ -1,0 +1,61 @@
+.landing-page-container {
+  width: 100%;
+  height: 70vh;
+  background-color: $brand-green-background;
+  position: relative;
+}
+.landing-page-cards {
+  position: absolute;
+  top: -80px;
+  width: 100%;
+  height: 70vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .landing-page-card {
+    width: 85%;
+    height: 220px;
+    background-color: white;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: flex-end;
+    border-radius: 16px;
+    box-shadow: 1px 1px 5px rgb(200,200,200);
+    padding: 10px;
+    position: relative;
+  }
+  h2 {
+    background-color: $brand-green;
+    border-radius: 12px;
+    color: white;
+    font-size: 20px;
+    padding: 6px 0;
+  }
+  p {
+    color: #888888;
+    font-size: 11px;
+  }
+  span {
+    font-size: 66px;
+    position: absolute;
+    top: 26px;
+    left: 30px;
+  }
+}
+
+@media (min-width: 550px) {
+  /* For a screen > 550px, this CSS will be read */
+  .landing-page-container {
+    height: 40vh;
+  }
+  .landing-page-cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    .landing-page-card {
+      width: 70%;
+      span {
+        top: 40px;
+      }
+    }
+  }
+}
