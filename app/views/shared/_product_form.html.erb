@@ -1,0 +1,17 @@
+<%= simple_form_for :index, url: products_path, method: :get do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :ingredients %>
+  <%= f.input :price_range %>
+  <%= f.input :low_cal %>
+  <%= f.input :high_protein %>
+  <%= f.input :gluten_free %>
+  <%= f.input :calories_per_100g %>
+  <%= f.input :carbs_per_100g %>
+  <%= f.input :protein_per_100g %>
+  <%= f.input :fat_per_100g %>
+  <%= f.input :water_saved %>
+  <%= f.input :energy_saved %>
+  <%= f.input :photos %>
+  <%= f.submit 'Search', class: "btn btn-dark btn-block" %>
+<% end %>
