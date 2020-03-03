@@ -1,0 +1,17 @@
+<%= simple_form_for @product do |f| %>
+  <%= f.input :name, label: false, placeholder: 'Product name' %>
+  <%= f.input :description, label: false, placeholder: 'Description' %>
+  <%= f.input :ingredients, label: false, placeholder: 'Ingredients' %>
+  <%= f.input :price_range, collection: ['£', '££', '£££'], label: false, prompt: 'Price range' %>
+  <%= f.input :calories_per_100g, label: false, placeholder: 'Energy per 100g' %>
+  <%= f.input :fat_per_100g, label: false, placeholder: 'Fat per 100g' %>
+  <%= f.input :carbs_per_100g, label: false, placeholder: 'Carbohydrate per 100g' %>
+  <%= f.input :protein_per_100g, label: false, placeholder: 'Protein per 100g' %>
+  <%= f.input :water_saved, label: false, placeholder: 'Water saved' %>
+  <%= f.input :energy_saved, label: false, placeholder: 'Energy saved' %>
+  <%= f.input :low_cal, as: :boolean, checked_value: true, unchecked_value: false, boolean_style: :inline, label: 'Low calorie?' %>
+  <%= f.input :high_protein, as: :boolean, checked_value: true, unchecked_value: false, label: 'High in protein?' %>
+  <%= f.input :gluten_free, as: :boolean, checked_value: true, unchecked_value: false, label: 'Gluten free?' %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Add photos" %>
+  <%= f.submit 'Search', class: "btn btn-dark btn-block" %>
+<% end %>
