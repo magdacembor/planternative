@@ -9,6 +9,9 @@
           <%= f.submit %>
         <% end %>
       <% end %>
+      <%= link_to quantity_path(quantity), method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <%= icon("fa", "trash") %>
+      <% end %>
     <% end %>
   </ol>
 </div>

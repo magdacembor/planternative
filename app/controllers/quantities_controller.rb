@@ -1,4 +1,6 @@
 class QuantitiesController < ApplicationController
+before_action :find_quantity, only: [ :update, :destroy ]
+
   def create
     @product = Product.find(params[:product_id])
     @quantity = Quantity.new(quantity_params)
@@ -13,7 +15,6 @@ class QuantitiesController < ApplicationController
   end
 
   def update
-    @quantity = Quantity.find(params[:id])
     @shopping_list = ShoppingList.find_by(mark_as_done: false, user: current_user) || ShoppingList.create(user: current_user, date: Date.today, mark_as_done: false)
     @quantity.update(quantity_params)
     if @quantity.save
@@ -23,7 +24,17 @@ class QuantitiesController < ApplicationController
     end
   end
 
+  def destroy
+    @quantity.destroy
+    @shopping_list = ShoppingList.find_by(mark_as_done: false, user: current_user) || ShoppingList.create(user: current_user, date: Date.today, mark_as_done: false)
+    redirect_to shopping_list_path(@shopping_list)
+  end
+
   private
+
+  def find_quantity
+    @quantity = Quantity.find(params[:id])
+  end
 
   def quantity_params
     params.require(:quantity).permit(:quantity)
