@@ -19,7 +19,7 @@ class QuantitiesController < ApplicationController
     if @quantity.save
       redirect_to shopping_list_path(@shopping_list)
     else
-      render 'pages/home'
+      render "shopping_lists/show"
     end
   end
 
