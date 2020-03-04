@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :quantities, only: :update
   resources :shopping_lists, only: [:show, :update, :destroy, :create]
   resources :reviews, only: :destroy
-  get 'myprofile', to: 'pages#myprofile', as: :myprofile
+  get '/:nickname', to: 'pages#myprofile', as: :myprofile
 end
