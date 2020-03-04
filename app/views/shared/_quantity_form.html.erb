@@ -1,0 +1,4 @@
+<%= simple_form_for [@product, @quantity] do |f| %>
+  <%= f.input :quantity, default: '1' %>
+  <%= f.submit 'Add' %>
+<% end %>
