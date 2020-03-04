@@ -95,7 +95,6 @@ puts "\nCreating meals..."
 @meals = [
 
   { name: "Carbonara" },
-  { name: "Bolognese" },
   { name: "Chicken Curry" },
   { name: "Chicken Risotto" }
 
@@ -110,10 +109,9 @@ puts "\nCreating substitutions..."
 
 @substitutions = [
 
-  { name: "Bacon", meal_id: 1 },
-  { name: "Mince", meal_id: 2 },
-  { name: "Chicken", meal_id: 3 },
-  { name: "Chicken", meal_id: 4 }
+  { name: "Bacon", meal_id: 1, product_id: 1 },
+  { name: "Chicken", meal_id: 2, product_id: 2 },
+  { name: "Chicken", meal_id: 3, product_id: 2 }
 
 ]
 
