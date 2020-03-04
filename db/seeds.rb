@@ -69,10 +69,10 @@ puts "\nCreating shopping lists..."
 
 @shopping_lists = [
 
-  { date: Date.today, user_id: 1 },
-  { date: Date.today, user_id: 1 },
-  { date: Date.today, user_id: 1 },
-  { date: Date.today, user_id: 1 }
+  { date: Date.today, user_id: 1, mark_as_done: true },
+  { date: Date.today, user_id: 1, mark_as_done: true },
+  # { date: Date.today, user_id: 1, mark_as_done: true },
+  # { date: Date.today, user_id: 1, mark_as_done: true }
 
 ]
 
@@ -88,7 +88,7 @@ puts "\nCreating quantities..."
   { quantity: 2, product_id: 1, shopping_list_id: 1 },
   { quantity: 3, product_id: 2, shopping_list_id: 1 },
   { quantity: 4, product_id: 1, shopping_list_id: 2 },
-  { quantity: 1, product_id: 2, shopping_list_id: 2 },
+  { quantity: 1, product_id: 2, shopping_list_id: 2 }
 
 ]
 
