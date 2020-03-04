@@ -1,0 +1,42 @@
+<div class="product-cards">
+  <% @products.each do |product| %>
+    <%= link_to product_path(product) do %>
+      <div class="product-card">
+        <div class="product-image">
+          <%= cl_image_tag(product.images.first&.key || 'b89pmjwcw7w7klcpubjw', width: 400, height: 300, crop: :fill) %>
+        </div>
+        <div class="product-info">
+          <div class="product-name">
+            <h5><%= product.name %></h5>
+          </div>
+          <div class="product-review">
+            <div class="product-stars">
+              <% ratings = [] %>
+              <% product.reviews.each do |review| %>
+                <% ratings << review.rating %>
+              <% end %>
+              <% if ratings.length == 0 %>
+                <p>No reviews yet</p>
+              <% else %>
+                <% average_rating = ratings.sum/ratings.length%>
+                <p><%= "⭐"* average_rating%></p>
+              <% end %>
+
+              <%#= raise %>
+              <!-- average of all review ratings needed (product.reviews.rating.average)? - revisit with reviews seed) -->
+            </div>
+            <div class="product-review-count">
+              <p>(<%= product.reviews.count %>)</p>
+              <!-- number of reviews for each product - (product.reviews.count)? -->
+            </div>
+          </div>
+          <div class="product-price">
+            <p><%= product.price_range %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
+
