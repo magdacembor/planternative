@@ -1,5 +1,16 @@
-<ol>
-  <% @shopping_list.products do |product| %>
-    <li> <%= product.name %> </li>
-  <% end %>
-</ol>
+<div class="container">
+  <p>My current shopping list</p>
+  <ol>
+    <% @shopping_list.quantities.each do |quantity| %>
+      <li> <%= quantity.product.name %> <%= quantity.quantity %> </li>
+      <% if !@shopping_list.mark_as_done %>
+        <%= simple_form_for quantity do |f| %>
+          <%= f.input :quantity %>
+          <%= f.submit %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ol>
+</div>
+
+

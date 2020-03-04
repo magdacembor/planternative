@@ -1,7 +1,9 @@
 class ShoppingListsController < ApplicationController
   before_action :find_list, only: [ :show, :update, :destroy ]
 
-  def show; end
+  def show
+    @quantity = Quantity.new
+  end
 
   def create
     @shopping_list = ShoppingList.new
