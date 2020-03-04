@@ -6,10 +6,7 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def show
-    @quantity = Quantity.new
-    @review = Review.new
-  end
+  def show; end
 
   def new
     @product = Product.new
