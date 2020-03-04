@@ -1,4 +1,9 @@
 <%= render 'shared/quantity_form' %>
+
+<% @product.stores.each do |store| %>
+  <p><%= store.name %></p>
+<% end %>
+
 <%= render 'shared/review_form' %>
 <% @product.reviews.each do |review| %>
   <% review.rating.times do %>

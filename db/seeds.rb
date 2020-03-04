@@ -140,4 +140,34 @@ puts "\nCreating reviews..."
 } for product \"#{review_created.product.name}\" by user #{review_created.user.nickname} created"
 end
 
+puts "\nCreating stores ..."
+
+@stores = [
+
+  { name: "Sainsbury's", address: "112/118 Kingsland Rd", latitude: 51.530259, longitude: -0.077009 },
+  { name: "Marks & Spencer", address: "70 Finsbury Pavement", latitude: 51.519508, longitude: -0.087087 },
+  { name: "Tesco Express", address: "79-85 Hackney Rd", latitude: 51.529282, longitude: -0.075345 }
+
+]
+
+@stores.each_with_index do |store, i|
+  store_created = Store.create!(store)
+  puts "#{i + 1}. Store #{store_created.name} created"
+end
+
+puts "\nCreating availabilities..."
+
+@availabilities = [
+
+  { product_id: 1, store_id: 1 },
+  { product_id: 1, store_id: 2 },
+  { product_id: 2, store_id: 3 }
+
+]
+
+@availabilities.each_with_index do |availability, i|
+  availability_created = Availability.create!(availability)
+  puts "#{i + 1}. Availability: #{availability_created.product.name } at #{availability_created.store.name}"
+end
+
 puts "\nDone!"
