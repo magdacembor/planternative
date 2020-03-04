@@ -29,7 +29,7 @@ puts "\nCreating products..."
 @products = [
 
   { name: "This Isn't Bacon", price_range: "£££", low_cal: false, high_protein: true, gluten_free: true, description: "Ready-to-cook, (ridiculously) high in protein, fortified with vitamin B12 & iron 120g.", ingredients: "Water, Soy Protein Concentrate (22%), Soy Protein Isolate (7%), Flavouring, Pea Protein Isolate (4%), Vegetable Extracts (Radish, Carrot, Paprika), Potato Starch, Salt, Rapeseed Oil, Maltodextrin, Iron, Vitamin B12.", protein_per_100g: 24.5, fat_per_100g: 1.2, calories_per_100g: 152, carbs_per_100g: 10.6, user_id: 1, water_saved: 999, energy_saved: 999 },
-  { name: "This Isn't Chicken", price_range: "£££", low_cal: false, high_protein: true, gluten_free: false, description: "Ready-to-cook, (ridiculously) high in protein, fortified with vitamin B12 & iron 190g.", ingredients: "Water, Soy Protein Concentrate (28%), Canola Oil, Soy and Garlic Seasoning [Soy and Garlic Seasoning contains: Sugar, Soy Sauce Powder (Soy, Wheat), Dark Brown Sugar, Dried Roasted Garlic, Garlic Powder, Maltodextrin, Barley Malt Extract, Spice (Ginger), Yeast Extract Powder, Natural Flavouring, Onion Powder, Thickener (Guar Gum), Dried Red Bell Pepper, Citric Acid, Cornflour (Maize Starch), Herb (Parsley)], Flavouring, Pea Protein Isolate (2%), Potato Starch, Pea Fibre (1%), Maltodextrin, Salt, Iron, Vitamin B12.", protein_per_100g: 21.8, fat_per_100g: 5.3, calories_per_100g: 161, carbs_per_100g: 5.5, user_id: 1, water_saved: 999, energy_saved: 999 }
+  { name: "This Isn't Chicken", price_range: "£££", low_cal: false, high_protein: true, gluten_free: false, description: "Ready-to-cook, (ridiculously) high in protein, fortified with vitamin B12 & iron 140g.", ingredients: "Water, Soy Protein Concentrate (28%), Canola Oil, Rotisserie Seasoning [Rotisserie Seasoning contains: Dark Brown Sugar, Sugar, Yeast Extract Powder, Maltodextrin, Garlic Powder, Onion Powder, Natural Flavouring, Cornflour (Maize Starch), Burnt Sugar, Spice (Black Pepper), Citric Acid, Smoked Salt], Flavouring, Pea Protein Isolate (2%), Potato Starch, Pea Fibre (1%), Maltodextrin, Salt, Iron, Vitamin B12.", protein_per_100g: 21.8, fat_per_100g: 5.5, calories_per_100g: 163, carbs_per_100g: 5.5, user_id: 1, water_saved: 999, energy_saved: 999 }
 
 ]
 
@@ -118,6 +118,26 @@ puts "\nCreating substitutions..."
 @substitutions.each_with_index do |substitution, i|
   substitution_created = Substitution.create!(substitution)
   puts "#{i + 1}. Substitution \"#{substitution_created.name}\" for meal \"#{substitution_created.meal.name}\" created"
+end
+
+puts "\nCreating reviews..."
+
+@reviews = [
+
+  { product_id: 1, rating: 5, content: "Delicious!", user_id: 2 },
+  { product_id: 1, rating: 4, content: "A very good product, albeit not quite as crispy as the real thing.", user_id: 3 },
+  { product_id: 1, rating: 5, content: "That was a game changer for me!", user_id: 4 },
+  { product_id: 2, rating: 5, content: "I wouldn't have guessed this wasn't real chicken!", user_id: 4 },
+  { product_id: 2, rating: 5, content: "Fantastic, so full of flavour!", user_id: 3 },
+  { product_id: 2, rating: 4, content: "Tasty stuff", user_id: 2 },
+  { product_id: 2, rating: 4, content: "One of the best plant-based products out there", user_id: 1 }
+
+]
+
+@reviews.each_with_index do |review, i|
+  review_created = Review.create!(review)
+  puts "#{i + 1}. Review \"#{review_created.content}\" with rating #{review_created.rating
+} for product \"#{review_created.product.name}\" by user #{review_created.user.nickname} created"
 end
 
 puts "\nDone!"
