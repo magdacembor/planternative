@@ -1,0 +1,5 @@
+<%= simple_form_for [ @product, Review.new ], method: "post" do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :content %>
+  <%= f.submit label: "Add Review" %>
+<% end %>
