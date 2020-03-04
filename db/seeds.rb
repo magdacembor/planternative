@@ -33,11 +33,6 @@ puts "\nCreating products..."
 
 ]
 
-# @products.each_with_index do |product, i|
-#   product_created = Product.create!(product)
-#   puts "#{i + 1}. Product \"#{product_created.name}\" created"
-# end
-
 path = Rails.root.join('product_images').to_s
 i = 0
 Dir.foreach(path) do |dir|
@@ -70,9 +65,7 @@ puts "\nCreating shopping lists..."
 @shopping_lists = [
 
   { date: Date.today, user_id: 1, mark_as_done: true },
-  { date: Date.today, user_id: 1, mark_as_done: true },
-  # { date: Date.today, user_id: 1, mark_as_done: true },
-  # { date: Date.today, user_id: 1, mark_as_done: true }
+  { date: Date.today, user_id: 1, mark_as_done: true }
 
 ]
 
