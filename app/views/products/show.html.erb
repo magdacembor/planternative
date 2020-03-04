@@ -1,1 +1,11 @@
+<%# @quantity = Quantity.new %>
+<%# @review = Review.new %>
 <%= render 'shared/quantity_form' %>
+<%= render 'shared/review_form' %>
+<% @product.reviews.each do |review| %>
+  <% review.rating.times do %>
+    ⭐
+  <% end %>
+  <p><%= review.content %></p>
+  <p>Added by: <%= review.user.nickname %></p>
+<% end %>
