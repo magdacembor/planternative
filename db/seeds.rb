@@ -89,3 +89,37 @@ puts "\nCreating quantities..."
   quantity_created = Quantity.create!(quantity)
   puts "#{i + 1}. Quantity: #{quantity_created.quantity} of \"#{quantity_created.product.name}\" added to #{quantity_created.shopping_list.user.first_name}\'s shopping list no. #{quantity_created.shopping_list_id}"
 end
+
+puts "\nCreating meals..."
+
+@meals = [
+
+  { name: "Carbonara" },
+  { name: "Bolognese" },
+  { name: "Chicken Curry" },
+  { name: "Chicken Risotto" }
+
+]
+
+@meals.each_with_index do |meal, i|
+  meal_created = Meal.create!(meal)
+  puts "#{i + 1}. Meal #{meal_created.name} created"
+end
+
+puts "\nCreating substitutions..."
+
+@substitutions = [
+
+  { name: "Bacon", meal_id: 1 },
+  { name: "Mince", meal_id: 2 },
+  { name: "Chicken", meal_id: 3 },
+  { name: "Chicken", meal_id: 4 }
+
+]
+
+@substitutions.each_with_index do |substitution, i|
+  substitution_created = Substitution.create!(substitution)
+  puts "#{i + 1}. Substitution \"#{substitution_created.name}\" for meal \"#{substitution_created.meal.name}\" created"
+end
+
+puts "\nDone!"
