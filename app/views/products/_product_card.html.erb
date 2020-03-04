@@ -1,0 +1,31 @@
+<div class="product-cards">
+  <% @products.each do |product| %>
+    <%= link_to product_path(product) do %>
+      <div class="product-card">
+        <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">
+            <h5><%= product.name %></h5>
+          </div>
+          <div class="product-review">
+            <div class="product-stars">
+              <p><%= "⭐" %></p>
+              <!-- average of all review ratings needed (product.reviews.rating.average)? - revisit with reviews seed) -->
+            </div>
+            <div class="product-review-count">
+              <p>(No. reviews)</p>
+              <!-- number of reviews for each product - (product.reviews.count)? -->
+            </div>
+          </div>
+          <div class="product-price">
+            <p><%= product.price_range %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
+
