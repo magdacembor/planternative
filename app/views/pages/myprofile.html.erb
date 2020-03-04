@@ -3,14 +3,17 @@
 <h4><%= link_to "Edit your profile", user_registration_path, method: :patch %></h4>
 
 <h2>Your eco-score</h2>
-
+<% water = 0 %>
+<% energy = 0 %>
 <% @shopping_lists.each do |shopping_list| %>
-  <% shopping_list.products.each do |product| %>
-    <p><%= product.name %></p>
-    <p><%= product.water_saved %>litres of water</p>
-    <p><%= product.energy_saved %>kg of CO2</p>
+  <% shopping_list.quantities.each do |q| %>
+
+    <% water += q.product.water_saved * q.quantity %>
+    <% energy += q.product.energy_saved * q.quantity %>
   <% end %>
 <% end %>
+<p> <%= water %> litres of water saved</p>
+<p> <%= energy %>kg of CO2 saved</p>
 
 <h2>Your shopping lists</h2>
 <table>
@@ -18,23 +21,13 @@
     <th>Date</th>
     <th>Items</th>
   </tr>
-  <tr>
-    <% @shopping_lists.each do |shopping_list| %>
+  <% @shopping_lists.each do |shopping_list| %>
+    <tr>
       <td><%= shopping_list.date %></td>
-    <% end %>
-  </tr>
-  <tr>
-    <% @shopping_lists.each do |shopping_list| %>
       <td><%= shopping_list.products.count %></td>
-    <% end %>
-  </tr>
-  <tr>
-    <td>
-      <% @shopping_lists.each do |shopping_list| %>
-        <%= link_to "See details", shopping_list_path(shopping_list) %>
-      <% end %>
-    </td>
-  </tr>
+      <td><%= link_to "See details", shopping_list_path(shopping_list) %></td>
+    </tr>
+  <% end %>
 </table>
 
 <h2>Your planternative</h2>

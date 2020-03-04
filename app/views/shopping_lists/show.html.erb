@@ -1,5 +1,5 @@
 <ol>
-  <% @shopping_list.products do |product| %>
+  <% @shopping_list.products.each do |product| %>
     <li> <%= product.name %> </li>
   <% end %>
 </ol>
