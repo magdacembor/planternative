@@ -11,11 +11,22 @@
           </div>
           <div class="product-review">
             <div class="product-stars">
-              <p><%= "⭐" %></p>
+              <% ratings = [] %>
+              <% product.reviews.each do |review| %>
+                <% ratings << review.rating %>
+              <% end %>
+              <% if ratings.length == 0 %>
+                <p>No reviews yet</p>
+              <% else %>
+                <% average_rating = ratings.sum/ratings.length%>
+                <p><%= "⭐"* average_rating%></p>
+              <% end %>
+
+              <%#= raise %>
               <!-- average of all review ratings needed (product.reviews.rating.average)? - revisit with reviews seed) -->
             </div>
             <div class="product-review-count">
-              <p>(No. reviews)</p>
+              <p>(<%= product.reviews.count %>)</p>
               <!-- number of reviews for each product - (product.reviews.count)? -->
             </div>
           </div>
