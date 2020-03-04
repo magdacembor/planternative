@@ -33,7 +33,13 @@
 
 @media (min-width: 550px) {
   /* For a screen > 540px, this CSS will be read */
-  .footer-style .footer-contents h3 {
-    margin: 0 600px;
+  .footer-style .footer-contents {
+    h3 {
+      margin: 0 30%;
+    }
+    p {
+      font-size: 18px;
+      font-weight: normal;
+    }
   }
 }

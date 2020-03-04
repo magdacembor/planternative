@@ -27,7 +27,11 @@
   /* For a screen > 550px, this CSS will be read */
   .banner {
     .leaf {
-      display: none;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      text-align: center;
     }
   }
 }
