@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :products
+  resources :products do
+    resources :reviews, only: [:new, :create]
+  end
+  # resources :reviews, only: :show
+  resources :shopping_lists, only: [:show, :update, :destroy, :create]
+  resources :reviews, only: :destroy
+  get 'myprofile', to: 'pages#myprofile', as: :myprofile
 end
