@@ -1,0 +1,20 @@
+.search-form {
+  position: relative;
+  .search-form-button {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    color: #FFFFFF;
+    background: $brand-green;
+    border-radius: 8px;
+  }
+}
+
+.form-control {
+  border-radius: 20px;
+  width: 80vw;
+  background-color: $light-gray;
+  border: 1px solid $light-gray;
+  padding: 25px;
+  box-shadow: 1px 1px 10px rgb(200,200,200);
+}

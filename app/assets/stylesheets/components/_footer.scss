@@ -1,0 +1,45 @@
+.footer-style {
+  position: relative;
+  background-color: #C7E7A9;
+  height: 150px;
+  .footer-contents {
+    position: absolute;
+    left: 0;
+    top: -38%;
+    width: 100%;
+    text-align: center;
+    p {
+      color: #496135;
+      font-size: 14px;
+      font-weight: bolder;
+    }
+    h3 {
+      margin: 0 80px;
+      color: #FFFFFF;
+      background-color: $brand-green;
+      padding: 10px 30px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bolder;
+    }
+    i {
+      margin-top: 10px;
+      color: #FFFFFF;
+      background-color: #C7E7A9;
+      font-size: 35px;
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  /* For a screen > 540px, this CSS will be read */
+  .footer-style .footer-contents {
+    h3 {
+      margin: 0 30%;
+    }
+    p {
+      font-size: 18px;
+      font-weight: normal;
+    }
+  }
+}
