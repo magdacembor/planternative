@@ -8,14 +8,14 @@ class Product < ApplicationRecord
   validates :description, presence: true, uniqueness: true
   validates :ingredients, presence: true, uniqueness: true
   validates :price_range, presence: true, inclusion: { in: ['£', '££', '£££'] }
-  validates :low_cal, presence: true, inclusion: { in: [true, false] }
-  validates :high_protein, presence: true, inclusion: { in: [true, false] }
-  validates :gluten_free, presence: true, inclusion: { in: [true, false] }
-  validates :calories_per_100g, presence: true, numericality: { only_integer: true }
-  validates :carbs_per_100g, presence: true, numericality: { greater_than: 0 }
-  validates :protein_per_100g, presence: true, numericality: { greater_than: 0 }
-  validates :fat_per_100g, presence: true, numericality: { greater_than: 0 }
-  validates :water_saved, presence: true, numericality: { greater_than: 0 }
-  validates :energy_saved, presence: true, numericality: { greater_than: 0 }
-  has_many_attached :photos
+  validates :low_cal, inclusion: { in: [true, false] }
+  validates :high_protein, inclusion: { in: [true, false] }
+  validates :gluten_free, inclusion: { in: [true, false] }
+  validates :calories_per_100g, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :carbs_per_100g, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :protein_per_100g, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :fat_per_100g, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :water_saved, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :energy_saved, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  has_many_attached :images
 end
