@@ -4,8 +4,8 @@
     <% @shopping_list.quantities.each do |quantity| %>
       <li> <%= quantity.product.name %> <%= quantity.quantity %> </li>
       <% if !@shopping_list.mark_as_done %>
-        <%= simple_form_for quantity do |f| %>
-          <%= f.input :quantity, input_html: { min: '0', step: 'any' } %>
+        <%= simple_form_for quantity, method: :patch do |f| %>
+          <%= f.input :quantity, input_html: { min: '0' } %>
           <%= f.submit %>
         <% end %>
       <% end %>
