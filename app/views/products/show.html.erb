@@ -3,3 +3,12 @@
 <% @product.stores.each do |store| %>
   <p><%= store.name %></p>
 <% end %>
+
+<%= render 'shared/review_form' %>
+<% @product.reviews.each do |review| %>
+  <% review.rating.times do %>
+    ⭐
+  <% end %>
+  <p><%= review.content %></p>
+  <p>Added by: <%= review.user.nickname %></p>
+<% end %>
