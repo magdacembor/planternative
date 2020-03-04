@@ -18,6 +18,7 @@ gem 'webpacker'
 
 gem 'cloudinary', '~> 1.12.0'
 gem "font-awesome-rails"
+gem 'geocoder'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
