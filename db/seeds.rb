@@ -144,9 +144,10 @@ puts "\nCreating stores ..."
 
 @stores = [
 
-  { name: "Sainsbury's", address: "112/118 Kingsland Rd", latitude: 51.530259, longitude: -0.077009 },
-  { name: "Marks & Spencer", address: "70 Finsbury Pavement", latitude: 51.519508, longitude: -0.087087 },
-  { name: "Tesco Express", address: "79-85 Hackney Rd", latitude: 51.529282, longitude: -0.075345 }
+  { name: "Sainsbury's", address: "112/118 Kingsland Road, London" },
+  { name: "Marks & Spencer", address: "70 Finsbury Pavement, London" },
+  { name: "Tesco Express", address: "79-85 Hackney Road, London" },
+  { name: "Iceland Foods", address: "209/233 Hoxton St, London" }
 
 ]
 
