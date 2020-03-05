@@ -26,7 +26,9 @@
               <!-- average of all review ratings needed (product.reviews.rating.average)? - revisit with reviews seed) -->
             </div>
             <div class="product-review-count">
-              <p>(<%= product.reviews.count %>)</p>
+              <% if product.reviews.count > 0 %>
+                <p>(<%= product.reviews.count %>)</p>
+              <% end %>
               <!-- number of reviews for each product - (product.reviews.count)? -->
             </div>
           </div>

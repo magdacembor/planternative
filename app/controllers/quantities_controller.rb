@@ -2,11 +2,16 @@ class QuantitiesController < ApplicationController
 before_action :find_quantity, only: [ :update, :destroy ]
 
   def create
-    @product = Product.find(params[:product_id])
-    @quantity = Quantity.new(quantity_params)
-    @quantity.product = @product
     @shopping_list = ShoppingList.find_by(mark_as_done: false, user: current_user) || ShoppingList.create(user: current_user, date: Date.today, mark_as_done: false)
-    @quantity.shopping_list = @shopping_list
+    @product = Product.find(params[:product_id])
+    if @shopping_list.products.include?(@product)
+      @quantity = @shopping_list.quantities.find_by(product: @product)
+      @quantity.increment!(:quantity)
+    else
+      @quantity = Quantity.new(quantity_params)
+      @quantity.product = @product
+      @quantity.shopping_list = @shopping_list
+    end
     if @quantity.save
       redirect_to product_path(@product)
     else

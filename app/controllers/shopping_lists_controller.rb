@@ -15,7 +15,7 @@ class ShoppingListsController < ApplicationController
   end
 
   def update
-    @shopping_list
+    @shopping_list.update()
   end
 
   def destroy
