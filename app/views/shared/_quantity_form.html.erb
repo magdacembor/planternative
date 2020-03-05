@@ -1,4 +1,6 @@
-<%= simple_form_for [ @product, Quantity.new ] do |f| %>
+<%= simple_form_for [ @product, Quantity.new ], method: :post, remote: true do |f| %>
   <%= f.input :quantity, default: '1' %>
   <%= f.submit 'Add to cart' %>
 <% end %>
+
+
