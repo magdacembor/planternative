@@ -7,10 +7,17 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.product = @product
     if @review.save
-      redirect_to product_path(@product)
-    else
-      render "products/show"
+      @review = Review.new
     end
+    @stores = @product.stores.geocoded
+    @markers = @stores.map do |store|
+      {
+        lat: store.latitude,
+        lng: store.longitude,
+        infoWindow: render_to_string(partial: "products/info_window", locals: { store: store })
+      }
+    end
+    render "products/show"
   end
 
   def destroy
