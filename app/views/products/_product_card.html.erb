@@ -1,13 +1,11 @@
-
 <div class="products-container">
   <div class="product-cards container">
     <% @products.each do |product| %>
       <%= link_to product_path(product) do %>
         <div class="product-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path product.images.first&.key || 'b89pmjwcw7w7klcpubjw', crop: :fill, width: 360 %>')">
           <div class="product-info">
-            <div class="product-name">
-              <h5><%= product.name %></h5>
-            </div>
+            <h4><%= product.name %></h5>
+            <h5><%= product.stores.first.name %> · 8km</h5>
             <div class="product-review-price">
               <div class="product-review">
                 <% ratings = [] %>
