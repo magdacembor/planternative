@@ -1,4 +1,4 @@
-<%= form_tag products_path, method: :get do %>
+<%= form_tag products_path, id: "form_id", method: :get do %>
   <div class="d-inline-block search-form">
     <%= text_field_tag :query,
       params[:query],
