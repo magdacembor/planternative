@@ -1,12 +1,22 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
-  before_action :find_product,only: [ :show, :edit, :update, :destroy ]
+  before_action :find_product, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @products = Product.all
   end
 
-  def show; end
+  def show
+    @stores = @product.stores.geocoded
+    @markers = @stores.map do |store|
+      {
+        lat: store.latitude,
+        lng: store.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { store: store })
+      }
+    end
+    @review = Review.new
+  end
 
   def new
     @product = Product.new
@@ -44,6 +54,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :ingredients, :price_range, :low_cal, :high_protein, :gluten_free, :calories_per_100g, :carbs_per_100g, :protein_per_100g, :fat_per_100g, photos: [])
+    params.require(:product).permit(:name, :description, :ingredients, :price_range, :low_cal, :high_protein, :gluten_free, :calories_per_100g, :carbs_per_100g, :protein_per_100g, :fat_per_100g, images: [])
   end
 end
