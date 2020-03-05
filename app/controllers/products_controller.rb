@@ -3,7 +3,13 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @products = Product.all
+    if params[:query].present?
+      @substitutions = Substitution.global_search(params[:query])
+      @products = @substitutions.map { |sub| sub.product }
+      @products = @products.uniq
+    else
+      @products = Product.all
+    end
   end
 
   def show
@@ -51,6 +57,7 @@ class ProductsController < ApplicationController
   def find_product
     @product = Product.find(params[:id])
   end
+
 
   def product_params
     params.require(:product).permit(:name, :description, :ingredients, :price_range, :low_cal, :high_protein, :gluten_free, :calories_per_100g, :carbs_per_100g, :protein_per_100g, :fat_per_100g, photos: [])

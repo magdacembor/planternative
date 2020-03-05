@@ -12,6 +12,6 @@ class Substitution < ApplicationRecord
     product: [ :name ]
   },
   using: {
-    tsearch: { prefix: true }
-  }
+    tsearch: { prefix: true, any_word: true }
+    }
 end
