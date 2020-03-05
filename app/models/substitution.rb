@@ -9,7 +9,7 @@ class Substitution < ApplicationRecord
   against: [ :name ],
   associated_against: {
     meal: [ :name ],
-    product: [ :name ]
+    product: [ :name, :ingredients ]
   },
   using: {
     tsearch: { prefix: true, any_word: true }
