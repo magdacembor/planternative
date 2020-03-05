@@ -4,4 +4,14 @@ class Substitution < ApplicationRecord
   # validates :name, presence: true
   validates :meal, :product, presence: true
   validates :name, uniqueness: { scope: :meal }
+  include PgSearch::Model
+  pg_search_scope :global_search,
+  against: [ :name ],
+  associated_against: {
+    meal: [ :name ],
+    product: [ :name, :ingredients ]
+  },
+  using: {
+    tsearch: { prefix: true, any_word: true }
+    }
 end

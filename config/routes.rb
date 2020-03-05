@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :reviews, only: :create
     resources :quantities, only: :create
   end
-  resources :quantities, only: :update
+  resources :quantities, only: [ :update, :destroy ]
   resources :shopping_lists, only: [:show, :update, :destroy, :create]
   resources :reviews, only: :destroy
   get '/:nickname', to: 'pages#myprofile', as: :myprofile
