@@ -10,11 +10,12 @@
   }
 }
 
-.form-control {
+.search-input {
   border-radius: 20px;
   width: 80vw;
   background-color: $light-gray;
   border: 1px solid $light-gray;
   padding: 25px;
   box-shadow: 1px 1px 10px rgb(200,200,200);
+  height: 40px;
 }
