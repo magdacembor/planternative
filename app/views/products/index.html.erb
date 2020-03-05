@@ -2,7 +2,7 @@
 
   <div class="index-title">
 
-    <%= render 'shared/search_form', params: params %>
+    <%= render 'shared/search_form' %>
 
     <h1>All Products</h1>
 
@@ -18,11 +18,9 @@
 
   </div>
 
-  <%= render 'products/product_card', products: @products %>
+  <%= render 'products/product_card' %>
 
 </div>
-
-<%= render 'products/product_card' %>
 
 <div class="container">
   <p>Looking for something else?</p>
