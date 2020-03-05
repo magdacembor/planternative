@@ -1,8 +1,12 @@
-<%= render 'shared/quantity_form' %>
+<div class="container">
+  <% if user_signed_in? %>
+    <%= render 'shared/quantity_form' %>
+  <% end %>
 
-<% @product.stores.each do |store| %>
-  <p><%= store.name %></p>
-<% end %>
+  <% @product.stores.each do |store| %>
+    <p><%= store.name %></p>
+  <% end %>
+</div>
 
 <div id="map"
      style="width: 100%;
@@ -10,11 +14,13 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<%= render 'shared/review_form' %>
-<% @product.reviews.reverse.each do |review| %>
-  <% review.rating.times do %>
-    ⭐
+<div class="container">
+  <%= render 'shared/review_form' %>
+  <% @product.reviews.reverse.each do |review| %>
+    <% review.rating.times do %>
+      ⭐
+    <% end %>
+    <p><%= review.content %></p>
+    <p>Added by: <%= review.user.nickname %></p>
   <% end %>
-  <p><%= review.content %></p>
-  <p>Added by: <%= review.user.nickname %></p>
-<% end %>
+</div>
