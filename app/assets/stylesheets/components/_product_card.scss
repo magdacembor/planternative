@@ -19,7 +19,7 @@
 .product-cards {
   display: grid;
   grid-template-columns: 1fr;
-  grid-row-gap: 20px;
+  grid-gap: 20px;
 
   .product-card {
     background-size: cover;
@@ -63,5 +63,13 @@
 }
 
 @media (min-width: 550px) {
+  .product-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
+@media (min-width: 800px) {
+  .product-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

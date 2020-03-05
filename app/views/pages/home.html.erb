@@ -10,35 +10,35 @@
   <div class="landing-page-cards container">
     <div class="landing-page-card">
       <%= link_to products_path do %>
-      <span>🌾</span>
-        <h2>Explore</h2>
+
+        <h2><span>🌾</span>Explore</h2>
       <% end %>
       <p>Browse through a wide range of plant-based products</p>
     </div>
     <div class="landing-page-card">
       <%= link_to new_user_registration_path do %>
-      <span>🌻</span>
-        <h2>Discover</h2>
+
+        <h2><span>🌻</span>Discover</h2>
       <% end %>
       <p>Be inspired by our Planternative community blogs</p>
     </div>
     <div class="landing-page-card">
       <% if user_signed_in? %>
         <%= link_to myprofile_path(current_user.nickname) do %>
-          <span>🌿</span>
+
           <h2>Change</h2>
         <% end %>
       <% else %>
         <%= link_to new_user_registration_path do %>
-          <span>🌿</span>
-          <h2>Change</h2>
+
+          <h2><span>🌿</span>Change</h2>
         <% end %>
       <% end %>
       <p>See what positive impact your choices have on our planet</p>
     </div>
     <div class="landing-page-card">
-      <span>🎋</span>
-      <h2>Discuss</h2>
+
+      <h2><span>🎋</span>Discuss</h2>
       <p>Browse through a wide range of plant-based products</p>
     </div>
   </div>
