@@ -11,8 +11,10 @@
   height: 70vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  padding: 20px;
+
   .landing-page-card {
-    width: 85%;
     height: 220px;
     background-color: white;
     justify-self: center;
