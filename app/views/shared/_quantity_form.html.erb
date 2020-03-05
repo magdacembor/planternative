@@ -1,12 +1,6 @@
-<% if @quantity = @shopping_list.quantities.find_by(product: @product) %>
-  <%= simple_form_for [ @product, Quantity.new ], method: :patch do |f| %>
-    <%= f.input :quantity, default: '1' %>
-    <%= f.submit 'Add to cart' %>
-  <% end %>
-<% else %>
-  <%= simple_form_for [ @product, Quantity.new ], method: :post do |f| %>
-    <%= f.input :quantity, default: '1' %>
-    <%= f.submit 'Add to cart' %>
-  <% end %>
+<%= simple_form_for [ @product, Quantity.new ], method: :post, remote: true do |f| %>
+  <%= f.input :quantity, default: '1' %>
+  <%= f.submit 'Add to cart' %>
 <% end %>
+
 

@@ -6,7 +6,7 @@ before_action :find_quantity, only: [ :update, :destroy ]
     @product = Product.find(params[:product_id])
     if @shopping_list.products.include?(@product)
       @quantity = @shopping_list.quantities.find_by(product: @product)
-      @quantity.increment!(:quantity)
+      @quantity.increment!(:quantity, params.dig(:quantity, :quantity).to_i)
     else
       @quantity = Quantity.new(quantity_params)
       @quantity.product = @product
