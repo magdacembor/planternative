@@ -1,12 +1,20 @@
 class ProductsController < ApplicationController
-  before_action :find_product,only: [ :show, :edit, :update, :destroy ]
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  before_action :find_product, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @products = Product.all
   end
 
   def show
-    @quantity = Quantity.new
+    @stores = @product.stores.geocoded
+    @markers = @stores.map do |store|
+      {
+        lat: store.latitude,
+        lng: store.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { store: store })
+      }
+    end
   end
 
   def new
