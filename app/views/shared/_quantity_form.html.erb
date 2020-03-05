@@ -1,6 +1,8 @@
-<%= simple_form_for [ @product, Quantity.new ], method: :post, remote: true do |f| %>
-  <%= f.input :quantity, input_html: { value: 1 } %>
-  <%= f.submit 'Add to cart' %>
+<%= simple_form_for [ @product, Quantity.new ], method: :post, remote: true, wrapper_html: {class: "form-inline"} do |f| %>
+  <div class="flexbox-class">
+    <%= f.input :quantity, input_html: { value: 1 }, label: false %>
+    <%= f.submit 'Add to cart' %>
+  </div>
 <% end %>
 
 
