@@ -8,6 +8,7 @@ class QuantitiesController < ApplicationController
     if @quantity.save
       redirect_to product_path(@product)
     else
+      @review = Review.new
       render "products/show"
     end
   end
@@ -19,6 +20,7 @@ class QuantitiesController < ApplicationController
     if @quantity.save
       redirect_to shopping_list_path(@shopping_list)
     else
+      @review = Review.new
       render 'pages/home'
     end
   end

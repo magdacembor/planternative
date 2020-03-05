@@ -1,4 +1,4 @@
-<%= simple_form_for [ @product, Review.new ], method: "post" do |f| %>
+<%= simple_form_for [ @product, @review ], method: :post, remote: true do |f| %>
   <%= f.input :rating %>
   <%= f.input :content %>
   <%= f.submit label: "Add Review" %>
