@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :shopping_lists, only: [:show, :update, :destroy, :create]
   resources :reviews, only: :destroy
   get '/:nickname', to: 'pages#myprofile', as: :myprofile
+  get '/:search', to: 'products#search', as: :search
 end
