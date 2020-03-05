@@ -1,10 +1,26 @@
-
-<%= simple_form_for :index, url: products_path, id: "form_id", method: :get do |f| %>
+<%= form_tag products_path, method: :get do %>
   <div class="d-inline-block search-form">
-    <%= f.input :name, label: false, placeholder: "Search" %>
-    <%= f.button :button, type: :submit, class: 'search-form-button' do %>
-        <%= icon("fa", "search") %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a product"
+    %>
+    <%= button_tag(type: "submit", class: "search-form-button") do %>
+        <i class="fa fa-search icon"></i>
     <% end %>
   </div>
 <% end %>
+
+
+
+
+
+<%#= simple_form_for :index, url: products_path, id: "form_id", method: :get do |f| %>
+  <!-- <div class="d-inline-block search-form"> -->
+    <%#= f.input :name, label: false, placeholder: "Search" %>
+    <%#= f.button :button, type: :submit, class: 'search-form-button' do %>
+        <%#= icon("fa", "search") %>
+    <%## end %>
+  <!-- </div> -->
+<%# end %>
 
