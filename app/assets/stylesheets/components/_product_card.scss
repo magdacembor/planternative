@@ -2,7 +2,7 @@
   width: 100%;
   position: relative;
   margin-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 70px;
 
   &:after {
     content: "";
@@ -34,7 +34,7 @@
     color: $gray;
     .product-info {
       background-color: #FFFFFF;
-      padding: 8px 20px;
+      padding: 12px 20px;
       z-index: 1;
       height: 40%;
       width: 100%;
@@ -46,6 +46,7 @@
     h5 {
       font-size: 11px;
       color: $gray;
+      margin: 0;
     }
     span {
       font-size: 14px;
