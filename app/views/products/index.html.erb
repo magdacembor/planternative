@@ -1,6 +1,6 @@
 <div class="container">
   <section class="results-title">
-    <% if params[:query].nil? || params[:query].empty? && !@products&.empty? %>
+    <% if params[:query].nil? || params[:query].empty? && !@products.nil? && !@products.empty? %>
       <h2>All Products</h2>
     <% elsif @products&.count == 1 %>
       <h2><strong><%= @products.count %></strong> result for <strong><%= params[:query] %></strong></h2>
@@ -8,7 +8,7 @@
       <h2><strong><%= @products.count %></strong> results for <strong><%= params[:query] %></strong></h2>
     <% end %>
     <% if @products&.empty? %>
-      <h2>Sorry! We haven't found any products that match your search (yet!)</h2>
+      <h2>Sorry! We haven't found any products that match your criteria (yet!)</h2>
     <% end %>
   </section>
   <section class="results-filter">
