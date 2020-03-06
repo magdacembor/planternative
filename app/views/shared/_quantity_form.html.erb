@@ -1,8 +1,11 @@
+<!-- Create plus, minus logic for quantity count -->
+<!-- <span>+</span>
+<span> <%#= @shopping_list.quantities.find_by(#product_id: @product)&.quantity %> </span>
+<span>-</span> -->
+
 <%= simple_form_for [ @product, Quantity.new ], method: :post, remote: true, wrapper_html: {class: "form-inline"} do |f| %>
-  <div class="flexbox-class">
+  <div class="product-quantity">
     <%= f.input :quantity, input_html: { value: 1 }, label: false %>
-    <%= f.submit 'Add to cart' %>
+    <%= f.submit 'Add to cart', class: 'quantity-button' %>
   </div>
 <% end %>
-
-

@@ -1,29 +1,89 @@
-<div class="container">
+<article class="container">
 
-  <h3> <%= @product.name %> </h3>
-  <p> <%= @product.description %> </p>
-  <% if user_signed_in? %>
-    <%= render 'shared/quantity_form' %>
-  <% end %>
+  <section class="product-header product-section">
+    <h3> <%= @product.name %> </h3>
+    <div class="product-image-quantity">
+      <%= cl_image_tag(@product.images.first&.key || 'b89pmjwcw7w7klcpubjw', crop: :fill, width: 360) %>
+      <% if user_signed_in? %>
+        <%= render 'shared/quantity_form' %>
+      <% end %>
+    </div>
+  </section>
 
-  <% @product.stores.each do |store| %>
-    <p><%= store.name %></p>
-  <% end %>
-</div>
+  <section class="product-description product-section">
+    <h4 class="sub-heading">PRODUCT DETAILS</h4>
+    <p> <%= @product.description %> </p>
+  </section>
+
+  <section class="product-description product-section">
+    <h4 class="sub-heading">LOCATIONS</h4>
+    <% @product.stores.each do |store| %>
+      <p><strong><%= store.name %></strong> · <%= store.address %> </p>
+    <% end %>
+  </section>
+
+</article>
 
 <div id="map"
-     style="width: 100%;
-     height: 400px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<div class="container">
-  <%= render 'shared/review_form' %>
-  <% @product.reviews.reverse.each do |review| %>
-    <% review.rating.times do %>
-      ⭐
+<article class="container">
+  <section class="product-nutrition product-section">
+    <h4 class="sub-heading">NUTRITION</h4>
+    <table class='styled-table'>
+      <tr>
+        <th>Nutritional info</th>
+        <th>Per 100g</th>
+      </tr>
+      <tr>
+        <td>Calories</td>
+        <td><%= @product.calories_per_100g %></td>
+      </tr>
+      <tr>
+        <td>Carbohydrates</td>
+        <td><%= @product.carbs_per_100g %></td>
+      </tr>
+      <tr>
+        <td>Protein</td>
+        <td><%= @product.protein_per_100g %></td>
+      </tr>
+      <tr>
+        <td>Fat</td>
+        <td><%= @product.fat_per_100g %></td>
+      </tr>
+    </table>
+  </section>
+  <section class="product-ingredients product-section">
+    <h4 class="sub-heading">INGREDIENTS</h4>
+    <%= @product.ingredients %>
+  </section>
+
+  <section class="product-review product-section">
+    <h4 class="sub-heading">REVIEWS</h4>
+    <% @product.reviews.reverse.each do |review| %>
+      <h6>"<%= review.content %>"</h6>
+
+      <div class="avatar-rating">
+        <% if user_signed_in? && current_user.avatar.attached? %>
+          <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= cl_image_tag "default_avatar_yubqpb", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
+
+        <div class="stars-nickname">
+          <div class="rating-stars">
+            <% review.rating.times do %>
+              <span>⭐</span>
+            <% end %>
+          </div>
+          <i><%= review.user.nickname %></i>
+        </div>
+      </div>
+      <hr>
     <% end %>
-    <p><%= review.content %></p>
-    <p>Added by: <%= review.user.nickname %></p>
-  <% end %>
-</div>
+    <% if user_signed_in? %>
+      <%= render 'shared/review_form' %>
+    <% end %>
+  </section>
+</article>
