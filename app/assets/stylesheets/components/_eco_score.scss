@@ -1,0 +1,25 @@
+.myprofile-section{
+  margin: 0 auto;
+  padding: 10px;
+}
+.my-eco-score{
+  margin: 20px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.eco-score{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sum-saved{
+  display: flex;
+  flex-direction: column;
+  p{
+    padding: 0;
+    margin: 0;
+  }
+}
