@@ -1,6 +1,6 @@
 <div class="container">
   <section class="results-title">
-    <% if params[:query].nil? || params[:query].empty? && !@products.nil? && !@products.empty? %>
+    <% if (params[:query].nil? || params[:query].empty?) && !@products&.empty? %>
       <h2>All Products</h2>
     <% elsif @products&.count == 1 %>
       <h2><strong><%= @products.count %></strong> result for <strong><%= params[:query] %></strong></h2>
