@@ -11,14 +11,14 @@
         <% end %>
       <% end %>
       <div class="eco-score">
-        💧
+        <div class="emoji"><p id="drop">💧</p></div>
         <div class="sum-saved">
           <h5 style="color: black;"> <strong> <%= water %> litres </strong></h5>
           <p> of water </p>
         </div>
       </div>
       <div class="eco-score">
-        ✈️
+        <div class="emoji"><p>✈️</p></div>
         <div class="sum-saved">
           <h5 style="color: black;"> <strong> <%= energy %> kg </strong></h5>
           <p> of CO2 </p>
@@ -46,16 +46,45 @@
 
   <section class="myprofile-section">
     <h3 class="green-header">MY RECENT ACTIVITY</h3>
-    <p><%= @products.count %> alternatives added</p>
-    <p><%= @reviews.count %> reviews posted</p>
-    <p>1 chatroom created</p> <!-- Not created yet -->
-    <p>0 articles published</p> <!-- Not created yet -->
+    <section class="activity-row">
+      <div class="activity-box">
+        <div class="count"> <%= @products.count %> </div>
+        <div class="activity">
+          <p class="verb"> <strong> review</strong> </p>
+          <p>posted </p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <div class="count"> <%= @reviews.count %> </div>
+        <div class="activity">
+          <p class="verb"> <strong> review</strong> </p>
+          <p>posted </p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <div class="count"> <%= @reviews.count %> </div>
+        <div class="activity">
+          <p class="verb"> <strong> review</strong> </p>
+          <p>posted </p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <div class="count"> <%= @reviews.count %> </div>
+        <div class="activity">
+          <p class="verb"> <strong> review</strong> </p>
+          <p>posted </p>
+        </div>
+      </div>
+    </section>
+    <br>
     <p>*become a Champion to get started</p>
   </section>
 
   <section class="myprofile-section">
     <h3 class="green-header">MISC</h3>
-    <%= link_to "Edit your profile", user_registration_path, method: :patch %>
+    <%= link_to user_registration_path, method: :patch do %>
+      <p>Edit your profile</p>
+    <% end %>
   </section>
 
 </div>
