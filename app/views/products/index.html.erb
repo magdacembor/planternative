@@ -1,36 +1,65 @@
 <div class="container">
   <section class="results-title">
-    <% if params[:query].nil? || params[:query].empty? %>
+    <% if params[:query].nil? || params[:query].empty? && !@products&.empty? %>
       <h2>All Products</h2>
     <% elsif @products&.count == 1 %>
       <h2><strong><%= @products.count %></strong> result for <strong><%= params[:query] %></strong></h2>
     <% elsif @products&.count > 1 %>
       <h2><strong><%= @products.count %></strong> results for <strong><%= params[:query] %></strong></h2>
     <% end %>
-
-    <%= link_to "Low Cal", products_path(query: params[:query], low_cal: true), class: "btn-primary p-1" %>
-    <%= link_to "High Protein", products_path(query: params[:query], high_protein: true), class: "btn-primary p-1" %>
-    <%= link_to "Gluten Free", products_path(query: params[:query], gluten_free: true), class: "btn-primary p-1" %>
-
     <% if @products&.empty? %>
       <h2>Sorry! We haven't found any products that match your search (yet!)</h2>
     <% end %>
   </section>
   <section class="results-filter">
-    <button class="filter-button active">
-      <icon class=filter-icon>🌾</icon>
-      <span>Gluten-free</span>
-    </button>
-    <button class="filter-button">
-      <icon class=filter-icon>🥜</icon>
-      <span>Protein-rich</span>
-    </button>
-    <button class="filter-button">
-      <icon class=filter-icon>🍿</icon>
-      <span>Low-cal</span>
-    </button>
+    <% if params[:gluten_free].nil? || params[:gluten_free] != "true" %>
+      <%= link_to products_path(query: params[:query], gluten_free: true, high_protein: params[:high_protein], low_cal: params[:low_cal]), method: :get do %>
+        <button class="filter-button">
+          <icon class=filter-icon>🌾</icon>
+          <span>Gluten-free</span>
+        </button>
+      <% end %>
+    <% else %>
+      <%= link_to products_path(query: params[:query], gluten_free: false, high_protein: params[:high_protein], low_cal: params[:low_cal]), method: :get do %>
+        <button class="filter-button active">
+          <icon class=filter-icon>🌾</icon>
+          <span>Gluten-free</span>
+        </button>
+      <% end %>
+    <% end %>
+    <% if params[:high_protein].nil? || params[:high_protein] != "true" %>
+      <%= link_to products_path(query: params[:query], high_protein: true, gluten_free: params[:gluten_free], low_cal: params[:low_cal]), method: :get do %>
+        <button class="filter-button">
+          <icon class=filter-icon>🥜</icon>
+          <span>Protein-rich</span>
+        </button>
+      <% end %>
+    <% else %>
+      <%= link_to products_path(query: params[:query], high_protein: false, gluten_free: params[:gluten_free], low_cal: params[:low_cal]), method: :get do %>
+        <button class="filter-button active">
+          <icon class=filter-icon>🥜</icon>
+          <span>Protein-rich</span>
+        </button>
+      <% end %>
+    <% end %>
+    <% if params[:low_cal].nil? || params[:low_cal] != "true" %>
+      <%= link_to products_path(query: params[:query], low_cal: true, high_protein: params[:high_protein], gluten_free: params[:gluten_free]), method: :get do %>
+        <button class="filter-button">
+          <icon class=filter-icon>🍿</icon>
+          <span>Low-cal</span>
+        </button>
+      <% end %>
+    <% else %>
+      <%= link_to products_path(query: params[:query], low_cal: false, high_protein: params[:high_protein], gluten_free: params[:gluten_free]), method: :get do %>
+        <button class="filter-button active">
+          <icon class=filter-icon>🍿</icon>
+          <span>Low-cal</span>
+        </button>
+      <% end %>
+    <% end %>
   </section>
 </div>
+
 <%= render 'products/product_card' %>
 
 <footer class="results-footer">

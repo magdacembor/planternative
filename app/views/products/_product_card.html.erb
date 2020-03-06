@@ -39,5 +39,15 @@
         </div>
       <% end %>
     <% end %>
+    <% if @products.empty? %>
+       <div class="product-card" style="opacity: 0">
+          <div class="product-info" style="opacity: 0">
+            <div class="product-review-price" style="opacity: 0">
+              <div class="product-review" style="opacity: 0">
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
   </div>
 </div>
