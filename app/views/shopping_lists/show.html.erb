@@ -1,5 +1,5 @@
 <div class="container">
-  <p>My current shopping list</p>
+  <p>My shopping list</p>
   <ol>
     <% @shopping_list.quantities.each do |quantity| %>
       <li> <%= quantity.product.name %> <%= quantity.quantity %> </li>
