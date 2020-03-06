@@ -1,15 +1,24 @@
-.footer-style {
+.footer-container {
+  width: 100%;
   position: relative;
-  background-color: $brand-dark-green-background;
-  height: 150px;
-  .footer-contents {
+  padding-bottom: 80px;
+  background-color: $brand-green-background;
+  z-index: -2;
+  &:after {
+    background-color: $brand-dark-green-background;
+    content: "";
     position: absolute;
+    height: calc(100% - 55px);
+    width: 100%;
+    top: 55px;
     left: 0;
-    top: -38%;
+    z-index: -1;
+  }
+  .footer-contents {
     width: 100%;
     text-align: center;
     p {
-      color: #496135;
+      color: $brand-green-font;
       font-size: 14px;
       font-weight: bolder;
     }
@@ -33,7 +42,7 @@
 
 @media (min-width: 550px) {
   /* For a screen > 540px, this CSS will be read */
-  .footer-style .footer-contents {
+  .footer-container .footer-contents {
     h3 {
       margin: 0 30%;
     }
