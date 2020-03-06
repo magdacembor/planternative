@@ -59,9 +59,29 @@
 <article class="container">
   <section class="product-nutrition product-section">
     <h4 class="sub-heading">NUTRITION</h4>
-
+    <table class='styled-table'>
+      <tr>
+        <th>Nutritional info</th>
+        <th>Per 100g</th>
+      </tr>
+      <tr>
+        <td>Calories</td>
+        <td><%= @product.calories_per_100g %></td>
+      </tr>
+      <tr>
+        <td>Carbohydrates</td>
+        <td><%= @product.carbs_per_100g %></td>
+      </tr>
+      <tr>
+        <td>Protein</td>
+        <td><%= @product.protein_per_100g %></td>
+      </tr>
+      <tr>
+        <td>Fat</td>
+        <td><%= @product.fat_per_100g %></td>
+      </tr>
+    </table>
   </section>
-
   <section class="product-ingredients product-section">
     <h4 class="sub-heading">INGREDIENTS</h4>
     <%= @product.ingredients %>
