@@ -29,11 +29,7 @@
 
   <section class="myprofile-section">
     <h3 class="green-header">MY SHOPPING LISTS </h3>
-    <table>
-      <tr>
-        <th>Date</th>
-        <th>Items</th>
-      </tr>
+    <table class="styled-table">
       <% @shopping_lists.each do |shopping_list| %>
         <tr>
           <td><%= shopping_list.date %></td>
@@ -43,15 +39,15 @@
       <% end %>
     </table>
   </section>
-
+  <br>
   <section class="myprofile-section">
     <h3 class="green-header">MY RECENT ACTIVITY</h3>
     <section class="activity-row">
       <div class="activity-box">
         <div class="count"> <%= @products.count %> </div>
         <div class="activity">
-          <p class="verb"> <strong> review</strong> </p>
-          <p>posted </p>
+          <p class="verb"> <strong> products</strong> </p>
+          <p>added </p>
         </div>
       </div>
       <div class="activity-box">
@@ -62,17 +58,17 @@
         </div>
       </div>
       <div class="activity-box">
-        <div class="count"> <%= @reviews.count %> </div>
+        <div class="count"> 4 </div>
         <div class="activity">
-          <p class="verb"> <strong> review</strong> </p>
-          <p>posted </p>
+          <p class="verb"> <strong> chatrooms</strong> </p>
+          <p>created </p>
         </div>
       </div>
       <div class="activity-box">
-        <div class="count"> <%= @reviews.count %> </div>
+        <div class="count"> 0 </div>
         <div class="activity">
-          <p class="verb"> <strong> review</strong> </p>
-          <p>posted </p>
+          <p class="verb"> <strong> articles</strong> </p>
+          <p>added </p>
         </div>
       </div>
     </section>
@@ -80,11 +76,14 @@
     <p>*become a Champion to get started</p>
   </section>
 
-  <section class="myprofile-section">
+  <section class="myprofile-section edit-profile">
     <h3 class="green-header">MISC</h3>
     <%= link_to user_registration_path, method: :patch do %>
       <p>Edit your profile</p>
     <% end %>
   </section>
+  <br>
+  <br>
+  <br>
 
 </div>
