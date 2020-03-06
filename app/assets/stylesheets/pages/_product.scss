@@ -23,3 +23,21 @@ h4.sub-heading {
   font-size: 14px;
 }
 
+.product-review {
+  .rating-stars{
+    display:flex
+  }
+  h6 {
+    color: #5A5A5A;
+    font-size: 16px;
+  }
+  .avatar-rating {
+    display: flex;
+  }
+  .stars-nickname {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+  }
+}
