@@ -7,6 +7,11 @@
     <% elsif @products&.count > 1 %>
       <h2><strong><%= @products.count %></strong> results for <strong><%= params[:query] %></strong></h2>
     <% end %>
+
+    <%= link_to "Low Cal", products_path(query: params[:query], low_cal: true), class: "btn-primary p-1" %>
+    <%= link_to "High Protein", products_path(query: params[:query], high_protein: true), class: "btn-primary p-1" %>
+    <%= link_to "Gluten Free", products_path(query: params[:query], gluten_free: true), class: "btn-primary p-1" %>
+
     <% if @products&.empty? %>
       <h2>Sorry! We haven't found any products that match your search (yet!)</h2>
     <% end %>

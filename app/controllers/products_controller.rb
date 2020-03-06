@@ -7,6 +7,15 @@ class ProductsController < ApplicationController
       @substitutions = Substitution.global_search(params[:query])
       @products = @substitutions.map { |sub| sub.product }
       @products = @products.uniq
+      if params[:low_cal]
+        @products = @products.select { |product| product.low_cal }
+      end
+      if params[:high_protein]
+        @products = @products.select { |product| product.high_protein }
+      end
+      if params[:gluten_free]
+        @products = @products.select { |product| product.gluten_free }
+      end
     else
       @products = Product.all
     end
