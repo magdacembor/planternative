@@ -1,15 +1,28 @@
-<div class="container">
+<article class="container">
 
-  <h3> <%= @product.name %> </h3>
-  <p> <%= @product.description %> </p>
-  <% if user_signed_in? %>
-    <%= render 'shared/quantity_form' %>
-  <% end %>
+  <section class="product-header product-section">
+    <h3> <%= @product.name %> </h3>
+    <div class="product-image-quantity">
+      <%= cl_image_tag(@product.images.first&.key || 'b89pmjwcw7w7klcpubjw', crop: :fill, width: 360) %>
+      <% if user_signed_in? %>
+        <%= render 'shared/quantity_form' %>
+      <% end %>
+    </div>
+  </section>
 
-  <% @product.stores.each do |store| %>
-    <p><%= store.name %></p>
-  <% end %>
-</div>
+  <section class="product-description product-section">
+    <h4 class="sub-heading">PRODUCT DETAILS</h4>
+    <p> <%= @product.description %> </p>
+  </section>
+
+  <section class="product-description product-section">
+    <h4 class="sub-heading">LOCATIONS</h4>
+    <% @product.stores.each do |store| %>
+      <p><strong><%= store.name %></strong> · <%= store.address %> </p>
+    <% end %>
+  </section>
+
+</article>
 
 <div id="map"
      style="width: 100%;
@@ -17,7 +30,7 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<div class="container">
+<article class="container">
   <%= render 'shared/review_form' %>
   <% @product.reviews.reverse.each do |review| %>
     <% review.rating.times do %>
@@ -26,4 +39,4 @@
     <p><%= review.content %></p>
     <p>Added by: <%= review.user.nickname %></p>
   <% end %>
-</div>
+</article>

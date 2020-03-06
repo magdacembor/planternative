@@ -1,0 +1,24 @@
+.product-section {
+  margin-bottom: 30px;
+}
+
+.product-header {
+  margin-top: 30px;
+  h3 {
+    color: $brand-green;
+    font-size: 21px;
+  }
+  .product-image-quantity {
+    img {
+      height: 135px;
+      width: 135px;
+    }
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+h4.sub-heading {
+  color: $brand-green;
+  font-size: 14px;
+}
