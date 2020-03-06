@@ -4,7 +4,18 @@
       <%= link_to product_path(product) do %>
         <div class="product-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path product.images.first&.key || 'b89pmjwcw7w7klcpubjw', crop: :fill, width: 360 %>')">
           <div class="product-info">
-            <h4><%= product.name %></h5>
+            <h4>
+              <% if product.gluten_free == true %>
+                <icon class="product-icon">🌾</icon>
+              <% end %>
+              <% if product.high_protein == true %>
+                <icon class="product-icon">🥜</icon>
+              <% end %>
+              <% if product.low_cal == true %>
+                <icon class="product-icon">🍿</icon>
+              <% end %>
+              <%= product.name %>
+            </h4>
             <h5><%= product.stores.first.name %> · 8km</h5>
             <div class="product-review-price">
               <div class="product-review">

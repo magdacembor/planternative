@@ -1,20 +1,36 @@
 <div class="container">
-  <div class="index-title">
-    <h1>All Products</h1>
-    <% if @products&.count == 1 && !params[:query].nil? && !params[:query].empty? %>
-      <h2><%= @products.count %> result for <%= params[:query] %></h2>
-    <% elsif @products&.count > 1 && !params[:query].nil? && !params[:query].empty? %>
-      <h2><%= @products.count %> results for <%= params[:query] %></h2>
+  <section class="results-title">
+    <% if params[:query].nil? || params[:query].empty? %>
+      <h2>All Products</h2>
+    <% elsif @products&.count == 1 %>
+      <h2><strong><%= @products.count %></strong> result for <strong><%= params[:query] %></strong></h2>
+    <% elsif @products&.count > 1 %>
+      <h2><strong><%= @products.count %></strong> results for <strong><%= params[:query] %></strong></h2>
     <% end %>
-
     <% if @products&.empty? %>
       <h2>Sorry! We haven't found any products that match your search (yet!)</h2>
     <% end %>
-  </div>
+  </section>
+  <section class="results-filter">
+    <button class="filter-button active">
+      <icon class=filter-icon>🌾</icon>
+      <span>Gluten-free</span>
+    </button>
+    <button class="filter-button">
+      <icon class=filter-icon>🥜</icon>
+      <span>Protein-rich</span>
+    </button>
+    <button class="filter-button">
+      <icon class=filter-icon>🍿</icon>
+      <span>Low-cal</span>
+    </button>
+  </section>
 </div>
 <%= render 'products/product_card' %>
-<div class="container">
-  <p>Looking for something else?</p>
-  <%= render 'shared/search_form' %>
-</div>
 
+<footer class="results-footer">
+  <div class="results-search container">
+    <p>Looking for something else?</p>
+    <%= render 'shared/search_form' %>
+  </div>
+</footer>

@@ -28,7 +28,6 @@
     border-radius: 16px;
     box-shadow: 1px 1px 5px rgb(200,200,200);
     padding: 10px;
-    position: relative;
   }
   h2 {
     background-color: $brand-green;
@@ -36,32 +35,37 @@
     color: white;
     font-size: 20px;
     padding: 6px 0;
+    position: relative;
+    span {
+      font-size: 66px;
+      position: absolute;
+      top: -65px;
+      left: 40px;
+    }
   }
   p {
     color: #888888;
     font-size: 11px;
   }
-  span {
-    font-size: 66px;
-    position: absolute;
-    top: 26px;
-    left: 30px;
-  }
 }
 
 @media (min-width: 550px) {
   /* For a screen > 550px, this CSS will be read */
-  .landing-page-container {
-    height: 45vh;
+  .landing-page-card {
+    p {
+      font-size: 15px;
+    }
   }
+}
+
+
+@media (min-width: 995px) {
+  /* For a screen > 995px, this CSS will be read */
   .landing-page-cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-column-gap: 35px;
+    grid-gap: 35px;
     .landing-page-card {
       width: 100%;
-      span {
-        top: 30px;
-      }
       p {
         font-size: 15px;
       }
