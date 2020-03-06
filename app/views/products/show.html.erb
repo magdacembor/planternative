@@ -65,7 +65,7 @@
       <h6>"<%= review.content %>"</h6>
 
       <div class="avatar-rating">
-        <% if current_user.avatar.attached? %>
+        <% if user_signed_in? && current_user.avatar.attached? %>
           <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% else %>
           <%= cl_image_tag "default_avatar_yubqpb", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
