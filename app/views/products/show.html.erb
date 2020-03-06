@@ -15,34 +15,6 @@
     <p> <%= @product.description %> </p>
   </section>
 
-  <section class="product-review product-section">
-    <h4 class="sub-heading">REVIEWS</h4>
-    <% @product.reviews.reverse.each do |review| %>
-      <h6>"<%= review.content %>"</h6>
-
-      <div class="avatar-rating">
-        <% if current_user.avatar.attached? %>
-          <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% else %>
-          <%= cl_image_tag "default_avatar_yubqpb", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% end %>
-
-        <div class="stars-nickname">
-          <div class="rating-stars">
-            <% review.rating.times do %>
-              <span>⭐</span>
-            <% end %>
-          </div>
-          <i><%= review.user.nickname %></i>
-        </div>
-      </div>
-      <hr>
-    <% end %>
-    <% if user_signed_in? %>
-      <%= render 'shared/review_form' %>
-    <% end %>
-  </section>
-
   <section class="product-description product-section">
     <h4 class="sub-heading">LOCATIONS</h4>
     <% @product.stores.each do |store| %>
@@ -86,16 +58,32 @@
     <h4 class="sub-heading">INGREDIENTS</h4>
     <%= @product.ingredients %>
   </section>
+
+  <section class="product-review product-section">
+    <h4 class="sub-heading">REVIEWS</h4>
+    <% @product.reviews.reverse.each do |review| %>
+      <h6>"<%= review.content %>"</h6>
+
+      <div class="avatar-rating">
+        <% if current_user.avatar.attached? %>
+          <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= cl_image_tag "default_avatar_yubqpb", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
+
+        <div class="stars-nickname">
+          <div class="rating-stars">
+            <% review.rating.times do %>
+              <span>⭐</span>
+            <% end %>
+          </div>
+          <i><%= review.user.nickname %></i>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= render 'shared/review_form' %>
+    <% end %>
+  </section>
 </article>
-
-
-<!-- :calories_per_100g, presence: true, numericality: { greater_than_or_equal_to: 0 }
-  validates :carbs_per_100g, presence: true, numericality: { greater_than_or_equal_to: 0 }
-  validates :protein_per_100g, presence: true, numericality: { greater_than_or_equal_to: 0 }
-  validates :fat_per_100g -->
-
-
-
-
-
-

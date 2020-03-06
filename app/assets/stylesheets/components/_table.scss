@@ -1,5 +1,9 @@
 .styled-table {
+  width: 100%;
   tr {
-    border-bottom: .5px solid $gray;
+    padding: 5px;
+    border-bottom: .5px solid #EBEBEB;
+    display: flex;
+    justify-content: space-between;
   }
 }
