@@ -16,7 +16,7 @@
               <% end %>
               <%= product.name %>
             </h4>
-            <h5><%= product.stores.first.name %> · 8km</h5>
+            <h5><%= product.stores.first.name %> · <%= (product.stores.first.distance_to(@user_location)).round(1) %> mi</h5>
             <div class="product-review-price">
               <div class="product-review">
                 <% ratings = [] %>
