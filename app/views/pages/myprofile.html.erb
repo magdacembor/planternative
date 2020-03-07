@@ -35,11 +35,17 @@
           <td class="black"><em><%= shopping_list.date %></em></td>
           <td class="black bolder"><%= shopping_list.products.count %></td>
           <td><%= link_to "See details", shopping_list_path(shopping_list) %></td>
+          <td>
+            <%= link_to shopping_list_path(shopping_list), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <%= icon("fa", "trash") %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </table>
   </section>
   <br>
+
   <section class="myprofile-section">
     <h3 class="green-header">MY RECENT ACTIVITY</h3>
     <section class="activity-row">

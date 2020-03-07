@@ -1,5 +1,5 @@
 class ShoppingListsController < ApplicationController
-  before_action :find_list, only: [ :show, :update, :destroy ]
+  before_action :find_list, only: [ :show, :update, :destroy, :mark_as_done ]
 
   def show;  end
 
@@ -18,7 +18,17 @@ class ShoppingListsController < ApplicationController
     @shopping_list.update()
   end
 
+  def mark_as_done
+    @shopping_list.mark_as_done = true
+    @shopping_list.save
+
+    redirect_to myprofile_path(current_user)
+  end
+
   def destroy
+    @shopping_list.destroy
+
+    redirect_to myprofile_path(current_user)
   end
 
   private
