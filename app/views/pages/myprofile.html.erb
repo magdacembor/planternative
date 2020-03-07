@@ -1,6 +1,6 @@
 <div class="container">
   <section class="myprofile-section">
-    <h3 class="green-header">MY ECO SCORE</h3>
+    <h3 class="green-header mar-bottom">MY ECO SCORE</h3>
     <section class="my-eco-score">
       <% water = 0 %>
       <% energy = 0 %>
@@ -32,8 +32,8 @@
     <table class="styled-table">
       <% @shopping_lists.each do |shopping_list| %>
         <tr>
-          <td><%= shopping_list.date %></td>
-          <td><%= shopping_list.products.count %></td>
+          <td class="black"><em><%= shopping_list.date %></em></td>
+          <td class="black bolder"><%= shopping_list.products.count %></td>
           <td><%= link_to "See details", shopping_list_path(shopping_list) %></td>
         </tr>
       <% end %>
@@ -73,7 +73,6 @@
       </div>
     </section>
     <br>
-    <p>*become a Champion to get started</p>
   </section>
 
   <section class="myprofile-section edit-profile">
