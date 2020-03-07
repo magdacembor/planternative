@@ -1,17 +1,24 @@
 <div class="container">
   <p>My shopping list</p>
-  <ol>
+  <table class="styled-table">
     <% @shopping_list.quantities.each do |quantity| %>
-      <li> <%= quantity.product.name %> <%= quantity.quantity %> </li>
-      <% if !@shopping_list.mark_as_done %>
-        <%= simple_form_for quantity, method: :patch do |f| %>
-          <%= f.input :quantity, input_html: { min: '0' } %>
-          <%= f.submit %>
+      <tr>
+        <td><%= quantity.product.name %></td>
+        <td><%= quantity.quantity %></td>
+      </tr>
+      <tr>
+        <% if !@shopping_list.mark_as_done %>
+          <%= simple_form_for quantity, method: :patch do |f| %>
+            <%= f.input :quantity, input_html: { min: '0' } %>
+            <%= f.submit %>
+          <% end %>
         <% end %>
-      <% end %>
-      <%= link_to quantity_path(quantity), method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <%= icon("fa", "trash") %>
-      <% end %>
+      </tr>
+      <tr>
+        <%= link_to quantity_path(quantity), method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= icon("fa", "trash") %>
+        <% end %>
+      </tr>
     <% end %>
-  </ol>
+  </table>
 </div>
