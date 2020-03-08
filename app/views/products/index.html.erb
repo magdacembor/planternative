@@ -59,10 +59,6 @@
     <% end %>
   </section>
 </div>
-<% json = JSON.parse(RestClient.get("http://ip-api.com/json")) %>
-<%# Line 64: TO BE TESTED IN PRODUCTION, remote_ip does not work in dev %>
-<%# @user_location = Geocoder.search(request.remote_ip).first.coordinates %>
-<% @user_location = Geocoder.search(json["query"]).first.coordinates %>
 
 <%= render 'products/product_card' %>
 

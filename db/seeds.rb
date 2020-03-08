@@ -186,10 +186,10 @@ puts "\nCreating stores ..."
   { name: "Tesco Express", address: "25-29 Islington Green, London" },
   { name: "Iceland Foods", address: "150 Mare St, London" },
   { name: "Lidl", address: "27 Well St, London" },
-  { name: "Iceland Foods", address: "12, Dalston Cross Shopping Centre, London" },
+  { name: "Iceland Foods", address: "337 Mare Street, London, E8 1HY" },
   { name: "Tesco Express", address: "179 Shoreditch High St, London" },
-  { name: "Iceland Foods", address: "62, 64 Chapel Market, London" },
-  { name: "Lidl", address: "306 Burdett Rd, London" },
+  { name: "Iceland Foods", address: "64 Chapel Market, London N1 9ER" },
+  { name: "Lidl", address: "306 Burdett Rd, London" }
 
 ]
 
@@ -225,7 +225,7 @@ puts "\nCreating availabilities..."
   { product_id: 4, store_id: 6 },
   { product_id: 5, store_id: 3 },
   { product_id: 5, store_id: 4 },
-  { product_id: 5, store_id: 4 },
+  { product_id: 5, store_id: 5 },
   { product_id: 5, store_id: 7 },
   { product_id: 5, store_id: 8 }
 

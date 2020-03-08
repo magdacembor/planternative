@@ -17,12 +17,7 @@
 
   <section class="product-description product-section">
     <h4 class="sub-heading">LOCATIONS</h4>
-    <% json = JSON.parse(RestClient.get("http://ip-api.com/json")) %>
-    <%# Line 22: TO BE TESTED IN PRODUCTION, remote_ip does not work in dev %>
-    <%# @user_location = Geocoder.search(request.remote_ip).first.coordinates %>
-    <% @user_location = Geocoder.search(json["query"]).first.coordinates %>
-
-    <% @product.stores.each do |store| %>
+    <% @product.stores.select { |store| store.latitude.is_a?(Float) && store.latitude.is_a?(Float) }.sort_by { |store| store.distance_to(@user_location) }.slice(0,5).each do |store| %>
       <p><strong><%= store.name %></strong> · <%= store.address %> · <%= store.distance_to(@user_location).round(1) %> mi</p>
     <% end %>
   </section>
