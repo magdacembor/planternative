@@ -3,33 +3,40 @@
   position: relative;
   padding-bottom: 80px;
   background-color: $brand-green-background;
-  z-index: -2;
+  z-index: 0;
   &:after {
     background-color: $brand-dark-green-background;
     content: "";
     position: absolute;
-    height: calc(100% - 55px);
+    height: calc(100% - 60px);
     width: 100%;
-    top: 55px;
+    top: 60px;
     left: 0;
     z-index: -1;
   }
   .footer-contents {
     width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     p {
       color: $brand-green-font;
       font-size: 14px;
       font-weight: bolder;
     }
-    h3 {
-      margin: 0 80px;
+    a {
+      width: 200px;
       color: #FFFFFF;
       background-color: $brand-green;
       padding: 10px 30px;
       border-radius: 10px;
       font-size: 18px;
       font-weight: bolder;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
     }
     i {
       margin-top: 10px;
@@ -42,6 +49,9 @@
 
 @media (min-width: 550px) {
   /* For a screen > 540px, this CSS will be read */
+  .footer-container:after {
+    top: 66px;
+  }
   .footer-container .footer-contents {
     h3 {
       margin: 0 30%;
