@@ -17,7 +17,7 @@
 
   <section class="product-description product-section">
     <h4 class="sub-heading">LOCATIONS</h4>
-    <% @product.stores.select { |store| store.latitude.is_a?(Float) && store.latitude.is_a?(Float) }.sort_by { |store| store.distance_to(@user_location) }.slice(0,5).each do |store| %>
+    <% @product.stores.select { |store| store.latitude.is_a?(Float) && store.longitude.is_a?(Float) }.sort_by { |store| store.distance_to(@user_location) }.slice(0,5).each do |store| %>
       <p><strong><%= store.name %></strong> · <%= store.address %> · <%= store.distance_to(@user_location).round(1) %> mi</p>
     <% end %>
   </section>
