@@ -8,7 +8,7 @@ File.open("output.json", "w+") do |file|
     data = JSON.parse(json)
     data["hits"].each_with_index do |recipe, i|
       if i <= 5 && recipe["recipe"]["label"].match?(/.*#{query}.*/i)
-        file.write("{ name: \"#{recipe["recipe"]["label"]}\", url: \"#{recipe["recipe"]["url"]}\", image_url: \"#{recipe["recipe"]["image"]}\", product_id: #{queries.index(query) + 1} },\n")
+        file.write("{ name: \"#{recipe["recipe"]["label"]}\", url: \"#{recipe["recipe"]["url"]}\", image_url: \"#{recipe["recipe"]["image"]}\", product_id: 1 },\n")
       end
     end
   end
