@@ -13,6 +13,7 @@
     color: #FFFFFF;
     padding: 8px 10px;
     border-radius: 20px;
+    border: none;
     &.active {
       background-color: $brand-green;
     }
@@ -56,7 +57,6 @@ icon {
   }
 }
 
-
 @media (min-width: 550px) {
   .results-filter {
     display: flex;
@@ -64,5 +64,31 @@ icon {
   }
   .filter-button {
     margin-right: 10px;
+  }
+}
+
+.results-footer-sl {
+  padding-bottom: 100px;
+  width: 100%;
+  position: relative;
+  background-color: $brand-green-background;
+  z-index: 0;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background-color: $brand-dark-green-background;
+    height: calc(100% - 21px);
+    top: 21px;
+    left: 0;
+    z-index: -1;
+  }
+  .results-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+      color: $brand-green-font;
+    }
   }
 }

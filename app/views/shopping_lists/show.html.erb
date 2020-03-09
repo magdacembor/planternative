@@ -1,24 +1,77 @@
 <div class="container">
-  <p>My shopping list</p>
-  <table class="styled-table">
-    <% @shopping_list.quantities.each do |quantity| %>
-      <tr>
-        <td><%= quantity.product.name %></td>
-        <td><%= quantity.quantity %></td>
-      </tr>
-      <tr>
-        <% if !@shopping_list.mark_as_done %>
-          <%= simple_form_for quantity, method: :patch do |f| %>
-            <%= f.input :quantity, input_html: { min: '0' } %>
-            <%= f.submit %>
+  <h4 class="green-header">MY SHOPPING LIST</h4>
+  <% if @shopping_list.quantities.empty? %>
+    <div class="empty-list">
+      <p>It seems there are no pruducts in your shopping list</p>
+      <p>
+        <%= link_to 'Start browsing', products_path %>
+      </p>
+    </div>
+  <% else %>
+    <table class="styled-table">
+      <th class="table-header">Product name</th>
+      <th class="table-header">Quantity</th>
+      <th class="table-header">Update</th>
+      <th class="table-header">Remove</th>
+      <% @shopping_list.quantities.each do |quantity| %>
+        <tr>
+          <td class="black"><%= quantity.product.name %></td>
+          <td class="black center"><%= quantity.quantity %></td>
+          <td>
+          <% if !@shopping_list.mark_as_done %>
+            <%= simple_form_for quantity, method: :patch do |f| %>
+              <div class="d-flex align-items-start  ">
+              <%= f.input :quantity, input_html: { min: '0', style: 'width: 80px' }, label: false %>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </tr>
-      <tr>
-        <%= link_to quantity_path(quantity), method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <%= icon("fa", "trash") %>
-        <% end %>
-      </tr>
+          </td>
+          <td class="mr-1"><%= link_to quantity_path(quantity), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= icon("fa", "trash") %>
+          <% end %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+
+  <br>
+  <h4 class="green-header">LIST ECO-SCORE</h4>
+  <section class="my-eco-score">
+    <% water = 0 %>
+    <% energy = 0 %>
+    <% @shopping_list.quantities.each do |q| %>
+      <% water += q.product.water_saved * q.quantity %>
+      <% energy += q.product.energy_saved * q.quantity %>
     <% end %>
-  </table>
+    <div class="eco-score">
+      <div class="emoji"><p id="drop">💧</p></div>
+      <div class="sum-saved">
+        <h5 style="color: black;"> <strong> <%= water %> litres </strong></h5>
+        <p> of water </p>
+      </div>
+    </div>
+    <div class="eco-score">
+      <div class="emoji"><p>✈️</p></div>
+      <div class="sum-saved">
+        <h5 style="color: black;"> <strong> <%= energy %> kg </strong></h5>
+        <p> of CO2 </p>
+      </div>
+    </div>
+  </section>
 </div>
+
+<div class="products-container">
+
+    <div id="map" class="sl-map"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+</div>
+
+<footer class="results-footer-sl">
+  <div class="results-search container">
+    <%= link_to mark_as_done_path(@shopping_list), method: :patch do %>
+      <button type="button" class="quantity-button">Mark this list as complete</button>
+    <% end %>
+  </div>
+</footer>
