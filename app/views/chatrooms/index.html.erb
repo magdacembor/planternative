@@ -1,0 +1,16 @@
+<article class="container">
+  <section class="community-threads">
+    <h4 class='sub-heading'>COMMUNITY THREADS</h4>
+    <% @chatrooms.each do |chatroom| %>
+      <%= link_to chatroom_path(chatroom) do %>
+        <p><%= chatroom.name %></p>
+        <p><%= chatroom.user.nickname %></p>
+        <% if chatroom.user.avatar.attached? %>
+          <%= cl_image_tag chatroom.user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= cl_image_tag "default_avatar_yubqpb", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </section>
+</article>
