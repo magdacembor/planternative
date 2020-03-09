@@ -8,25 +8,24 @@
       </p>
     </div>
   <% else %>
-    <table class="styled-table">
+    <table class="styled-table sl-table">
       <th class="table-header">Product name</th>
-      <th class="table-header">Quantity</th>
-      <th class="table-header">Update</th>
-      <th class="table-header">Remove</th>
+      <!-- <th class="table-header">Quantity</th> -->
+      <th class="table-header" style="padding-right: 43px;">Quantity</th>
       <% @shopping_list.quantities.each do |quantity| %>
         <tr>
-          <td class="black"><%= quantity.product.name %></td>
-          <td class="black center"><%= quantity.quantity %></td>
+          <td class="black name-table"><%= quantity.product.name %></td>
+          <!-- <td class="black center"><%= quantity.quantity %></td> -->
           <td>
           <% if !@shopping_list.mark_as_done %>
             <%= simple_form_for quantity, method: :patch do |f| %>
-              <div class="d-flex align-items-start  ">
-              <%= f.input :quantity, input_html: { min: '0', style: 'width: 80px' }, label: false %>
+              <div class="d-flex align-items-start" style="margin-left: 18px">
+              <%= f.input :quantity, input_html: { min: '0', style: 'width: 40px !important; padding: 14px !important; height : 40px !important' }, label: false %>
               </div>
             <% end %>
           <% end %>
           </td>
-          <td class="mr-1"><%= link_to quantity_path(quantity), method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <td class="table-bin green-link"><%= link_to quantity_path(quantity), method: :delete, data: { confirm: 'Are you sure?' } do %>
             <%= icon("fa", "trash") %>
           <% end %></td>
         </tr>

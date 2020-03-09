@@ -7,3 +7,31 @@
     justify-content: space-between;
   }
 }
+.sl-table{
+  .form-control.is-valid {
+    border-color: #EBEBEB !important;
+    background-image: none !important;
+  }
+  .form-group{
+    margin: 3px !important;
+  }
+  .table-bin{
+    display: flex;
+    align-items: center;
+    padding-right: 3px;
+  }
+  .green-link{
+    a{
+      color: #8FB171;
+      font-weight: lighter;
+      font-size: 16px;
+    }
+  }
+}
+
+.name-table{
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+
