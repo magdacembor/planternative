@@ -61,14 +61,12 @@
 </div>
 
 <div class="products-container">
-  <div id="list-map">
-    <div id="map"
+    <div id="map" class="map-sl-page"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  </div>
 </div>
 
-<footer class="results-footer">
+<footer class="results-footer-sl">
   <div class="results-search container">
     <%= link_to mark_as_done_path(@shopping_list), method: :patch do %>
       <button type="button" class="quantity-button">Mark this list as complete</button>
