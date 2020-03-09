@@ -11,6 +11,6 @@ class Substitution < ApplicationRecord
   },
   using: {
     tsearch: { prefix: true, any_word: true },
-    trigram: { word_similarity: true }
+    #trigram: { word_similarity: true }
     }
 end
