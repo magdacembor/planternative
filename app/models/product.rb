@@ -3,8 +3,9 @@ class Product < ApplicationRecord
   has_many :reviews
   has_many :substitutions
   has_many :quantities
-  has_many :shopping_lists, through: :quantities
   has_many :availabilities
+  has_many :recipes
+  has_many :shopping_lists, through: :quantities
   has_many :stores, through: :availabilities
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true

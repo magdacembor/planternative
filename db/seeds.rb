@@ -284,4 +284,46 @@ puts "\nCreating availabilities..."
   puts "#{i + 1}. Availability: #{availability_created.product.name } at #{availability_created.store.name}"
 end
 
+@recipes = [
+
+  { name: "Vegan Carbonara Sauce", url: "http://www.diylettante.com/527/", image_url: "https://www.edamam.com/web-img/619/619d61818a04ab297862a86178085f45.jpg", product_id: 1 },
+  { name: "Creamy Coconut Carbonara (Without Milk!)", url: "https://www.allrecipes.com/recipe/247459/creamy-coconut-carbonara-without-milk/", image_url: "https://www.edamam.com/web-img/fe9/fe91e54771717b4aed8e279237b46b11.png", product_id: 1 },
+  { name: "Vegan Spaghetti Carbonara recipes", url: "http://fannythefoodie.wordpress.com/2014/05/30/vegan-spaghetti-carbonara/", image_url: "https://www.edamam.com/web-img/9c6/9c6d1e7fa15d0ba46963cb907db700dc", product_id: 1 },
+  { name: "Mushroom Carbonara Bowl recipes", url: "http://veganheritagepress.com/2015/12/vegan-mushroom-carbonara-bowl/", image_url: "https://www.edamam.com/web-img/e65/e656354f096b5527e985004246ca6b09", product_id: 1 },
+  { name: "Spaghetti Carbonara ala Roasted Cauliflowe", url: "http://www.ieatgreen.com/spaghetti-carbonara-ala-roasted-cauliflower-and-sundried-tomatoes/", image_url: "https://www.edamam.com/web-img/bb1/bb1f19ade7011af4765bae734933fa1a.jpg", product_id: 1 },
+  { name: "Cauliflower and Tofu Curry Recipe", url: "http://www.seriouseats.com/recipes/2011/02/cauliflower-and-tofu-curry-recipe.html", image_url: "https://www.edamam.com/web-img/c24/c24d5879c21826517f3aa9bca10e4250.jpg", product_id: 2 },
+  { name: "Curry Pickled Ramps", url: "http://norecipes.com/blog/2011/07/24/curried-pickled-ramps/", image_url: "https://www.edamam.com/web-img/0c3/0c30f8d41ec00531f7d754f53622df60.jpg", product_id: 2 },
+  { name: "Crispy Curry-Roasted Chickpeas", url: "https://www.epicurious.com/recipes/food/views/crispy-curry-roasted-chickpeas-56389735", image_url: "https://www.edamam.com/web-img/5c5/5c5b3428f909ee81966e6cd9c78347e0.jpg", product_id: 2 },
+  { name: "Spicy lentil soup with curry pinwheel rolls", url: "http://www.bbcgoodfood.com/recipes/1651633/spicy-lentil-soup-with-curry-pinwheel-rolls", image_url: "https://www.edamam.com/web-img/82c/82c82f8b0fc843795676d2d2b104ca9d.jpg", product_id: 2 },
+  { name: "Curry Hummus recipes", url: "http://pinchofyum.com/curry-hummus", image_url: "https://www.edamam.com/web-img/e82/e822935fdbcdb9f19017c4cfd8f5bf06", product_id: 2 },
+  { name: "Cashew Curry Recipe", url: "http://www.101cookbooks.com/archives/cashew-curry-recipe.html", image_url: "https://www.edamam.com/web-img/925/92527ef3ef790965368bfe2076902299.jpg", product_id: 2 },
+  { name: "Summer courgette risotto", url: "http://www.bbcgoodfood.com/recipes/11194/summer-courgette-risotto", image_url: "https://www.edamam.com/web-img/6fe/6fe0ef5d68b7c2b677a0471cb5de52b1.jpg", product_id: 3 },
+  { name: "Mint and Green Pea Risotto, with Roasted Tomatoes", url: "https://food52.com/recipes/18155-mint-and-green-pea-risotto-with-roasted-tomatoes", image_url: "https://www.edamam.com/web-img/b95/b951b6874e51bd724d4777ced322ebaf.JPG", product_id: 3 },
+  { name: "Summer Courgette Risotto", url: "http://www.bbcgoodfood.com/recipes/11194/", image_url: "https://www.edamam.com/web-img/e08/e08fa9a34d7e4fe7f034c4d479d2ac21.jpg", product_id: 3 },
+  { name: "Squash Risotto", url: "http://www.thedailymeal.com/squash-risotto-recipe", image_url: "https://www.edamam.com/web-img/260/2600597a790b930f4f14b19c348ddfe4.jpg", product_id: 3 },
+  { name: "Birds Eye® Mushroom Risotto with Roasted Red Peppers & Peas", url: "http://www.myrecipes.com/recipe/mushroom-risotto-roasted-red-peppers-peas", image_url: "https://www.edamam.com/web-img/e42/e42d4eb467c9fc4f8845e758986eccbf.jpg", product_id: 3 },
+  { name: "Spring Vegetable Risotto With Asparagus, Zucchini, Fava Beans, Snap Peas, and Morels Recipe", url: "http://www.seriouseats.com/recipes/2012/05/spring-vegetable-risotto-asparagus-zucchini-fava-morel-snap-pea-recipe.html", image_url: "https://www.edamam.com/web-img/ada/ada4b038649d6596643ef20513e3880f.jpg", product_id: 3 },
+  { name: "Eggplant Bolognese", url: "http://www.thedailymeal.com/eggplant-bolognese-recipe", image_url: "https://www.edamam.com/web-img/7bf/7bf17e348c60416344c3de31464c4cdb.jpg", product_id: 4 },
+  { name: "Sabrina's Garden Bolognese", url: "http://www.myrecipes.com/recipe/sabrinas-garden-bolognese", image_url: "https://www.edamam.com/web-img/244/24493935075a63a06d7b5c8b8bcf483f.jpg", product_id: 4 },
+  { name: "Mushroom Bolognese", url: "http://www.bigoven.com/recipe/Mushroom-Bolognese/290035", image_url: "https://www.edamam.com/web-img/522/522a70def64f58e54caba7764dfc3015.jpg", product_id: 4 },
+  { name: "Spaghetti With Tomato Sauce recipes", url: "http://notwithoutsalt.com/simple-spaghetti-with-tomato-sauce/", image_url: "https://www.edamam.com/web-img/ce1/ce13a5fe3c09dacf8b2da8c8843d0481", product_id: 5 },
+  { name: "Dinner Tonight: Spaghetti with Zucchini and Squash Recipe", url: "http://www.seriouseats.com/recipes/2007/08/dinner-tonight-spaghetti-with.html", image_url: "https://www.edamam.com/web-img/99f/99f499f2667373268544ac1df3050f22.jpg", product_id: 5 },
+  { name: "Tomato-Garlic Spaghetti", url: "http://www.marthastewart.com/313199/tomato-garlic-spaghetti", image_url: "https://www.edamam.com/web-img/2f6/2f6eb3caf78486adf7faecc90484aad0.jpg", product_id: 5 },
+  { name: "Roasted Spaghetti Squash And Kale", url: "http://thepioneerwoman.com/cooking/2013/11/roasted-spaghetti-squash-with-kale/", image_url: "https://www.edamam.com/web-img/352/3521373b3e14bb8fb28d1d50bc061f57.jpg", product_id: 5 },
+  { name: "Spaghetti with Garlic recipes", url: "http://www.epicurious.com/recipes/food/views/Spaghetti-with-Garlic-230465", image_url: "https://www.edamam.com/web-img/946/946cdb7e5bf06b3432b47cf23a25721d", product_id: 5 },
+  { name: "Spaghetti Squash with Garlic and Chili", url: "https://food52.com/recipes/16829-spaghetti-squash-with-garlic-and-chili", image_url: "https://www.edamam.com/web-img/cd0/cd0200c7287298f2e6726a9ced63cac0.jpg", product_id: 5 },
+  { name: "Chipotle Veggie Burger", url: "https://www.menshealth.com/recipes/chipotle-veggie-burger", image_url: "https://www.edamam.com/web-img/a69/a69cad6990431c2946a58ff17772995a.jpg", product_id: 7 },
+  { name: "Basic Veggie Burgers", url: "https://www.epicurious.com/recipes/food/views/basic-veggie-burgers", image_url: "https://www.edamam.com/web-img/b04/b048a959cf63d5924a973afc6130cc9a.jpg", product_id: 7 },
+  { name: "Guacamole Veggie Burger recipes", url: "http://www.tastingtable.com/cook/recipes/guacamole-veggie-burger-best-vegan-vegetarian-recipes-by-chloe-nyc-chloe-coscarelli", image_url: "https://www.edamam.com/web-img/c64/c648372aef3141bd32d00debfa931bd5", product_id: 7 },
+  { name: "Southwest Veggie Burger", url: "https://www.menshealth.com/recipes/southwest-veggie-burger", image_url: "https://www.edamam.com/web-img/a69/a69cad6990431c2946a58ff17772995a.jpg", product_id: 7 },
+  { name: "Spicy corn & chickpea burgers", url: "http://www.jamieoliver.com/recipes/vegetable-recipes/spicy-corn-chickpea-burgers/", image_url: "https://www.edamam.com/web-img/20f/20f1f3909266c3fbb8a1ca5834a22f65.jpg", product_id: 7 },
+  { name: "Hummus and Mint Veggie Burgers", url: "https://food52.com/recipes/30330-hummus-and-mint-veggie-burgers", image_url: "https://www.edamam.com/web-img/0e6/0e6307720fb016a24f77e12d868d30c8.jpg", product_id: 7 },
+
+]
+
+@recipes.each_with_index do |recipe, i|
+  recipe_created = Recipe.create!(recipe)
+  puts "#{i + 1}. Recipe \"#{recipe_created.name }\" created for #{recipe_created.product.name}"
+end
+
 puts "\nDone!"

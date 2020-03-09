@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_07_214252) do
+ActiveRecord::Schema.define(version: 2020_03_09_161747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,16 @@ ActiveRecord::Schema.define(version: 2020_03_07_214252) do
     t.index ["shopping_list_id"], name: "index_quantities_on_shopping_list_id"
   end
 
+  create_table "recipes", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.string "image_url"
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_recipes_on_product_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "rating"
@@ -164,6 +174,7 @@ ActiveRecord::Schema.define(version: 2020_03_07_214252) do
   add_foreign_key "products", "users"
   add_foreign_key "quantities", "products"
   add_foreign_key "quantities", "shopping_lists"
+  add_foreign_key "recipes", "products"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"
   add_foreign_key "shopping_lists", "users"
