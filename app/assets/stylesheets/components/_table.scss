@@ -6,6 +6,8 @@
     display: flex;
     justify-content: space-between;
   }
+}
+.sl-table{
   .form-control.is-valid {
     border-color: #EBEBEB !important;
     background-image: none !important;
@@ -18,14 +20,16 @@
     align-items: center;
     padding-right: 3px;
   }
-  a{
-    color: #8FB171;
-    font-weight: light;
-    font-size: 16px;
+  .green-link{
+    a{
+      color: #8FB171;
+      font-weight: lighter;
+      font-size: 16px;
+    }
   }
 }
 
-.sl-table{
+.name-table{
   width: 60%;
   display: flex;
   align-items: center;
