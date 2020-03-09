@@ -3,6 +3,11 @@
   flex-direction: column;
   height: 100%;
   justify-content: center;
+  width: 130px;
+  margin-right: 10px;
+  .form-control{
+    padding-left: 55px !important;
+  }
 }
 
 .quantity-button {
