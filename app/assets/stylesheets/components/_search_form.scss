@@ -2,19 +2,21 @@
   position: relative;
   .search-form-button {
     position: absolute;
-    top: 7px;
-    right: 7px;
+    top: 12px;
+    right: 12px;
     color: #FFFFFF;
     background: $brand-green;
     border-radius: 8px;
+    border: none;
   }
 }
 
-.form-control {
+.search-input {
   border-radius: 20px;
   width: 80vw;
   background-color: $light-gray;
   border: 1px solid $light-gray;
   padding: 25px;
   box-shadow: 1px 1px 10px rgb(200,200,200);
+  height: 40px;
 }

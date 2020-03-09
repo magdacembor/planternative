@@ -1,0 +1,21 @@
+.form-button {
+  background-color: $brand-green;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: none;
+  border: none;
+}
+
+// Note: Do not use css rules for all forms, use classes.
+// .forms{
+//   margin-top: 30px;
+//   margin-bottom: 40px;
+//   padding: 40px;
+//   border: 1px solid (0,0,0,0.1);
+//   background-color: rgba(250,250,250,1);
+//   box-shadow: 10px 5px 5px (0,0,0,0.2);
+//   opacity: 0.85;
+//   border-radius: 15px;
+//   color: rgb(40,40,40);
+// }

@@ -8,6 +8,7 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '6.0.2.1'
 gem 'redis'
+gem 'pg_search', '~> 2.3.0'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
@@ -18,6 +19,9 @@ gem 'webpacker'
 
 gem 'cloudinary', '~> 1.12.0'
 gem "font-awesome-rails"
+gem 'geocoder'
+gem 'turbolinks_render'
+gem 'rest-client'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

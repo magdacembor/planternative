@@ -1,38 +1,94 @@
-<h1>Hello, <%= current_user.first_name %> ~ </h1>
+<div class="container">
+  <section class="myprofile-section">
+    <h3 class="green-header mar-bottom">MY ECO SCORE</h3>
+    <section class="my-eco-score">
+      <% water = 0 %>
+      <% energy = 0 %>
+      <% @shopping_lists.each do |shopping_list| %>
+        <% shopping_list.quantities.each do |q| %>
+          <% water += q.product.water_saved * q.quantity %>
+          <% energy += q.product.energy_saved * q.quantity %>
+        <% end %>
+      <% end %>
+      <div class="eco-score">
+        <div class="emoji"><p id="drop">💧</p></div>
+        <div class="sum-saved">
+          <h5 style="color: black;"> <strong> <%= water %> litres </strong></h5>
+          <p> of water </p>
+        </div>
+      </div>
+      <div class="eco-score">
+        <div class="emoji"><p>✈️</p></div>
+        <div class="sum-saved">
+          <h5 style="color: black;"> <strong> <%= energy %> kg </strong></h5>
+          <p> of CO2 </p>
+        </div>
+      </div>
+    </section>
+  </section>
 
-<h4><%= link_to "Edit your profile", user_registration_path, method: :patch %></h4>
+  <section class="myprofile-section">
+    <h3 class="green-header">MY SHOPPING LISTS </h3>
+    <table class="styled-table">
+      <% @shopping_lists.each do |shopping_list| %>
+        <tr>
+          <td class="black"><em><%= shopping_list.date %></em></td>
+          <td class="black bolder"><%= shopping_list.products.count %></td>
+          <td><%= link_to "See details", shopping_list_path(shopping_list) %></td>
+          <td>
+            <%= link_to shopping_list_path(shopping_list), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <%= icon("fa", "trash") %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
+  <br>
 
-<h2>Your eco-score</h2>
-<% water = 0 %>
-<% energy = 0 %>
-<% @shopping_lists.each do |shopping_list| %>
-  <% shopping_list.quantities.each do |q| %>
+  <section class="myprofile-section">
+    <h3 class="green-header">MY RECENT ACTIVITY</h3>
+    <section class="activity-row">
+      <div class="activity-box">
+        <div class="count"> <%= @products.count %> </div>
+        <div class="activity">
+          <p class="verb"> <strong> products</strong> </p>
+          <p>added </p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <div class="count"> <%= @reviews.count %> </div>
+        <div class="activity">
+          <p class="verb"> <strong> review</strong> </p>
+          <p>posted </p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <div class="count"> 4 </div>
+        <div class="activity">
+          <p class="verb"> <strong> chatrooms</strong> </p>
+          <p>created </p>
+        </div>
+      </div>
+      <div class="activity-box">
+        <div class="count"> 0 </div>
+        <div class="activity">
+          <p class="verb"> <strong> articles</strong> </p>
+          <p>added </p>
+        </div>
+      </div>
+    </section>
+    <br>
+  </section>
 
-    <% water += q.product.water_saved * q.quantity %>
-    <% energy += q.product.energy_saved * q.quantity %>
-  <% end %>
-<% end %>
-<p> <%= water %> litres of water saved</p>
-<p> <%= energy %>kg of CO2 saved</p>
+  <section class="myprofile-section edit-profile">
+    <h3 class="green-header">MISC</h3>
+    <%= link_to user_registration_path, method: :patch do %>
+      <p>Edit your profile</p>
+    <% end %>
+  </section>
+  <br>
+  <br>
+  <br>
 
-<h2>Your shopping lists</h2>
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Items</th>
-  </tr>
-  <% @shopping_lists.each do |shopping_list| %>
-    <tr>
-      <td><%= shopping_list.date %></td>
-      <td><%= shopping_list.products.count %></td>
-      <td><%= link_to "See details", shopping_list_path(shopping_list) %></td>
-    </tr>
-  <% end %>
-</table>
-
-<h2>Your planternative</h2>
-<p><%= @products.count %> alternatives added</p>
-<p><%= @reviews.count %> reviews posted</p>
-<p>1 chatroom created</p> <!-- Not created yet -->
-<p>0 articles published</p> <!-- Not created yet -->
-<p>*become a Champion to get started</p>
+</div>

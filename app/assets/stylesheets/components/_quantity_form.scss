@@ -1,0 +1,19 @@
+.product-quantity {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+.quantity-button {
+  background-color: $brand-green;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: none;
+  border: none;
+}
+
+.quantity-table{
+  width: 30px;
+}

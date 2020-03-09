@@ -15,6 +15,7 @@ before_action :find_quantity, only: [ :update, :destroy ]
     if @quantity.save
       redirect_to product_path(@product)
     else
+      @review = Review.new
       render "products/show"
     end
   end
@@ -25,6 +26,7 @@ before_action :find_quantity, only: [ :update, :destroy ]
     if @quantity.save
       redirect_to shopping_list_path(@shopping_list)
     else
+      @review = Review.new
       render "shopping_lists/show"
     end
   end

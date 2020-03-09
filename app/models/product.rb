@@ -4,9 +4,11 @@ class Product < ApplicationRecord
   has_many :substitutions
   has_many :quantities
   has_many :shopping_lists, through: :quantities
+  has_many :availabilities
+  has_many :stores, through: :availabilities
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true
-  validates :ingredients, presence: true, uniqueness: true
+  validates :ingredients, presence: true
   validates :price_range, presence: true, inclusion: { in: ['£', '££', '£££'] }
   validates :low_cal, inclusion: { in: [true, false] }
   validates :high_protein, inclusion: { in: [true, false] }

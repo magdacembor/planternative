@@ -10,9 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_123422) do
+ActiveRecord::Schema.define(version: 2020_03_07_133818) do
+
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_trgm"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -36,10 +38,37 @@ ActiveRecord::Schema.define(version: 2020_03_03_123422) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "availabilities", force: :cascade do |t|
+    t.bigint "store_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_availabilities_on_product_id"
+    t.index ["store_id"], name: "index_availabilities_on_store_id"
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
+  end
+
   create_table "meals", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -92,6 +121,15 @@ ActiveRecord::Schema.define(version: 2020_03_03_123422) do
     t.index ["user_id"], name: "index_shopping_lists_on_user_id"
   end
 
+  create_table "stores", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "substitutions", force: :cascade do |t|
     t.string "name"
     t.bigint "meal_id", null: false
@@ -120,6 +158,11 @@ ActiveRecord::Schema.define(version: 2020_03_03_123422) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "availabilities", "products"
+  add_foreign_key "availabilities", "stores"
+  add_foreign_key "chatrooms", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "products", "users"
   add_foreign_key "quantities", "products"
   add_foreign_key "quantities", "shopping_lists"

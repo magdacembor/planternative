@@ -1,44 +1,54 @@
-<div class="product-cards">
-  <% @products.each do |product| %>
-    <%= link_to product_path(product) do %>
-      <div class="product-card">
-        <div class="product-image">
-          <%= cl_image_tag(product.images.first&.key || 'b89pmjwcw7w7klcpubjw', width: 400, height: 300, crop: :fill) %>
-        </div>
-        <div class="product-info">
-          <div class="product-name">
-            <h5><%= product.name %></h5>
-          </div>
-          <div class="product-review">
-            <div class="product-stars">
-              <% ratings = [] %>
-              <% product.reviews.each do |review| %>
-                <% ratings << review.rating %>
+<div class="products-container">
+  <div class="product-cards container">
+    <% @products.each do |product| %>
+      <%= link_to product_path(product) do %>
+        <div class="product-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path product.images.first&.key || 'b89pmjwcw7w7klcpubjw', crop: :fill, width: 360 %>')">
+          <div class="product-info">
+            <h4>
+              <% if product.gluten_free == true %>
+                <icon class="product-icon">🌾</icon>
               <% end %>
-              <% if ratings.length == 0 %>
-                <p>No reviews yet</p>
-              <% else %>
-                <% average_rating = ratings.sum/ratings.length%>
-                <p><%= "⭐"* average_rating%></p>
+              <% if product.high_protein == true %>
+                <icon class="product-icon">🥜</icon>
               <% end %>
-
-              <%#= raise %>
-              <!-- average of all review ratings needed (product.reviews.rating.average)? - revisit with reviews seed) -->
+              <% if product.low_cal == true %>
+                <icon class="product-icon">🍿</icon>
+              <% end %>
+              <%= product.name %>
+            </h4>
+            <% nearest_store = product.stores.select { |store| store.latitude.is_a?(Float) && store.latitude.is_a?(Float) }.sort_by { |store| store.distance_to(@user_location) }.first %>
+            <h5><%= nearest_store.name %> · <%= (nearest_store.distance_to(@user_location)).round(1) %> mi</h5>
+            <div class="product-review-price">
+              <div class="product-review">
+                <% ratings = [] %>
+                <% product.reviews.each do |review| %>
+                  <% ratings << review.rating %>
+                <% end %>
+                <% if ratings.length == 0 %>
+                  <span>No reviews yet</span>
+                <% else %>
+                  <% average_rating = ratings.sum/ratings.length%>
+                  <span><%= "⭐"* average_rating%></span>
+                <% end %>
+                <% if product.reviews.count > 0 %>
+                  <span>(<%= product.reviews.count %>)</span>
+                <% end %>
+              </div>
+              <p class="product-price"><%= product.price_range %></p>
             </div>
-            <div class="product-review-count">
-              <% if product.reviews.count > 0 %>
-                <p>(<%= product.reviews.count %>)</p>
-              <% end %>
-              <!-- number of reviews for each product - (product.reviews.count)? -->
-            </div>
-          </div>
-          <div class="product-price">
-            <p><%= product.price_range %></p>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
-
+    <% if @products.empty? %>
+       <div class="product-card" style="opacity: 0">
+          <div class="product-info" style="opacity: 0">
+            <div class="product-review-price" style="opacity: 0">
+              <div class="product-review" style="opacity: 0">
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
 </div>
-
