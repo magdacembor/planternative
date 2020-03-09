@@ -10,6 +10,7 @@ class Substitution < ApplicationRecord
     product: [ :name, :ingredients ]
   },
   using: {
-    tsearch: { prefix: true, any_word: true }
+    tsearch: { prefix: true, any_word: true },
+    trigram: { word_similarity: true }
     }
 end

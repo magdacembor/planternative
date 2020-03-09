@@ -16,7 +16,8 @@
               <% end %>
               <%= product.name %>
             </h4>
-            <h5><%= product.stores.first.name %> · 8km</h5>
+            <% nearest_store = product.stores.select { |store| store.latitude.is_a?(Float) && store.latitude.is_a?(Float) }.sort_by { |store| store.distance_to(@user_location) }.first %>
+            <h5><%= nearest_store.name %> · <%= (nearest_store.distance_to(@user_location)).round(1) %> mi</h5>
             <div class="product-review-price">
               <div class="product-review">
                 <% ratings = [] %>

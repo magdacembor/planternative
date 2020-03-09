@@ -33,16 +33,21 @@ puts "\nCreating products..."
   { name: "Seamore I Sea Seaweed Bacon", price_range: "£££", low_cal: false, high_protein: true, gluten_free: true, description: "I sea bacon is 100% organic seaweed that turns into (green) bacon when fried. Handpicked and sustainably harvested in France. Put it on anything that deserves a crunchy, salty, smoky kick or use the soaked soft leaves as a flavor boost in salads, pastas or anything else. Great for your taste buds, health and the planet. Eat yourself happy.", ingredients: "Dried organic seaweed (Palmaria Palmata)", protein_per_100g: 14.3, fat_per_100g: 0.1, calories_per_100g: 229, carbs_per_100g: 21.2, user_id: 1, water_saved: 1, energy_saved: 1 },
   { name: "Tofurky Smoky Maple Bacon Tempeh", price_range: "£££", low_cal: false, high_protein: true, gluten_free: false, description: "Meet tofu's weird-but-cool cousin, tempeh. It gets along great with a tasty marinade, like this smoky maple bacon style sauce. We call it Treehouse Tempeh in honour of our fearless founder, Seth, who lived in a treehouse during his early tempeh-making days. Look it up!", ingredients: "Water, Organic Soybeans (38%), Soy Sauce (Water, Soybeans, Wheat, Salt), Molasses, Maple Syrup, Natural Flavours, Autolyzed Yeast Extract, Sea Salt, Natural Smoke Flavour, Organic Apple Cider Vinegar, Starter Culture: (Rhizopus Oligosporus)", protein_per_100g: 15.0, fat_per_100g: 5.5, calories_per_100g: 174, carbs_per_100g: 14.0, user_id: 1, water_saved: 1, energy_saved: 1 },
   { name: "Vegideli Cheatin' Vegan Bacon", price_range: "££", low_cal: false, high_protein: true, gluten_free: false, description: "The Red Wood Co Streaky Style Meat Free Cheatin' Rashers. A delicious blend of wheat gluten, soya & vegetable oil.", ingredients: "Water, Wheat Gluten, Soya Protein, Non-Hydrogenated Vegetable Fat (Sustainable Palm), Textured Wheat Protein, Potato Starch, Salt, Dried Yeast, Sugar, Natural Flavourings, Thickeners: Carrageenan, Preservative: Potassium Sorbate, Onion Powder, Colour: Iron Oxide", protein_per_100g: 25.8, fat_per_100g: 7.8, calories_per_100g: 196, carbs_per_100g: 6.1, user_id: 1, water_saved: 1, energy_saved: 1 }
+
 ]
 
 path = Rails.root.join('product_images').to_s
 i = 0
+dir_array = []
 Dir.foreach(path) do |dir|
   next unless dir.match?(/(\d)/)
   num = dir.match(/(\d)/)[1].to_i
-  p num
-  if dir.include?('images') && @products[num - 1].present?
-    product = Product.create! @products[num - 1]
+  dir_array << dir
+end
+dir_array.sort!
+dir_array.each do |dir|
+  if dir.include?('images') && @products[i].present?
+    product = Product.create! @products[i]
     puts "#{i + 1}. Product \"#{product.name}\" created"
     puts "Directory: #{dir}"
     images_to_attach = []
@@ -181,10 +186,10 @@ puts "\nCreating stores ..."
   { name: "Tesco Express", address: "25-29 Islington Green, London" },
   { name: "Iceland Foods", address: "150 Mare St, London" },
   { name: "Lidl", address: "27 Well St, London" },
-  { name: "Iceland Foods", address: "12, Dalston Cross Shopping Centre, London" },
+  { name: "Iceland Foods", address: "337 Mare Street, London, E8 1HY" },
   { name: "Tesco Express", address: "179 Shoreditch High St, London" },
-  { name: "Iceland Foods", address: "62, 64 Chapel Market, London" },
-  { name: "Lidl", address: "306 Burdett Rd, London" },
+  { name: "Iceland Foods", address: "64 Chapel Market, London N1 9ER" },
+  { name: "Lidl", address: "306 Burdett Rd, London" }
 
 ]
 
@@ -220,7 +225,7 @@ puts "\nCreating availabilities..."
   { product_id: 4, store_id: 6 },
   { product_id: 5, store_id: 3 },
   { product_id: 5, store_id: 4 },
-  { product_id: 5, store_id: 4 },
+  { product_id: 5, store_id: 5 },
   { product_id: 5, store_id: 7 },
   { product_id: 5, store_id: 8 }
 
