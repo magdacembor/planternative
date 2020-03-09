@@ -1,4 +1,6 @@
-<%= simple_form_for @chatroom do |f| %>
-  <%= f.input :name, label: false, placeholder: "Give your thread's name" %>
-  <%= f.submit 'Create thread', class: "btn btn-block btn-dark" %>
-<% end %>
+<article class="container">
+  <%= simple_form_for @chatroom do |f| %>
+    <%= f.input :name, label: false, placeholder: "What do you need help with?" %>
+    <%= f.submit 'Create thread', class: "btn btn-block form-button" %>
+  <% end %>
+</article>

@@ -1,6 +1,12 @@
 <div class="container">
   <article class="chatroom">
-    <h4 class='sub-heading'><%= @chatroom.name.upcase %></h4>
+    <div class="chatroom-heading">
+      <%= link_to chatrooms_path do %>
+        <% icon('fa', 'arrow-circle-left') %>
+      <% end %>
+      <h4 class="sub-heading"><%= @chatroom.name.upcase %></h4>
+      <span></span>
+    </div>
     <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
       <% @chatroom.messages.each do |message| %>
         <% if message.user == current_user %>

@@ -87,6 +87,20 @@
     position: sticky;
     top: 0;
     padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  span {
+    text-align: left;
+  }
+}
+
+.chatroom-heading {
+  i {
+    transition: transform .5s;
+  }
+  i:hover {
+    transform: scale(1.02);
   }
 }
 
@@ -94,7 +108,6 @@
   position: sticky;
   bottom: 0;
   margin-top: 2px;
-
 }
 
 // #message_content {
