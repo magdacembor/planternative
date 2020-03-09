@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   resources :quantities, only: [ :update, :destroy ]
   resources :shopping_lists, only: [:show, :update, :destroy, :create]
   resources :reviews, only: :destroy
+  resources :chatrooms, only: [ :index, :show, :new, :create ] do
+    resources :messages, only: :create
+  end
   get '/:nickname', to: 'pages#myprofile', as: :myprofile
 end
