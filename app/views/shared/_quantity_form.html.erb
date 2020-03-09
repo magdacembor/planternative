@@ -3,7 +3,7 @@
 <span> <%#= @shopping_list.quantities.find_by(#product_id: @product)&.quantity %> </span>
 <span>-</span> -->
 
-<%= simple_form_for [ @product, Quantity.new ], method: :post, remote: true, wrapper_html: {class: "form-inline"} do |f| %>
+<%= simple_form_for [ @product, Quantity.new ], method: :post, wrapper_html: {class: "form-inline"} do |f| %>
   <div class="product-quantity">
     <%= f.input :quantity, input_html: { value: 1 }, label: false %>
     <%= f.submit 'Add to cart', class: 'quantity-button' %>
