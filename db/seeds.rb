@@ -43,6 +43,7 @@ puts "\nCreating products..."
   { name: "Alpro Longlife Soya Cream Alternative", price_range: "£", low_cal: true, high_protein: false, gluten_free: true, description: "With coconut oil and vitamin B12, Free from dairy, soya, gluten, lactose, nuts and preservatives", ingredients: "Water, Starch, Modified Starch*, Coconut Oil (17%), Sea Salt, Rice Protein, Flavourings, Olive Extract, Colour: B-Carotene, Vitamin B12", protein_per_100g: 1.6, fat_per_100g: 17, calories_per_100g: 279, carbs_per_100g: 30, user_id: 3, water_saved: 154, energy_saved: 0.55 },
   { name: "Violife Non-Dairy Prosociano With Parmesan", price_range: "£££", low_cal: false, high_protein: false, gluten_free: true, description: "All Natural Plant Power We pick selected peas from fields Take all the protein goodness* from the dried peas Then add delicious herbs and spices", ingredients: "Rehydrated Pea Protein (63%), Rapeseed Oil, Red Onion, Apple Fibre, Pea Flour, Natural Flavourings, Stabiliser (Methylcellulose), Tomato Paste, Garlic Powder, Herbs, Barley Malt Extract, Black Pepper, Pea Fibre, Wholegrain Oat Flour, Potato Starch, Salt, Antioxidant (Extract of Rosemary), Tomato Powder, Mushroom Powder, Onion Powder", protein_per_100g: 16, fat_per_100g: 15, calories_per_100g: 236, carbs_per_100g: 6.8, user_id: 1, water_saved: 340, energy_saved: 1.45 },
   { name: "Koko Dairy Free Spread", price_range: "££", low_cal: false, high_protein: false, gluten_free: true, description: "Made with pressed coconut oil, Coconut oil contains MCFAs, Only half the saturates of butter, Vitamin D contributes to the maintenance of normal bones and teeth.", ingredients: "Water, Vegetable Oils (Rapeseed Oil, Coconut Oil 26%, Palm Oil*, Sunflower Oil), Emulsifier: Mono & Diglycerides of Fatty Acids and Sunflower Lecithin, Colour: Carrot Extract, Lemon Juice, Sea Salt 1.1%, Natural Flavourings, Vitamins A, B12, D2, E", protein_per_100g: 0, fat_per_100g: 45, calories_per_100g: 405, carbs_per_100g: 0, user_id: 2, water_saved: 380, energy_saved: 1.55 }
+
 ]
 
 path = Rails.root.join('product_images').to_s
@@ -207,10 +208,10 @@ puts "\nCreating stores ..."
   { name: "Tesco Express", address: "25-29 Islington Green, London" },
   { name: "Iceland Foods", address: "150 Mare St, London" },
   { name: "Lidl", address: "27 Well St, London" },
-  { name: "Iceland Foods", address: "12, Dalston Cross Shopping Centre, London" },
+  { name: "Iceland Foods", address: "337 Mare Street, London, E8 1HY" },
   { name: "Tesco Express", address: "179 Shoreditch High St, London" },
-  { name: "Iceland Foods", address: "62, 64 Chapel Market, London" },
-  { name: "Lidl", address: "306 Burdett Rd, London" },
+  { name: "Iceland Foods", address: "64 Chapel Market, London N1 9ER" },
+  { name: "Lidl", address: "306 Burdett Rd, London" }
 
 ]
 
@@ -246,7 +247,7 @@ puts "\nCreating availabilities..."
   { product_id: 4, store_id: 6 },
   { product_id: 5, store_id: 3 },
   { product_id: 5, store_id: 4 },
-  { product_id: 5, store_id: 4 },
+  { product_id: 5, store_id: 5 },
   { product_id: 5, store_id: 7 },
   { product_id: 5, store_id: 8 },
   { product_id: 5, store_id: 3 },

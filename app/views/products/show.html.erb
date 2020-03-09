@@ -17,8 +17,8 @@
 
   <section class="product-description product-section">
     <h4 class="sub-heading">LOCATIONS</h4>
-    <% @product.stores.each do |store| %>
-      <p><strong><%= store.name %></strong> · <%= store.address %> </p>
+    <% @product.stores.select { |store| store.latitude.is_a?(Float) && store.latitude.is_a?(Float) }.sort_by { |store| store.distance_to(@user_location) }.slice(0,5).each do |store| %>
+      <p><strong><%= store.name %></strong> · <%= store.address %> · <%= store.distance_to(@user_location).round(1) %> mi</p>
     <% end %>
   </section>
 
@@ -86,4 +86,15 @@
       <%= render 'shared/review_form' %>
     <% end %>
   </section>
+
+  <section class="product-review product-section">
+    <h4 class="sub-heading">YOU MAY ALSO LIKE</h4>
+
+    <% @products = Product.all.select { |product| product != @product && product.high_protein == @product.high_protein && product.gluten_free ==  @product.gluten_free && product.low_cal == @product.low_cal } %>
+    <% @products = [ @products.sample ] %>
+
+    <%= render 'product_card' %>
+
+  </section>
+
 </article>
