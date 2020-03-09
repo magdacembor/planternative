@@ -6,8 +6,7 @@
     <title>Planternative - find plant-based alternatives for your favourite meals</title>
     <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= csp_meta_tag %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <!-- Facebook Open Graph data -->
     <meta property="og:title" content="<%= meta_title %>" />
@@ -16,12 +15,12 @@
     <meta property="og:image" content="<%= meta_image %>" />
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
     <%= render 'shared/navbar', shopping_list: @shopping_list %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-
-    <%= javascript_pack_tag 'application' %>
   </body>
 </html>
