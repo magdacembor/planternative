@@ -1,7 +1,9 @@
-<div class="message-container">
-  <i class="author">
-    <span><%= message.user.nickname %></span>
-    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-  </i>
+<% if message.user.avatar.attached? %>
+  <%= cl_image_tag message.user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+<% else %>
+  <%= cl_image_tag "default_avatar_yubqpb", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+<% end %>
+<section class="user-message">
+  <p><%= message.user.nickname %> · <%= distance_of_time_in_words_to_now(message.created_at) %></p>
   <p><%= message.content %></p>
-</div>
+</section>
