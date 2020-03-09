@@ -11,7 +11,7 @@
     <table class="styled-table">
       <th class="table-header">Product name</th>
       <!-- <th class="table-header">Quantity</th> -->
-      <th class="table-header" style="padding-right: 50px;">Quantity</th>
+      <th class="table-header" style="padding-right: 43px;">Quantity</th>
       <% @shopping_list.quantities.each do |quantity| %>
         <tr>
           <td class="black sl-table"><%= quantity.product.name %></td>
@@ -19,7 +19,7 @@
           <td>
           <% if !@shopping_list.mark_as_done %>
             <%= simple_form_for quantity, method: :patch do |f| %>
-              <div class="d-flex align-items-start">
+              <div class="d-flex align-items-start" style="margin-left: 18px">
               <%= f.input :quantity, input_html: { min: '0', style: 'width: 40px !important; padding: 14px !important; height : 40px !important' }, label: false %>
               </div>
             <% end %>
