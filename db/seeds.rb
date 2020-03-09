@@ -47,12 +47,16 @@ puts "\nCreating products..."
 
 path = Rails.root.join('product_images').to_s
 i = 0
+dir_array = []
 Dir.foreach(path) do |dir|
   next unless dir.match?(/(\d)/)
   num = dir.match(/(\d)/)[1].to_i
-  p num
-  if dir.include?('images') && @products[num - 1].present?
-    product = Product.create! @products[num - 1]
+  dir_array << dir
+end
+dir_array.sort!
+dir_array.each do |dir|
+  if dir.include?('images') && @products[i].present?
+    product = Product.create! @products[i]
     puts "#{i + 1}. Product \"#{product.name}\" created"
     puts "Directory: #{dir}"
     images_to_attach = []
@@ -74,6 +78,7 @@ Dir.foreach(path) do |dir|
     i += 1
   end
 end
+
 
 puts "\nCreating shopping lists..."
 
