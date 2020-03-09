@@ -30,7 +30,7 @@
   <section class="myprofile-section">
     <h3 class="green-header">MY SHOPPING LISTS </h3>
     <table class="styled-table">
-      <% @shopping_lists.each do |shopping_list| %>
+      <% @shopping_lists.reject { |sl| sl.mark_as_done == false }.sort_by { |sl| sl.date }.reverse.each do |shopping_list| %>
         <tr>
           <td class="black"><em><%= shopping_list.date %></em></td>
           <td class="black bolder"><%= shopping_list.products.count %></td>
