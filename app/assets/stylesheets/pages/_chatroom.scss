@@ -1,12 +1,17 @@
-.chatrooms {
+// Chatroom Index Page
+
+.all-chatrooms {
   a {
     color: $gray;
     text-decoration: none;
   }
 }
 
-.community-threads {
+.all-community-threads {
   margin-top: 20px;
+  a:hover {
+    color: $brand-green;
+  }
 }
 
 .chatroom-heading {
@@ -17,7 +22,7 @@
   a {
     color: $brand-green;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 30px;
   }
 }
 
@@ -41,6 +46,8 @@
   }
 }
 
+// Chatroom Show Page
+
 .message-container {
   background-color: #F8F8F8;
   display: flex;
@@ -62,5 +69,35 @@
   }
   .user-message {
     margin-left: 5px;
+    span {
+      font-size: .8rem;
+    }
+    .message-content {
+      color: #565656;
+    }
   }
 }
+
+.chatroom {
+  height: 80vh;
+  overflow: scroll;
+  .sub-heading {
+    text-align: center;
+    background: #FFFFFF;
+    position: sticky;
+    top: 0;
+    padding: 8px 0;
+  }
+}
+
+.message_content {
+  position: sticky;
+  bottom: 0;
+  margin-top: 2px;
+
+}
+
+// #message_content {
+//   background: $brand-dark-green-background;
+//   color: $brand-green;
+// }

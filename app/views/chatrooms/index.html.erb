@@ -1,11 +1,11 @@
-<article class="chatrooms container">
+<article class="all-chatrooms container">
   <section class="chatroom-heading">
     <h4 class='sub-heading my-0'>COMMUNITY THREADS</h4>
     <%= link_to new_chatroom_path do %>
       <%= icon('fa', 'edit') %>
     <% end %>
   </section>
-  <section class="community-threads">
+  <section class="all-community-threads">
     <% @chatrooms.each do |chatroom| %>
       <%= link_to chatroom_path(chatroom) do %>
         <div class="community-thread">
