@@ -13,7 +13,7 @@
   </section>
   <section class="results-filter">
     <% if params[:gluten_free].nil? || params[:gluten_free] != "true" %>
-      <%= link_to products_path(query: params[:query], gluten_free: true, high_protein: params[:high_protein], low_cal: params[:low_cal]), method: :get do %>
+      <%= link_to products_path(query: params[:query], gluten_free: true, high_protein: params[:high_protein], low_cal: params[:low_cal]), method: :get, remote: true do %>
         <button class="filter-button">
           <icon class=filter-icon>🌾</icon>
           <span>Gluten-free</span>
