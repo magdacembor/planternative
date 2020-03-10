@@ -8,5 +8,4 @@ class Meal < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
-  has_one_attached :photo
 end
