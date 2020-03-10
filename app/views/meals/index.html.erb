@@ -3,7 +3,7 @@
     <% @meals.each do |meal| %>
       <%= link_to products_path(query: meal.name) do %>
         <% @image_url = meal.products.first.recipes.first.image_url %>
-        <div class="product-card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<% @image_url %> ')">
+        <div class="product-card meal-card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= @image_url %> ')">
           <%= meal.name %>
         </div>
       <% end %>
