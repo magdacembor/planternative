@@ -71,9 +71,9 @@
     <h4 class="sub-heading container">YOU MAY ALSO LIKE</h4>
 
     <% @products = Product.all.select { |product| product != @product && product.high_protein == @product.high_protein && product.gluten_free ==  @product.gluten_free && product.low_cal == @product.low_cal } %>
-    <% !@products.empty? ? @products = [ @products.sample ] : @products = [ Product.all.reject { |product| product == @product }.sample ] %>
+    <% @products = @products.any? ? [ @products.sample ] : [ Product.all.reject { |product| product == @product }.sample ] %>
 
-    <%= render 'product_card' %>
+    <%= render 'products/product_card' %>
   </section>
 </article>
 
