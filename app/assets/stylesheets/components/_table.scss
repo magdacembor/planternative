@@ -6,6 +6,9 @@
     display: flex;
     justify-content: space-between;
   }
+  a {
+    text-decoration: none;
+  }
 }
 .sl-table{
   .form-control.is-valid {
