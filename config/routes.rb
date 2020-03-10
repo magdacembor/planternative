@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [ :index, :show, :new, :create ] do
     resources :messages, only: :create
   end
-  get '/:nickname', to: 'pages#myprofile', as: :myprofile
+  resources :meals, only: :index
   patch 'shopping_lists/:id/mark_as_done', to: 'shopping_lists#mark_as_done', as: :mark_as_done
+  get '/:nickname', to: 'pages#myprofile', as: :myprofile
 end

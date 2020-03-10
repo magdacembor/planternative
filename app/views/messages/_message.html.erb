@@ -3,7 +3,7 @@
 <% else %>
   <%= cl_image_tag "default_avatar_yubqpb", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 <% end %>
-<section class="user-message">
+<section class="user-message" id="message-<%= message.id %>">
   <p><%= message.user.nickname %> · <span><%= distance_of_time_in_words_to_now(message.created_at) %></span></p>
   <p class='message-content'><%= message.content %></p>
 </section>
