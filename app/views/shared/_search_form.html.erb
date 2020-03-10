@@ -1,4 +1,3 @@
-
 <%= form_tag products_path, id: "form_id", method: :get do %>
   <div class="d-inline-block search-form">
     <%= text_field_tag :query,
@@ -12,7 +11,7 @@
   </div>
 <% end %>
 
-<ul id="results" style="display: none; z-index: 5; background-color: white; list-style: none;" class="list-group">
+<ul id="results" style="display: none; z-index: 5; background-color: white; list-style: none; width: 80%;" class="list-group">
 
 <script>
   const input = document.getElementById("query");
@@ -30,12 +29,10 @@
       } else {
         resultsUl.style.display = "";
       }
-      if (data.length === 0) {
-        resultsUl.innerHTML = "<li>No results found</li>";
-      } else {
+      if (data.length > 0) {
         const suggestedResults = data;
         suggestedResults.forEach((result) => {
-          resultsList += `<li>${result.name}</li>\n`;
+          resultsList += `<li>${result}</li>\n`;
           resultsUl.innerHTML = resultsList;
         });
       }

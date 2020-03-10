@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
   get "/autocomplete/:query", to: 'products#autocomplete', as: :autocomplete
+  get "/api/:query", to: 'products#api', as: :api
   get '/:nickname', to: 'pages#myprofile', as: :myprofile
-  patch 'shopping_lists/:id/mark_as_done', to: 'shopping_lists#mark_as_done', as: :mark_as_done
+  patch '/shopping_lists/:id/mark_as_done', to: 'shopping_lists#mark_as_done', as: :mark_as_done
 end
