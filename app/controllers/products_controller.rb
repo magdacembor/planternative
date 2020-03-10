@@ -2,6 +2,13 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
   before_action :find_product, only: [ :show, :edit, :update, :destroy ]
 
+  def autocomplete
+    @substitutions = Substitution.global_search(params[:query])
+    @products = @substitutions.map { |sub| sub.product }
+    @products = @products.uniq
+    render json: @products
+  end
+
   def index
     if params[:query].present?
       @substitutions = Substitution.global_search(params[:query])
