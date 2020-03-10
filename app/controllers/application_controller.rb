@@ -18,17 +18,9 @@ class ApplicationController < ActionController::Base
   end
 
   def user_location
-    # if json = JSON.parse(RestClient.get("http://ip-api.com/json"))
-      # Need a guard clause for in line 21 in case the API does not respond
-      # @user_location = Geocoder.search(json["query"]).first.coordinates || [ 51.5198, -0.0940 ]
-      # Line 25 TO BE TESTED IN PRODUCTION, remote_ip does not work in dev
-      @user_location = Geocoder.search(request.remote_ip).first.coordinates
-      if @user_location.empty?
-        @user_location = [ 51.5198, -0.0940 ]
-      end
-    # else
-      # Default user location in case the API fails
-      # @user_location = [ 51.5198, -0.0940 ]
-    # end
+    @user_location = Geocoder.search(request.remote_ip).first.coordinates
+    if @user_location.empty?
+      @user_location = [ 51.5198, -0.0940 ]
+    end
   end
 end
