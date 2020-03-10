@@ -6,9 +6,6 @@ class ReviewsController < ApplicationController
     @review.update(review_params)
     @review.user = current_user
     @review.product = @product
-    if @review.save
-      @review = Review.new
-    end
     @stores = @product.stores.geocoded
     @markers = @stores.map do |store|
       {
@@ -17,7 +14,12 @@ class ReviewsController < ApplicationController
         infoWindow: render_to_string(partial: "products/info_window", locals: { store: store })
       }
     end
-    render "products/show"
+    if @review.save
+      @review = Review.new
+      redirect_to product_path(@product)
+    else
+      render "products/show"
+    end
   end
 
   def destroy
