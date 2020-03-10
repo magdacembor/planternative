@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.5'
 
-gem 'bootsnap', require: false
+gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
@@ -12,7 +12,7 @@ gem 'pg_search', '~> 2.3.0'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
-gem 'sassc-rails'
+gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
@@ -21,6 +21,7 @@ gem 'cloudinary', '~> 1.12.0'
 gem "font-awesome-rails"
 gem 'geocoder'
 gem 'turbolinks_render'
+gem 'turbolinks', '~> 5.2.0'
 gem 'rest-client'
 
 group :development do

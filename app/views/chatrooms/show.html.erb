@@ -22,7 +22,7 @@
     </div>
   </article>
 
-  <%= simple_form_for [ @chatroom, @message ] do |f| %>
+  <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
     <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}", id: "submit-message" %>
   <% end %>
 </div>
