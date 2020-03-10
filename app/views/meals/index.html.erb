@@ -1,0 +1,10 @@
+<div class="products-container">
+  <div class="product-cards container">
+    <% @meals.each do |meal| %>
+      <% @image_url = meal.products.first.recipes.first.image_url %>
+      <div class="product-card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<% @image_url %> ')">
+        <%= meal.name %>
+      </div>
+    <% end %>
+  </div>
+</div>
