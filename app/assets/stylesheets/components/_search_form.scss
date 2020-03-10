@@ -1,22 +1,27 @@
 .search-form {
   position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 1px 1px 10px rgb(200,200,200);
   .search-form-button {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 52px;
     color: #FFFFFF;
     background: $brand-green;
-    border-radius: 8px;
     border: none;
+  }
+  .search-input {
+    width: 80vw;
+    background-color: $light-gray;
+    border: 1px solid $light-gray;
+    padding: 25px;
+    height: 40px;
+  }
+  i {
+    font-size: 22px;
   }
 }
 
-.search-input {
-  border-radius: 20px;
-  width: 80vw;
-  background-color: $light-gray;
-  border: 1px solid $light-gray;
-  padding: 25px;
-  box-shadow: 1px 1px 10px rgb(200,200,200);
-  height: 40px;
-}
