@@ -71,6 +71,12 @@
   }
 }
 
+.may-like{
+  .products-container {
+    padding-bottom: 101px;
+  }
+}
+
 @media (min-width: 550px) {
   .product-cards {
     grid-template-columns: 1fr 1fr;
@@ -80,12 +86,5 @@
 @media (min-width: 800px) {
   .product-cards {
     grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-
-.may-like{
-  .products-container {
-    padding-bottom: 101px;
   }
 }

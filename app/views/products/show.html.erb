@@ -88,18 +88,21 @@
       <%= render 'shared/review_form' %>
     <% end %>
   </section>
+</article>
 
-    <h4 class="sub-heading">YOU MAY ALSO LIKE</h4>
+<article class="may-like-container">
+  <section class="may-like">
+    <h4 class="sub-heading container">YOU MAY ALSO LIKE</h4>
 
+    <% @products = Product.all.select { |product| product != @product && product.high_protein == @product.high_protein && product.gluten_free ==  @product.gluten_free && product.low_cal == @product.low_cal } %>
+    <% !@products.empty? ? @products = [ @products.sample ] : @products = [ Product.all.reject { |product| product == @product }.sample ] %>
+
+    <%= render 'product_card' %>
+  </section>
 </article>
 
 
-<section class="product-review product-section may-like">
 
-  <% @products = Product.all.select { |product| product != @product && product.high_protein == @product.high_protein && product.gluten_free ==  @product.gluten_free && product.low_cal == @product.low_cal } %>
-  <% !@products.empty? ? @products = [ @products.sample ] : @products = [ Product.all.reject { |product| product == @product }.sample ] %>
 
-  <%= render 'product_card' %>
 
-</section>
 
