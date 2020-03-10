@@ -3,6 +3,7 @@
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 1px 1px 10px rgb(200,200,200);
+  border: none;
   .search-form-button {
     position: absolute;
     top: 0;
@@ -16,7 +17,7 @@
   .search-input {
     width: 80vw;
     background-color: $light-gray;
-    border: 1px solid $light-gray;
+    border:none;
     padding: 25px;
     height: 40px;
   }
