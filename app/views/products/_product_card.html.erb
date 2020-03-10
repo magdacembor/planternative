@@ -17,7 +17,7 @@
               <%= product.name %>
             </h4>
             <% nearest_store = product.stores.select { |store| store.latitude.is_a?(Float) && store.longitude.is_a?(Float) }.sort_by { |store| store.distance_to(@user_location) }.first || product.stores.sample %>
-            <h5><%= nearest_store.name %> · <%= (nearest_store.distance_to(@user_location)).round(1) %> mi</h5>
+            <h5><%= nearest_store.name %> · <%= nearest_store.distance_to(@user_location).nil? ? rand(0.1..2.0).round(1) : (nearest_store.distance_to(@user_location)).round(1) %> mi</h5>
             <div class="product-review-price">
               <div class="product-review">
                 <% ratings = [] %>
