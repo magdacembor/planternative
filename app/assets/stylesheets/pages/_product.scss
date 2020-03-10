@@ -48,11 +48,7 @@ h4.sub-heading {
 
 
 // Styling for content in tabs
-.product-tab {
-  margin-top: 15px;
-}
-
-.nav {
+.show-tabs {
   border-bottom: none;
   .nav-item{
     .nav-link{
@@ -66,3 +62,6 @@ h4.sub-heading {
   }
 }
 
+.product-tab {
+  margin-top: 15px;
+}
