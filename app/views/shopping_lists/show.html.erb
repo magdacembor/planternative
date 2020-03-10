@@ -2,35 +2,44 @@
   <h4 class="green-header">MY SHOPPING LIST</h4>
   <% if @shopping_list.quantities.empty? %>
     <div class="empty-list">
-      <p>It seems there are no pruducts in your shopping list</p>
+      <p>It seems there are no products in your shopping list</p>
       <p>
         <%= link_to 'Start browsing', products_path %>
       </p>
     </div>
   <% else %>
-    <table class="styled-table sl-table">
-      <th class="table-header">Product name</th>
-      <!-- <th class="table-header">Quantity</th> -->
-      <th class="table-header" style="padding-right: 43px;">Quantity</th>
-      <% @shopping_list.quantities.each do |quantity| %>
-        <tr>
-          <td class="black name-table"><%= quantity.product.name %></td>
-          <!-- <td class="black center"><%= quantity.quantity %></td> -->
-          <td>
-          <% if !@shopping_list.mark_as_done %>
-            <%= simple_form_for quantity, method: :patch do |f| %>
-              <div class="d-flex align-items-start" style="margin-left: 18px">
-              <%= f.input :quantity, input_html: { min: '0', style: 'width: 40px !important; padding: 14px !important; height : 40px !important' }, label: false %>
-              </div>
-            <% end %>
-          <% end %>
-          </td>
-          <td class="table-bin green-link"><%= link_to quantity_path(quantity), method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <%= icon("fa", "trash") %>
-          <% end %></td>
-        </tr>
-      <% end %>
-    </table>
+    <% if !@shopping_list.mark_as_done %>
+      <table class="styled-table sl-table">
+        <th class="table-header">Product name</th>
+        <th class="table-header" style="padding-right: 43px;">Quantity</th>
+        <% @shopping_list.quantities.each do |quantity| %>
+          <tr>
+            <td class="black name-table"><%= quantity.product.name %></td>
+            <td>
+              <%= simple_form_for quantity, method: :patch do |f| %>
+                <div class="d-flex align-items-start" style="margin-left: 18px">
+                <%= f.input :quantity, input_html: { min: '0', style: 'width: 40px !important; padding: 14px !important; height : 40px !important' }, label: false %>
+                </div>
+              <% end %>
+            </td>
+            <td class="table-bin green-link"><%= link_to quantity_path(quantity), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <%= icon("fa", "trash") %>
+            <% end %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <table class="styled-table sl-table">
+        <th class="table-header">Product name</th>
+        <th class="table-header" style="padding-right: 15px;">Quantity</th>
+        <% @shopping_list.quantities.each do |quantity| %>
+          <tr>
+            <td class="black name-table"><%= quantity.product.name %></td>
+            <td class="black center" style="padding-right: 30px;"><%= quantity.quantity %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
   <% end %>
 
   <br>
