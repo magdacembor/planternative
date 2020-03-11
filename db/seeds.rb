@@ -19,10 +19,46 @@ puts "Creating users..."
 
 ]
 
-@users.each_with_index do |user, i|
-  User.create!(user)
-  puts "#{i + 1}. User #{user[:email]} created"
+path = Rails.root.join('avatar_images').to_s
+i = 0
+dir_array = []
+Dir.foreach(path) do |dir|
+  next unless dir.match?(/(\d)/)
+  num = dir.match(/(\d)/)[1].to_i
+  dir_array << dir
 end
+dir_array.sort!
+dir_array.each do |dir|
+  if dir.include?('images') && @users[i].present?
+    user = User.create! @users[i]
+    puts "#{i + 1}. User \"#{user.nickname}\" created"
+    puts "Directory: #{dir}"
+    Dir.foreach(File.join(path, dir)) do |file|
+      if file.include?('.jpg')
+        puts "File: #{file}"
+        uploaded_file = Cloudinary::Uploader.upload(File.join(path, dir, file))
+        user.update!(avatar: { io: URI.open(uploaded_file['secure_url']), filename: file, content_type: 'image/jpg' })
+        puts 'Uploaded!'
+      elsif file.include?('.png')
+        puts "File: #{file}"
+        uploaded_file = Cloudinary::Uploader.upload(File.join(path, dir, file))
+        user.update!(avatar: { io: URI.open(uploaded_file['secure_url']), filename: file, content_type: 'image/png' })
+        puts 'Uploaded!'
+      end
+    end
+    # user.update!(avatar: images_to_attach)
+    puts "Avatar attached!"
+    i += 1
+  end
+end
+
+
+
+
+# @users.each_with_index do |user, i|
+#   User.create!(user)
+#   puts "#{i + 1}. User #{user[:email]} created"
+# end
 
 puts "\nCreating products..."
 
