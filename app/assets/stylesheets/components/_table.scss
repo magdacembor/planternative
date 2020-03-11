@@ -6,6 +6,9 @@
     display: flex;
     justify-content: space-between;
   }
+  tr.quantity-row {
+    border-bottom: none;
+  }
   a {
     text-decoration: none;
   }
@@ -32,9 +35,30 @@
   }
 }
 
-.name-table{
-  width: 60%;
-  display: flex;
-  align-items: center;
+.quantity_quantity {
+  width: 80px ;
+  #quantity_quantity {
+    text-align: center;
+    padding: 3px;
+  }
 }
 
+.quantity-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shopping-list-stores {
+  font-size: 13px;
+}
+
+.name-table{
+  width: 150px;
+}
+
+@media (min-width: 500px) {
+  .quantity-form {
+    width: 60px ;
+  }
+}
