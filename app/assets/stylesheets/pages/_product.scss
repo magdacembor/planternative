@@ -24,8 +24,12 @@ h4.sub-heading {
 }
 
 .product-review {
-  .rating-stars{
-    display:flex
+  .rating-stars {
+    display:flex;
+    i {
+      color: rgb(237, 184, 103);
+      font-size: 18px;
+    }
   }
   h6 {
     color: #5A5A5A;

@@ -56,7 +56,7 @@
         <div class="stars-nickname">
           <div class="rating-stars">
             <% review.rating.times do %>
-              <span>⭐</span>
+              <%= icon("fa", "star") %>
             <% end %>
           </div>
           <i><%= review.user.nickname %></i>
