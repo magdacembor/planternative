@@ -10,3 +10,32 @@
     <% end %>
   </div>
 <% end %>
+
+<ul id="results" style="display: none; z-index: 5; background-color: white; list-style: none; width: 80%;" class="list-group">
+
+<script>
+  const input = document.getElementById("query");
+  input.addEventListener("keyup", (event) => {
+  const resultsUl = document.getElementById("results");
+  resultsUl.innerHTML = "";
+  const searchString = event.currentTarget.value;
+  const url = `autocomplete/${searchString}`;
+  fetch(url)
+    .then(response => response.json())
+    .then((data) => {
+      let resultsList = "";
+      if (searchString === "") {
+        resultsUl.style.display = "none";
+      } else {
+        resultsUl.style.display = "";
+      }
+      if (data.length > 0) {
+        const suggestedResults = data;
+        suggestedResults.forEach((result) => {
+          resultsList += `<li>${result}</li>\n`;
+          resultsUl.innerHTML = resultsList;
+        });
+      }
+    });
+  });
+</script>

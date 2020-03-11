@@ -1,6 +1,30 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: [ :index, :show, :autocomplete, :api ]
   before_action :find_product, only: [ :show, :edit, :update, :destroy ]
+
+  def autocomplete
+    @substitutions = Substitution.global_search(params[:query])
+    @results = []
+    @substitutions.each do |sub|
+        @results << sub.product.name if sub.product.name.match(/#{params[:query]}/i)
+        @results << sub.meal.name if sub.meal.name.match(/#{params[:query]}/i)
+    end
+    @results = @results.uniq
+    render json: @results
+  end
+
+  def api
+    @substitutions = Substitution.global_search(params[:query])
+    @results = @substitutions.map do |sub|
+        {
+          product: sub.product,
+          meal: sub.meal,
+          recipes: sub.product.recipes
+        }
+    end
+    @results = @results.uniq
+    render json: @results
+  end
 
   def index
     if params[:query].present?
