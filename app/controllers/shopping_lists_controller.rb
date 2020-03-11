@@ -1,5 +1,5 @@
 class ShoppingListsController < ApplicationController
-  before_action :find_list, only: [ :show, :update, :destroy, :mark_as_done ]
+  before_action :find_list, only: [ :show, :update, :destroy, :mark_as_done, :send_list ]
 
   def show;  end
 
@@ -23,6 +23,11 @@ class ShoppingListsController < ApplicationController
     @shopping_list.save
 
     redirect_to myprofile_path(current_user)
+  end
+
+  def send_list
+    ShoppingListMailer.with(shopping_list: @shopping_list).shopping_list.deliver_now
+    redirect_to shopping_list_path(@shopping_list), notice: "Email sent"
   end
 
   def destroy
