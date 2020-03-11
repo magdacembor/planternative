@@ -69,6 +69,21 @@
     display: flex;
     justify-content: space-between;
   }
+  .meal-card {
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: bolder;
+    font-family: "Nunito", "Helvetica", "sans-serif";
+  }
+}
+
+.may-like{
+  .products-container {
+    padding-bottom: 101px;
+  }
 }
 
 @media (min-width: 550px) {
@@ -80,12 +95,5 @@
 @media (min-width: 800px) {
   .product-cards {
     grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-
-.may-like{
-  .products-container {
-    padding-bottom: 101px;
   }
 }

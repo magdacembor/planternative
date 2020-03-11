@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [ :index, :show, :new, :create ] do
     resources :messages, only: :create
   end
+  resources :meals, only: :index
   get "/autocomplete/:query", to: 'products#autocomplete', as: :autocomplete
   get "/api/:query", to: 'products#api', as: :api
   get '/:nickname', to: 'pages#myprofile', as: :myprofile

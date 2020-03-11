@@ -15,7 +15,7 @@ before_action :find_quantity, only: [ :update, :destroy ]
       @quantity.shopping_list = @shopping_list
     end
     if @quantity.save
-      redirect_to product_path(@product), notice: "Product added"
+      redirect_to product_path(@product), notice: "#{@product.name} added to your list"
     else
       redirect_to product_path(@product), alert: "Quantity must be more than 0"
     end

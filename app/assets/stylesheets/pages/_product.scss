@@ -45,3 +45,23 @@ h4.sub-heading {
     margin-left: 10px;
   }
 }
+
+
+// Styling for content in tabs
+.show-tabs {
+  border-bottom: none;
+  .nav-item{
+    .nav-link{
+      color: #888888;
+    }
+    .active{
+      color: #888888;
+      border: none;
+      border-bottom: 2px solid #8FB171;
+    }
+  }
+}
+
+.product-tab {
+  margin-top: 15px;
+}
