@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
     @substitutions = Substitution.global_search(params[:query])
     @results = @substitutions.map do |sub|
         {
+          substitution: sub.name,
           product: sub.product,
           meal: sub.meal,
           recipes: sub.product.recipes
