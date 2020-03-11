@@ -1,41 +1,15 @@
-<%= form_tag products_path, id: "form_id", method: :get do %>
-  <div class="d-inline-block search-form">
-    <%= text_field_tag :query,
-      params[:query],
-      class: "search-input",
-      placeholder: "Find a product"
-    %>
-    <%= button_tag(type: "submit", class: "search-form-button") do %>
-      <i class="fa fa-search icon"></i>
-    <% end %>
-  </div>
-<% end %>
-
-<ul id="results" style="display: none; z-index: 5; background-color: white; list-style: none; width: 80%;" class="list-group">
-
-<script>
-  const input = document.getElementById("query");
-  input.addEventListener("keyup", (event) => {
-  const resultsUl = document.getElementById("results");
-  resultsUl.innerHTML = "";
-  const searchString = event.currentTarget.value;
-  const url = `autocomplete/${searchString}`;
-  fetch(url)
-    .then(response => response.json())
-    .then((data) => {
-      let resultsList = "";
-      if (searchString === "") {
-        resultsUl.style.display = "none";
-      } else {
-        resultsUl.style.display = "";
-      }
-      if (data.length > 0) {
-        const suggestedResults = data;
-        suggestedResults.forEach((result) => {
-          resultsList += `<li>${result}</li>\n`;
-          resultsUl.innerHTML = resultsList;
-        });
-      }
-    });
-  });
-</script>
+<div style="position: relative;">
+  <%= form_tag products_path, id: "form_id", method: :get do %>
+    <div class="d-inline-block search-form">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "search-input",
+        placeholder: "Find a product"
+      %>
+      <%= button_tag(type: "submit", class: "search-form-button") do %>
+        <i class="fa fa-search icon"></i>
+      <% end %>
+    </div>
+  <% end %>
+  <div id="autocomplete-suggestions"></div>
+</div>
