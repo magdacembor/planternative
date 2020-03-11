@@ -1,5 +1,6 @@
-<div class="products-container">
-  <div class="product-cards container">
+<article class="products-container">
+  <section class="product-cards container">
+    <h2>All Meals</h2>
     <% @meals.each do |meal| %>
       <%= link_to products_path(query: meal.name) do %>
         <% @image_url = meal.products.first.recipes.first.image_url %>
@@ -8,5 +9,5 @@
         </div>
       <% end %>
     <% end %>
-  </div>
-</div>
+  </section>
+</article>
