@@ -2,6 +2,8 @@ require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
+require("trix")
+require("@rails/actiontext")
 
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
@@ -13,7 +15,7 @@ document.addEventListener('turbolinks:load', () => {
   smoothScroll();
   initMapbox();
   initAutocomplete();
-  const messageChatroom = document.getElementById("message_content");
+  const messageChatroom = document.getElementById("submit-message");
 
   if (messageChatroom) {
     messageChatroom.addEventListener('keydown', (e) => {
@@ -25,5 +27,3 @@ document.addEventListener('turbolinks:load', () => {
   }
 });
 
-require("trix")
-require("@rails/actiontext")
