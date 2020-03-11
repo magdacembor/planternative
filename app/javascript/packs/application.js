@@ -10,6 +10,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 
 
 document.addEventListener('turbolinks:load', () => {
+  const collapsible = document.querySelectorAll(".collapsible");
   smoothScroll();
   initMapbox();
   initAutocomplete();
@@ -23,4 +24,16 @@ document.addEventListener('turbolinks:load', () => {
       }
     });
   }
-});
+  collapsible.forEach(event => {
+    event.addEventListener("click", function() {
+      this.classList.toggle("active");
+      let content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  })
+}); // End Turbolink
+
