@@ -7,13 +7,14 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { smoothScroll } from '../plugins/init_scroll';
 import { initAutocomplete } from '../plugins/init_autocomplete';
-
+import { initStarRating } from '../plugins/init_star_rating';
 
 document.addEventListener('turbolinks:load', () => {
   const collapsible = document.querySelectorAll(".collapsible");
   smoothScroll();
   initMapbox();
   initAutocomplete();
+  initStarRating();
   const messageChatroom = document.getElementById("message_content");
 
   if (messageChatroom) {

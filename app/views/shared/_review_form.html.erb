@@ -1,5 +1,5 @@
 <%= simple_form_for [ @product, @review ], method: :post, remote: true do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :content %>
+  <%= f.input :rating, collection: (1..5).to_a, label: "Rate this item" %>
+  <%= f.input :content, label: "Leave your comment here" %>
   <%= f.submit label: "Add Review", class: "review-button" %>
 <% end %>
