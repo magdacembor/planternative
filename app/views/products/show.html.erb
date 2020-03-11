@@ -24,15 +24,10 @@
 
 </article>
 
-
-<div id="map" class="product-map"
-
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
+<div id="map" class="product-map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
  <article class="container">
+
   <%= render 'products/product_show_tabs' %>
 
   <section class="product-review product-section">
@@ -63,8 +58,7 @@
     <% end %>
   </section>
 
- </article>
-
+</article>
 
 <article class="may-like-container">
   <section class="may-like">
@@ -73,12 +67,11 @@
     <% @products = Product.all.select { |product| product != @product && product.high_protein == @product.high_protein && product.gluten_free ==  @product.gluten_free && product.low_cal == @product.low_cal } %>
     <% @products = @products.any? ? [ @products.sample ] : [ Product.all.reject { |product| product == @product }.sample ] %>
 
-    <%= render 'products/product_card' %>
+    <%= render '/products/product_card' %>
+
+    <% @recipes = @product.recipes.any? ? [ @product.recipes.sample ] : [ Recipe.all.sample ] %>
+
+    <%= render '/shared/recipe_card' %>
+
   </section>
 </article>
-
-
-
-
-
-
