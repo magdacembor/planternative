@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
     @substitutions = Substitution.global_search(params[:query])
     @results = []
     @substitutions.each do |sub|
+        @results << sub.name if sub.name.match(/#{params[:query]}/i)
         @results << sub.product.name if sub.product.name.match(/#{params[:query]}/i)
         @results << sub.meal.name if sub.meal.name.match(/#{params[:query]}/i)
     end
@@ -17,6 +18,7 @@ class ProductsController < ApplicationController
     @substitutions = Substitution.global_search(params[:query])
     @results = @substitutions.map do |sub|
         {
+          substitution: sub.name,
           product: sub.product,
           meal: sub.meal,
           recipes: sub.product.recipes

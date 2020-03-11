@@ -6,10 +6,13 @@ require("channels");
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { smoothScroll } from '../plugins/init_scroll';
+import { initAutocomplete } from '../plugins/init_autocomplete';
+
 
 document.addEventListener('turbolinks:load', () => {
   smoothScroll();
   initMapbox();
+  initAutocomplete();
   const messageChatroom = document.getElementById("message_content");
 
   if (messageChatroom) {
@@ -20,17 +23,4 @@ document.addEventListener('turbolinks:load', () => {
       }
     });
   }
-
-//   if (localStorage['scroll']) {
-//     window.scroll({ top: localStorage['scroll'] })
-//   }
-//   window.addEventListener('scroll', () => {
-//     localStorage['scroll'] = window.scrollY;
-// // console.log(localStorage['scroll'])
-// console.log(window.scrollY)
-//   });
-
-
-
-}); // End Torbolink
-
+});
