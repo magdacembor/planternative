@@ -23,7 +23,6 @@ const initAutocomplete = () => {
             resultsList += `<div class="autocomplete-suggestion">${result}</div>\n`;
             resultsList += `</a>\n`;
             resultsDiv.innerHTML = resultsList;
-            console.log(location.pathname);
           });
         }
       });
