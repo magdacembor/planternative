@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     resources :quantities, only: :create
   end
   resources :quantities, only: [ :update, :destroy ]
-  resources :shopping_lists, only: [:show, :update, :destroy, :create]
+  resources :shopping_lists, only: [:show, :update, :destroy, :create] do
+    member do
+      post :send_list
+    end
+  end
   resources :reviews, only: :destroy
   resources :chatrooms, only: [ :index, :show, :new, :create ] do
     resources :messages, only: :create

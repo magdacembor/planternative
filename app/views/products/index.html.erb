@@ -8,7 +8,7 @@
       <h2><strong><%= @products.count %></strong> results for <strong><%= params[:query] %></strong></h2>
     <% end %>
     <% if @products&.empty? %>
-      <h2>Sorry! We haven't found any products that match your criteria (yet!)</h2>
+      <h6 id="no-products-header">Sorry! We haven't found any products that match your criteria (yet!)</h6>
     <% end %>
   </section>
   <section class="results-filter">
