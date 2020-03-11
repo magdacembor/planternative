@@ -30,14 +30,21 @@
           <tr>
             <td class='shopping-list-stores'>
               <% nearest_store = quantity.product.stores.select { |store| store.latitude.is_a?(Float) && store.longitude.is_a?(Float) }.sort_by { |store| store.distance_to(@user_location) }.first || quantity.product.stores.sample %>
-              <p>Nearest to you</p>
-              <p><%= nearest_store.name %>, <%= nearest_store.address %></p>
-              <p>See more...</p>
-              <% remaining_stores = quantity.product.stores.reject { |store| store == nearest_store } %>
-              <% remaining_stores.each do |remaining_store| %>
-                <%= remaining_store.name %>, <%= remaining_store.address %>
-                <br>
-              <% end %>
+              <p><%= nearest_store.name %> · <%= nearest_store.address.split(",").first %></p>
+              <div class="collapsible-tray">
+                <p class="collapsible">See more locations <%= icon("fa", "chevron-circle-down") %></p>
+                <div class="content">
+                  <% remaining_stores = quantity.product.stores.reject { |store| store == nearest_store } %>
+                  <% if remaining_stores.any? %>
+                    <% remaining_stores.each do |remaining_store| %>
+                      <%= remaining_store.name %> · <%= remaining_store.address.split(",").first %>
+                      <br>
+                    <% end %>
+                  <% else %>
+                    <p>This item is only available in <%= nearest_store.name %>.</p>
+                  <% end %>
+                </div>
+              </div>
             </td>
           </tr>
         <% end %>
@@ -83,10 +90,10 @@
 </div>
 
 
-<% if @shopping_list.mark_as_done == false %>
-  <footer class="results-footer-sl">
-    <%= link_to mark_as_done_path(@shopping_list), method: :patch do %>
-      <button type="button" class="quantity-button-sl">Mark this list as complete</button>
-    <% end %>
-  </footer>
+  <% if @shopping_list.mark_as_done == false %>
+    <footer class="results-footer-sl">
+      <%= link_to mark_as_done_path(@shopping_list), method: :patch do %>
+        <button type="button" class="quantity-button-sl">Mark this list as complete</button>
+    </footer>
+  <% end %>
 <% end %>

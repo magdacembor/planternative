@@ -1,3 +1,41 @@
 .shopping-list-page {
   min-height: calc(100vh - 315px);
+  th {
+    font-weight: bolder;
+  }
+}
+
+.collapsible-tray{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .collapsible {
+    cursor: pointer;
+    border: none;
+    outline: none;
+
+    border-bottom: none;
+    i {
+      color: $brand-green;
+    }
+  }
+  .content {
+    display: block;
+    overflow: hidden;
+    color: rgb(150,150,150);
+    border-radius: 2px;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+  }
+}
+
+.shopping-list-stores {
+  font-size: 13px;
+  p {
+    margin-bottom: 3px;
+  }
+}
+
+.active, .collapsible:hover {
+  // border-bottom: 2px solid $brand-green;
 }

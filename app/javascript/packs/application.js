@@ -6,8 +6,9 @@ require("channels");
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { smoothScroll } from '../plugins/init_scroll';
-
+console.log('hello');
 document.addEventListener('turbolinks:load', () => {
+  const coll = document.querySelectorAll(".collapsible");
   smoothScroll();
   initMapbox();
   const messageChatroom = document.getElementById("message_content");
@@ -20,17 +21,17 @@ document.addEventListener('turbolinks:load', () => {
       }
     });
   }
+  coll.forEach(thing => {
+    thing.addEventListener("click", function() {
+      this.classList.toggle("active");
+      let content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
 
-//   if (localStorage['scroll']) {
-//     window.scroll({ top: localStorage['scroll'] })
-//   }
-//   window.addEventListener('scroll', () => {
-//     localStorage['scroll'] = window.scrollY;
-// // console.log(localStorage['scroll'])
-// console.log(window.scrollY)
-//   });
-
-
-
-}); // End Torbolink
+  })
+}); // End Turbolink
 
