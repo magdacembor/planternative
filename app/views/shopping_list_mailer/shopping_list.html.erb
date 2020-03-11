@@ -1,5 +1,39 @@
-<h1>ShoppingList#shopping_list</h1>
+<div class="container">
+  <h2>Your planternative list from <%= @shopping_list.date.strftime("%b. %d %Y") %></h2>
 
-<p>
-  <%= @shopping_list %>, find me in app/views/shopping_list_mailer/shopping_list.html.erb
-</p>
+  <table style="">
+    <th class="">Product name</th>
+    <th class="" style="padding-right: 15px;">Quantity</th>
+    <% @shopping_list.quantities.each do |quantity| %>
+      <tr>
+        <td class=""><%= quantity.product.name %></td>
+        <td class="" style="padding-right: 30px;"><%= quantity.quantity %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <h4 class="green-header">LIST ECO-SCORE</h4>
+  <section class="my-eco-score">
+    <% water = 0 %>
+    <% energy = 0 %>
+    <% @shopping_list.quantities.each do |q| %>
+      <% water += q.product.water_saved * q.quantity %>
+      <% energy += q.product.energy_saved * q.quantity %>
+    <% end %>
+    <div class="eco-score">
+      <div class="emoji"><p id="drop">💧</p></div>
+      <div class="sum-saved">
+        <h5 class="black"> <strong> <%= water %> L </strong></h5>
+        <p> of water </p>
+      </div>
+    </div>
+    <div class="eco-score">
+      <div class="emoji"><p>✈️</p></div>
+      <div class="sum-saved">
+        <h5 class="black"> <strong> <%= energy %> kg </strong></h5>
+        <p> of CO2 </p>
+      </div>
+    </div>
+  </section>
+
+</div>

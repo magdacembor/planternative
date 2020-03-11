@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 
 puts "Creating users..."
 
@@ -16,6 +8,8 @@ puts "Creating users..."
   { email: "sarah@gmail.com", first_name: "Sarah", last_name: "Williams", password: "User1234", nickname: "sarah" },
   { email: "alex@gmail.com", first_name: "Alex", last_name: "Baker", password: "User1234", nickname: "alex" },
   { email: "phoebe@gmail.com", first_name: "Phoebe", last_name: "Yu", password: "User1234", nickname: "phoebe" }
+  { email: "anna@gmail.com", first_name: "Anna", last_name: "Green", password: "User1234", nickname: "anna" }
+  { email: "simon@gmail.com", first_name: "Simon", last_name: "Lee", password: "User1234", nickname: "simon" }
 
 ]
 
@@ -46,7 +40,6 @@ dir_array.each do |dir|
         puts 'Uploaded!'
       end
     end
-    # user.update!(avatar: images_to_attach)
     puts "Avatar attached!"
     i += 1
   end
@@ -54,31 +47,26 @@ end
 
 
 
-
-# @users.each_with_index do |user, i|
-#   User.create!(user)
-#   puts "#{i + 1}. User #{user[:email]} created"
-# end
-
 puts "\nCreating products..."
 
 @products = [
 
   { name: "This Isn't Bacon", price_range: "££", low_cal: false, high_protein: true, gluten_free: true, description: "Ready-to-cook, (ridiculously) high in protein, fortified with vitamin B12 & iron 120g.", ingredients: "Water, Soy Protein Concentrate (22%), Soy Protein Isolate (7%), Flavouring, Pea Protein Isolate (4%), Vegetable Extracts (Radish, Carrot, Paprika), Potato Starch, Salt, Rapeseed Oil, Maltodextrin, Iron, Vitamin B12.", protein_per_100g: 24.5, fat_per_100g: 1.2, calories_per_100g: 152, carbs_per_100g: 10.6, user_id: 1, water_saved: 342, energy_saved: 2.24 },
-  { name: "This Isn't Chicken", price_range: "££", low_cal: false, high_protein: true, gluten_free: false, description: "Ready-to-cook, (ridiculously) high in protein, fortified with vitamin B12 & iron 140g.", ingredients: "Water, Soy Protein Concentrate (28%), Canola Oil, Rotisserie Seasoning [Rotisserie Seasoning contains: Dark Brown Sugar, Sugar, Yeast Extract Powder, Maltodextrin, Garlic Powder, Onion Powder, Natural Flavouring, Cornflour (Maize Starch), Burnt Sugar, Spice (Black Pepper), Citric Acid, Smoked Salt], Flavouring, Pea Protein Isolate (2%), Potato Starch, Pea Fibre (1%), Maltodextrin, Salt, Iron, Vitamin B12.", protein_per_100g: 21.8, fat_per_100g: 5.5, calories_per_100g: 163, carbs_per_100g: 5.5, user_id: 1, water_saved: 83.6, energy_saved: 1.64 },
-  { name: "Seamore I Sea Seaweed Bacon", price_range: "£££", low_cal: false, high_protein: true, gluten_free: true, description: "I sea bacon is 100% organic seaweed that turns into (green) bacon when fried. Handpicked and sustainably harvested in France. Put it on anything that deserves a crunchy, salty, smoky kick or use the soaked soft leaves as a flavor boost in salads, pastas or anything else. Great for your taste buds, health and the planet. Eat yourself happy.", ingredients: "Dried organic seaweed (Palmaria Palmata)", protein_per_100g: 14.3, fat_per_100g: 0.1, calories_per_100g: 229, carbs_per_100g: 21.2, user_id: 1, water_saved: 342, energy_saved: 1.64 },
   { name: "Tofurky Smoky Maple Bacon Tempeh", price_range: "£££", low_cal: false, high_protein: true, gluten_free: false, description: "Meet tofu's weird-but-cool cousin, tempeh. It gets along great with a tasty marinade, like this smoky maple bacon style sauce. We call it Treehouse Tempeh in honour of our fearless founder, Seth, who lived in a treehouse during his early tempeh-making days. Look it up!", ingredients: "Water, Organic Soybeans (38%), Soy Sauce (Water, Soybeans, Wheat, Salt), Molasses, Maple Syrup, Natural Flavours, Autolyzed Yeast Extract, Sea Salt, Natural Smoke Flavour, Organic Apple Cider Vinegar, Starter Culture: (Rhizopus Oligosporus)", protein_per_100g: 15.0, fat_per_100g: 5.5, calories_per_100g: 174, carbs_per_100g: 14.0, user_id: 1, water_saved: 342, energy_saved: 1.54 },
-  { name: "Vegideli Cheatin' Vegan Bacon", price_range: "££", low_cal: false, high_protein: true, gluten_free: false, description: "The Red Wood Co Streaky Style Meat Free Cheatin' Rashers. A delicious blend of wheat gluten, soya & vegetable oil.", ingredients: "Water, Wheat Gluten, Soya Protein, Non-Hydrogenated Vegetable Fat (Sustainable Palm), Textured Wheat Protein, Potato Starch, Salt, Dried Yeast, Sugar, Natural Flavourings, Thickeners: Carrageenan, Preservative: Potassium Sorbate, Onion Powder, Colour: Iron Oxide", protein_per_100g: 25.8, fat_per_100g: 7.8, calories_per_100g: 196, carbs_per_100g: 6.1, user_id: 1, water_saved: 330, energy_saved: 1.8 },
-  { name: "Quorn Ultimate Burger", price_range: "££", low_cal: true, high_protein: true, gluten_free: false, description: "Meat free masterpiece is BIG. A vegan, gourmet, thick cut quarter pounder, which is succulent with the juice of beets for mouth-watering deliciousness. Grills just like a regular burger and sizzles on a BBQ, how will you eat your vegan Ultimate Burger?", ingredients: "Water, Textured Proteins (Wheat Gluten, Pea Protein, Wheat Starch, Wheat Flour, Pea Protein Isolate), Vegetable Oils (Sunflower, Palm, Coconut), Mycoprotein (10%), Natural Flavouring, Red Beet Juice (4%) (Red Beet, Lemon Juice Concentrate), Stabiliser: Methylcellulose; Potato Protein, Barley Malt Extract.", protein_per_100g: 21, fat_per_100g: 14, calories_per_100g: 255, carbs_per_100g: 10, user_id: 2, water_saved: 1588, energy_saved: 23 },
-  { name: "Quorn Breaded Fishless Fillets", price_range: "££", low_cal: true, high_protein: true, gluten_free: false, description: "Breaded Fishless Fillets, with a lemon and pepper breadcrumb, are an ideal mid-week vegan meal option that the whole family will love. Serve simply with crispy wedges or roasted potatoes seasoned with parsley, and a side of minted peas.", ingredients: "Rice Flake (Rice, Emulsifier: Sodium Alginate), Wheat Flour (Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamine), Mycoprotein (13%), Water, Rapeseed Oil, Natural Flavouring, Wheat Starch, Thickener: Methyl Cellulose; Salt, Yeast, Black Pepper (0.3%), Citric Acid, Natural Lemon Flavouring (0.02%), Flavouring.", protein_per_100g: 4.5, fat_per_100g: 2.8, calories_per_100g: 181, carbs_per_100g: 32, user_id: 2, water_saved: 480, energy_saved: 2.2 },
-  { name: "Quorn Vegan Nuggets", price_range: "£", low_cal: true, high_protein: true, gluten_free: false, description: "Quorn's Vegan Nuggets for a protein-rich meal that will leave you wanting seconds. Crunchy, dippable and perfect for the whole family.", ingredients: "Mycoprotein (53%), Wheat Flour (contains added Calcium, Iron, Niacin & Thiamine), Water, Sunflower Oil, Wheat Starch, Potato Protein, Pea Fibre, Firming Agents: Calcium Chloride, Calcium Acetate; Wheat Semolina, Natural Flavouring, Wheat Gluten, Salt, Yeast, Sage & Sage Extract, Stabilisers: Carrageenan, Sodium Alginate; Onion Powder, Garlic Powder, White Pepper, Onion Extract, Colour: Paprika Extract; Raising Agent: Ammonium Bicarbonate.", protein_per_100g: 12, fat_per_100g: 3.1, calories_per_100g: 204, carbs_per_100g: 26, user_id: 3, water_saved: 234, energy_saved: 4.72 },
-  { name: "Quorn Crunchy Tex-Mex Nuggets", price_range: "££", low_cal: false, high_protein: true, gluten_free: false, description: "These Vegan Crunchy Tex Mex Nuggets have a spicy breadcrumb coating and make a deliciously easy vegan meal. Whether a quick mid-week dinner, after school snack for the kids or as finger food for a party, these delicious nuggets are simply irresistible. Serve simply with crunchy vegetables and dips or wrap with salad in a soft tortilla.", ingredients: "Mycoprotein (52%), Wheat Flour (Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamine), Water, Rapeseed Oil, Quinoa (3%), Whole Barley Flakes (2%), Potato Protein, Oats (1%), Linseed (1%), Maize Starch, Firming Agents: Calcium Chloride, Calcium Acetate; Spices (Paprika, Turmeric, Cayenne Chilli, Black Pepper, White Pepper), Flavourings, Wheat Gluten, Pea Fibre, Yeast, Salt, Garlic Powder, Onion Powder, Yeast Extract, Malt Vinegar Powder (Barley), Acid: Citric Acid; Sugar, Dried Garlic, Spirit Vinegar Powder, Parsley, Colour: Paprika Extract.", protein_per_100g: 11, fat_per_100g: 11, calories_per_100g: 239, carbs_per_100g: 21, user_id: 1, water_saved: 166, energy_saved: 3.28 },
   { name: "Birds Eye Meat Free Swedish Style Balls", price_range: "£", low_cal: false, high_protein: true, gluten_free: false, description: "All Natural Plant Power. Take all the protein goodness from the dried peas Then add delicious herbs and spices", ingredients: "Rehydrated Pea Protein (63%), Rapeseed Oil, Red Onion, Apple Fibre, Pea Flour, Natural Flavourings, Stabiliser (Methylcellulose), Tomato Paste, Garlic Powder, Herbs, Barley Malt Extract, Black Pepper, Pea Fibre, Wholegrain Oat Flour, Potato Starch, Salt, Antioxidant (Extract of Rosemary), Tomato Powder, Mushroom Powder, Onion Powder", protein_per_100g: 16, fat_per_100g: 15, calories_per_100g: 236, carbs_per_100g: 6.8, user_id: 1, water_saved: 1450, energy_saved: 2.8 },
+  { name: "Quorn Ultimate Burger", price_range: "££", low_cal: true, high_protein: true, gluten_free: false, description: "Meat free masterpiece is BIG. A vegan, gourmet, thick cut quarter pounder, which is succulent with the juice of beets for mouth-watering deliciousness. Grills just like a regular burger and sizzles on a BBQ, how will you eat your vegan Ultimate Burger?", ingredients: "Water, Textured Proteins (Wheat Gluten, Pea Protein, Wheat Starch, Wheat Flour, Pea Protein Isolate), Vegetable Oils (Sunflower, Palm, Coconut), Mycoprotein (10%), Natural Flavouring, Red Beet Juice (4%) (Red Beet, Lemon Juice Concentrate), Stabiliser: Methylcellulose; Potato Protein, Barley Malt Extract.", protein_per_100g: 21, fat_per_100g: 14, calories_per_100g: 255, carbs_per_100g: 10, user_id: 2, water_saved: 1588, energy_saved: 23 },
+  { name: "Seamore I Sea Seaweed Bacon", price_range: "£££", low_cal: false, high_protein: true, gluten_free: true, description: "I sea bacon is 100% organic seaweed that turns into (green) bacon when fried. Handpicked and sustainably harvested in France. Put it on anything that deserves a crunchy, salty, smoky kick or use the soaked soft leaves as a flavor boost in salads, pastas or anything else. Great for your taste buds, health and the planet. Eat yourself happy.", ingredients: "Dried organic seaweed (Palmaria Palmata)", protein_per_100g: 14.3, fat_per_100g: 0.1, calories_per_100g: 229, carbs_per_100g: 21.2, user_id: 1, water_saved: 342, energy_saved: 1.64 },
+  { name: "Alpro Longlife Soya Cream Alternative", price_range: "£", low_cal: false, high_protein: false, gluten_free: true, description: "With coconut oil and vitamin B12, Free from dairy, soya, gluten, lactose, nuts and preservatives", ingredients: "Water, Starch, Modified Starch*, Coconut Oil (17%), Sea Salt, Rice Protein, Flavourings, Olive Extract, Colour: B-Carotene, Vitamin B12", protein_per_100g: 1.6, fat_per_100g: 17, calories_per_100g: 279, carbs_per_100g: 30, user_id: 3, water_saved: 154, energy_saved: 0.55 },
+  { name: "Quorn Breaded Fishless Fillets", price_range: "££", low_cal: true, high_protein: true, gluten_free: false, description: "Breaded Fishless Fillets, with a lemon and pepper breadcrumb, are an ideal mid-week vegan meal option that the whole family will love. Serve simply with crispy wedges or roasted potatoes seasoned with parsley, and a side of minted peas.", ingredients: "Rice Flake (Rice, Emulsifier: Sodium Alginate), Wheat Flour (Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamine), Mycoprotein (13%), Water, Rapeseed Oil, Natural Flavouring, Wheat Starch, Thickener: Methyl Cellulose; Salt, Yeast, Black Pepper (0.3%), Citric Acid, Natural Lemon Flavouring (0.02%), Flavouring.", protein_per_100g: 4.5, fat_per_100g: 2.8, calories_per_100g: 181, carbs_per_100g: 32, user_id: 2, water_saved: 480, energy_saved: 2.2 },
+  { name: "This Isn't Chicken", price_range: "££", low_cal: false, high_protein: true, gluten_free: false, description: "Ready-to-cook, (ridiculously) high in protein, fortified with vitamin B12 & iron 140g.", ingredients: "Water, Soy Protein Concentrate (28%), Canola Oil, Rotisserie Seasoning [Rotisserie Seasoning contains: Dark Brown Sugar, Sugar, Yeast Extract Powder, Maltodextrin, Garlic Powder, Onion Powder, Natural Flavouring, Cornflour (Maize Starch), Burnt Sugar, Spice (Black Pepper), Citric Acid, Smoked Salt], Flavouring, Pea Protein Isolate (2%), Potato Starch, Pea Fibre (1%), Maltodextrin, Salt, Iron, Vitamin B12.", protein_per_100g: 21.8, fat_per_100g: 5.5, calories_per_100g: 163, carbs_per_100g: 5.5, user_id: 1, water_saved: 83.6, energy_saved: 1.64 },
+  { name: "Violife Non-Dairy Parmesan", price_range: "£££", low_cal: false, high_protein: false, gluten_free: true, description: "All Natural Plant Power We pick selected peas from fields Take all the protein goodness* from the dried peas Then add delicious herbs and spices", ingredients: "Rehydrated Pea Protein (63%), Rapeseed Oil, Red Onion, Apple Fibre, Pea Flour, Natural Flavourings, Stabiliser (Methylcellulose), Tomato Paste, Garlic Powder, Herbs, Barley Malt Extract, Black Pepper, Pea Fibre, Wholegrain Oat Flour, Potato Starch, Salt, Antioxidant (Extract of Rosemary), Tomato Powder, Mushroom Powder, Onion Powder", protein_per_100g: 16, fat_per_100g: 15, calories_per_100g: 236, carbs_per_100g: 6.8, user_id: 1, water_saved: 340, energy_saved: 1.45 },
+  { name: "Quorn Vegan Nuggets", price_range: "£", low_cal: true, high_protein: true, gluten_free: false, description: "Quorn's Vegan Nuggets for a protein-rich meal that will leave you wanting seconds. Crunchy, dippable and perfect for the whole family.", ingredients: "Mycoprotein (53%), Wheat Flour (contains added Calcium, Iron, Niacin & Thiamine), Water, Sunflower Oil, Wheat Starch, Potato Protein, Pea Fibre, Firming Agents: Calcium Chloride, Calcium Acetate; Wheat Semolina, Natural Flavouring, Wheat Gluten, Salt, Yeast, Sage & Sage Extract, Stabilisers: Carrageenan, Sodium Alginate; Onion Powder, Garlic Powder, White Pepper, Onion Extract, Colour: Paprika Extract; Raising Agent: Ammonium Bicarbonate.", protein_per_100g: 12, fat_per_100g: 3.1, calories_per_100g: 204, carbs_per_100g: 26, user_id: 3, water_saved: 234, energy_saved: 4.72 },
+  { name: "Vegideli Cheatin' Vegan Bacon", price_range: "££", low_cal: false, high_protein: true, gluten_free: false, description: "The Red Wood Co Streaky Style Meat Free Cheatin' Rashers. A delicious blend of wheat gluten, soya & vegetable oil.", ingredients: "Water, Wheat Gluten, Soya Protein, Non-Hydrogenated Vegetable Fat (Sustainable Palm), Textured Wheat Protein, Potato Starch, Salt, Dried Yeast, Sugar, Natural Flavourings, Thickeners: Carrageenan, Preservative: Potassium Sorbate, Onion Powder, Colour: Iron Oxide", protein_per_100g: 25.8, fat_per_100g: 7.8, calories_per_100g: 196, carbs_per_100g: 6.1, user_id: 1, water_saved: 330, energy_saved: 1.8 },
+  { name: "Quorn Crunchy Tex-Mex Nuggets", price_range: "££", low_cal: false, high_protein: true, gluten_free: false, description: "These Vegan Crunchy Tex Mex Nuggets have a spicy breadcrumb coating and make a deliciously easy vegan meal. Whether a quick mid-week dinner, after school snack for the kids or as finger food for a party, these delicious nuggets are simply irresistible. Serve simply with crunchy vegetables and dips or wrap with salad in a soft tortilla.", ingredients: "Mycoprotein (52%), Wheat Flour (Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamine), Water, Rapeseed Oil, Quinoa (3%), Whole Barley Flakes (2%), Potato Protein, Oats (1%), Linseed (1%), Maize Starch, Firming Agents: Calcium Chloride, Calcium Acetate; Spices (Paprika, Turmeric, Cayenne Chilli, Black Pepper, White Pepper), Flavourings, Wheat Gluten, Pea Fibre, Yeast, Salt, Garlic Powder, Onion Powder, Yeast Extract, Malt Vinegar Powder (Barley), Acid: Citric Acid; Sugar, Dried Garlic, Spirit Vinegar Powder, Parsley, Colour: Paprika Extract.", protein_per_100g: 11, fat_per_100g: 11, calories_per_100g: 239, carbs_per_100g: 21, user_id: 1, water_saved: 166, energy_saved: 3.28 },
   { name: "Birds Eye 2 Meat Free Burgers", price_range: "£", low_cal: false, high_protein: true, gluten_free: false, description: "All Natural Plant Power. We pick selected peas from fields. Take all the protein goodness from the dried peas Then add delicious herbs and spices", ingredients: "Rehydrated Pea Protein (60%), Rapeseed Oil, Onion, Bamboo Fibre, Pea Flour, Spirit Vinegar, Stabiliser (Methylcellulose), Barley Malt Extract, Natural Flavourings, Tomato Paste, Salt, Pea Fibre, Wholegrain Oat Flour, Potato Starch, Antioxidant (Extract of Rosemary), Tomato Powder, Mushroom Powder, Onion Powder, Herbs", protein_per_100g: 14, fat_per_100g: 6.5, calories_per_100g: 238, carbs_per_100g: 3.9, user_id: 1, water_saved: 1480, energy_saved: 2.8 },
   { name: "Oatly Oat Cream Alternative", price_range: "£", low_cal: false, high_protein: false, gluten_free: true, description: "It's perfect for any type of cooking you'd like to do, and contains quality fat which means that it is rich in unsaturated fat, which if you don't know your fat means that it is the good fat instead of that bad fat, you don't want the bad fat.", ingredients: "Oat Base (Water, Oats* 9%), Rapeseed Oil*, Palm Oil*, Emulsifier: Rapeseed Lecithin, Stabiliser: Xanthan, Sea Salt", protein_per_100g: 0.9, fat_per_100g: 13, calories_per_100g: 146, carbs_per_100g: 5.8, user_id: 1, water_saved: 154, energy_saved: 0.55 },
-  { name: "Alpro Longlife Soya Cream Alternative", price_range: "£", low_cal: false, high_protein: false, gluten_free: true, description: "With coconut oil and vitamin B12, Free from dairy, soya, gluten, lactose, nuts and preservatives", ingredients: "Water, Starch, Modified Starch*, Coconut Oil (17%), Sea Salt, Rice Protein, Flavourings, Olive Extract, Colour: B-Carotene, Vitamin B12", protein_per_100g: 1.6, fat_per_100g: 17, calories_per_100g: 279, carbs_per_100g: 30, user_id: 3, water_saved: 154, energy_saved: 0.55 },
-  { name: "Violife Non-Dairy Parmesan", price_range: "£££", low_cal: false, high_protein: false, gluten_free: true, description: "All Natural Plant Power We pick selected peas from fields Take all the protein goodness* from the dried peas Then add delicious herbs and spices", ingredients: "Rehydrated Pea Protein (63%), Rapeseed Oil, Red Onion, Apple Fibre, Pea Flour, Natural Flavourings, Stabiliser (Methylcellulose), Tomato Paste, Garlic Powder, Herbs, Barley Malt Extract, Black Pepper, Pea Fibre, Wholegrain Oat Flour, Potato Starch, Salt, Antioxidant (Extract of Rosemary), Tomato Powder, Mushroom Powder, Onion Powder", protein_per_100g: 16, fat_per_100g: 15, calories_per_100g: 236, carbs_per_100g: 6.8, user_id: 1, water_saved: 340, energy_saved: 1.45 },
   { name: "Koko Dairy Free Spread", price_range: "££", low_cal: false, high_protein: false, gluten_free: true, description: "Made with pressed coconut oil, Coconut oil contains MCFAs, Only half the saturates of butter, Vitamin D contributes to the maintenance of normal bones and teeth.", ingredients: "Water, Vegetable Oils (Rapeseed Oil, Coconut Oil 26%, Palm Oil*, Sunflower Oil), Emulsifier: Mono & Diglycerides of Fatty Acids and Sunflower Lecithin, Colour: Carrot Extract, Lemon Juice, Sea Salt 1.1%, Natural Flavourings, Vitamins A, B12, D2, E", protein_per_100g: 0, fat_per_100g: 45, calories_per_100g: 405, carbs_per_100g: 0, user_id: 2, water_saved: 380, energy_saved: 1.55 }
+  { name: "Quorn Mince", price_range: "£", low_cal: true, high_protein: true, gluten_free: true, description: "Quorn Mince is brilliantly versatile; you can use it to make so many delicious meals, whether you fancy a hearty Bolognese, a spicy chilli or perhaps some juicy burgers. Plus it's a great source of protein and is low in saturated fat.", ingredients: "Mycoprotein (92%), Rehydrated Free Range Egg White, Natural Caramelised Sugar, Firming Agents: Calcium Chloride, Calcium Acetate; Gluten Free Barley Malt Extract.", protein_per_100g: 14.5, fat_per_100g: 2, calories_per_100g: 105, carbs_per_100g: 4.5, user_id: 5, water_saved: 342, energy_saved: 2.3 },
 
 ]
 
@@ -123,12 +111,14 @@ puts "\nCreating shopping lists..."
 
   { date: Date.today - 1, user_id: 1, mark_as_done: true },
   { date: Date.today - 3, user_id: 1, mark_as_done: true },
-  { date: Date.today - 7, user_id: 1, mark_as_done: true },
+  { date: Date.today - 7, user_id: 4, mark_as_done: true },
   { date: Date.today - 12, user_id: 1, mark_as_done: true },
   { date: Date.today - 1, user_id: 2, mark_as_done: true },
   { date: Date.today - 5, user_id: 2, mark_as_done: true },
   { date: Date.today - 2, user_id: 3, mark_as_done: true },
   { date: Date.today - 10, user_id: 3, mark_as_done: true }
+  { date: Date.today - 13, user_id: 5, mark_as_done: true }
+  { date: Date.today - 3, user_id: 6, mark_as_done: true }
 
 ]
 
@@ -147,15 +137,15 @@ puts "\nCreating quantities..."
   { quantity: 1, product_id: 2, shopping_list_id: 2 },
   { quantity: 1, product_id: 1, shopping_list_id: 3 },
   { quantity: 1, product_id: 2, shopping_list_id: 3 },
-  { quantity: 2, product_id: 1, shopping_list_id: 4 },
-  { quantity: 2, product_id: 2, shopping_list_id: 4 },
-  { quantity: 3, product_id: 1, shopping_list_id: 5 },
+  { quantity: 2, product_id: 11, shopping_list_id: 4 },
+  { quantity: 2, product_id: 2, shopping_list_id: 10 },
+  { quantity: 3, product_id: 3, shopping_list_id: 5 },
   { quantity: 3, product_id: 2, shopping_list_id: 5 },
-  { quantity: 4, product_id: 1, shopping_list_id: 6 },
-  { quantity: 4, product_id: 2, shopping_list_id: 6 },
+  { quantity: 4, product_id: 14, shopping_list_id: 6 },
+  { quantity: 4, product_id: 2, shopping_list_id: 9 },
   { quantity: 1, product_id: 1, shopping_list_id: 7 },
-  { quantity: 1, product_id: 2, shopping_list_id: 7 },
-  { quantity: 2, product_id: 1, shopping_list_id: 8 },
+  { quantity: 1, product_id: 7, shopping_list_id: 7 },
+  { quantity: 2, product_id: 9, shopping_list_id: 8 },
   { quantity: 1, product_id: 2, shopping_list_id: 8 }
 
 ]
@@ -169,13 +159,11 @@ puts "\nCreating meals..."
 
 @meals = [
 
-  { name: "Carbonara" },
-  { name: "Chicken Curry" },
-  { name: "Chicken Risotto" },
   { name: "Bolognese" },
-  { name: "Spaghetti" },
-  { name: "Kid's Menu" },
+  { name: "Chicken Curry" },
   { name: "Burger" },
+  { name: "Carbonara" },
+  { name: "Kid's Menu" },
 
 ]
 
@@ -188,22 +176,32 @@ puts "\nCreating substitutions..."
 
 @substitutions = [
 
-  { name: "Bacon", meal_id: 1, product_id: 1 },
-  { name: "Bacon", meal_id: 1, product_id: 3 },
-  { name: "Bacon", meal_id: 1, product_id: 4 },
-  { name: "Bacon", meal_id: 1, product_id: 5 },
-  { name: "Cream", meal_id: 1, product_id: 12 },
-  { name: "Cream", meal_id: 1, product_id: 13 },
-  { name: "Cheese", meal_id: 1, product_id: 14 },
-  { name: "Butter", meal_id: 1, product_id: 15 },
-  { name: "Nuggets", meal_id: 6, product_id: 8 },
-  { name: "Nuggets", meal_id: 3, product_id: 9 },
-  { name: "Burger", meal_id: 7, product_id: 6 },
-  { name: "Burger", meal_id: 7, product_id: 11 },
-  { name: "Bolognese", meal_id: 4, product_id: 14 },
-  { name: "Chicken Curry", meal_id: 2, product_id: 14 },
-  { name: "Spaghetti", meal_id: 5, product_id: 14 },
-  { name: "Kid's menu", meal_id: 6, product_id: 14 }
+  { name: "Meatballs", meal_id: 1, product_id: 3 },
+  { name: "Mince meat", meal_id: 1, product_id: 16 },
+  { name: "Cheese", meal_id: 1, product_id: 9 },
+
+  { name: "Chicken", meal_id: 2, product_id: 8 },
+  { name: "Cream", meal_id: 2, product_id: 6 },
+  { name: "Cream", meal_id: 2, product_id: 14 },
+
+  { name: "Burger", meal_id: 3, product_id: 4 },
+  { name: "Bacon", meal_id: 3, product_id: 2 },
+  { name: "Burger", meal_id: 3, product_id: 13 },
+  { name: "Cheese", meal_id: 3, product_id: 9 },
+
+  { name: "Bacon", meal_id: 4, product_id: 1 },
+  { name: "Bacon", meal_id: 4, product_id: 2 },
+  { name: "Bacon", meal_id: 4, product_id: 5 },
+  { name: "Bacon", meal_id: 4, product_id: 11 },
+  { name: "Cream", meal_id: 4, product_id: 14 },
+  { name: "Cream", meal_id: 4, product_id: 6 },
+  { name: "Cheese", meal_id: 4, product_id: 9 },
+  { name: "Butter", meal_id: 4, product_id: 15 },
+
+  { name: "Nuggets", meal_id: 5, product_id: 10 },
+  { name: "Nuggets", meal_id: 5, product_id: 12 }
+  { name: "Fish", meal_id: 5, product_id: 7 },
+  { name: "Chicken", meal_id: 5, product_id: 8 },
 
 ]
 
@@ -217,13 +215,13 @@ puts "\nCreating reviews..."
 @reviews = [
 
   { product_id: 1, rating: 5, content: "Delicious!", user_id: 1 },
-  { product_id: 1, rating: 4, content: "A very good product, albeit not quite as crispy as the real thing.", user_id: 2 },
-  { product_id: 1, rating: 5, content: "That was a game changer for me!", user_id: 3 },
+  { product_id: 1, rating: 4, content: "A very good product, albeit not quite as crispy as the real thing.", user_id: 6 },
+  { product_id: 1, rating: 5, content: "That was a game changer for me!", user_id: 5 },
   { product_id: 2, rating: 5, content: "I wouldn't have guessed this wasn't real chicken!", user_id: 1 },
   { product_id: 2, rating: 5, content: "Fantastic, so full of flavour!", user_id: 2 },
   { product_id: 2, rating: 4, content: "Tasty stuff", user_id: 3 },
   { product_id: 3, rating: 4, content: "Very good!", user_id: 1 },
-  { product_id: 3, rating: 5, content: "Fantastic!!!", user_id: 2 },
+  { product_id: 3, rating: 5, content: "Fantastic!!!", user_id: 6 },
   { product_id: 3, rating: 5, content: "My favourite from their range", user_id: 3 },
   { product_id: 3, rating: 4, content: "Really tasty", user_id: 4 }
 
@@ -265,11 +263,8 @@ puts "\nCreating availabilities..."
   { product_id: 1, store_id: 1 },
   { product_id: 1, store_id: 2 },
   { product_id: 1, store_id: 3 },
-  { product_id: 1, store_id: 4 },
   { product_id: 1, store_id: 5 },
   { product_id: 2, store_id: 1 },
-  { product_id: 2, store_id: 2 },
-  { product_id: 2, store_id: 3 },
   { product_id: 2, store_id: 4 },
   { product_id: 2, store_id: 5 },
   { product_id: 2, store_id: 6 },
@@ -280,15 +275,11 @@ puts "\nCreating availabilities..."
   { product_id: 3, store_id: 6 },
   { product_id: 4, store_id: 1 },
   { product_id: 4, store_id: 3 },
-  { product_id: 4, store_id: 4 },
   { product_id: 4, store_id: 5 },
   { product_id: 4, store_id: 6 },
   { product_id: 5, store_id: 3 },
   { product_id: 5, store_id: 4 },
-  { product_id: 5, store_id: 5 },
-  { product_id: 5, store_id: 7 },
   { product_id: 5, store_id: 8 },
-  { product_id: 5, store_id: 3 },
   { product_id: 5, store_id: 5 },
   { product_id: 6, store_id: 1 },
   { product_id: 6, store_id: 7 },
@@ -299,7 +290,7 @@ puts "\nCreating availabilities..."
   { product_id: 8, store_id: 4 },
   { product_id: 8, store_id: 7 },
   { product_id: 8, store_id: 2 },
-  { product_id: 9, store_id: 8 },
+  { product_id: 9, store_id: 11 },
   { product_id: 9, store_id: 5 },
   { product_id: 9, store_id: 3 },
   { product_id: 10, store_id: 1 },
@@ -314,6 +305,8 @@ puts "\nCreating availabilities..."
   { product_id: 14, store_id: 5 },
   { product_id: 15, store_id: 1 },
   { product_id: 15, store_id: 6 }
+  { product_id: 16, store_id: 4 }
+  { product_id: 16, store_id: 5 }
 
 ]
 
@@ -324,38 +317,26 @@ end
 
 @recipes = [
 
-  { name: "Vegan Carbonara Sauce", url: "http://www.diylettante.com/527/", image_url: "https://www.edamam.com/web-img/619/619d61818a04ab297862a86178085f45.jpg", product_id: 1 },
-  { name: "Creamy Coconut Carbonara (Without Milk!)", url: "https://www.allrecipes.com/recipe/247459/creamy-coconut-carbonara-without-milk/", image_url: "https://www.edamam.com/web-img/fe9/fe91e54771717b4aed8e279237b46b11.png", product_id: 1 },
-  { name: "Vegan Spaghetti Carbonara recipes", url: "http://fannythefoodie.wordpress.com/2014/05/30/vegan-spaghetti-carbonara/", image_url: "https://www.edamam.com/web-img/9c6/9c6d1e7fa15d0ba46963cb907db700dc", product_id: 1 },
-  { name: "Mushroom Carbonara Bowl recipes", url: "http://veganheritagepress.com/2015/12/vegan-mushroom-carbonara-bowl/", image_url: "https://www.edamam.com/web-img/e65/e656354f096b5527e985004246ca6b09", product_id: 14 },
-  { name: "Spaghetti Carbonara ala Roasted Cauliflower", url: "http://www.ieatgreen.com/spaghetti-carbonara-ala-roasted-cauliflower-and-sundried-tomatoes/", image_url: "https://www.edamam.com/web-img/bb1/bb1f19ade7011af4765bae734933fa1a.jpg", product_id: 1 },
-  { name: "Cauliflower and Tofu Curry Recipe", url: "http://www.seriouseats.com/recipes/2011/02/cauliflower-and-tofu-curry-recipe.html", image_url: "https://www.edamam.com/web-img/c24/c24d5879c21826517f3aa9bca10e4250.jpg", product_id: 2 },
-  { name: "Curry Pickled Ramps", url: "http://norecipes.com/blog/2011/07/24/curried-pickled-ramps/", image_url: "https://www.edamam.com/web-img/0c3/0c30f8d41ec00531f7d754f53622df60.jpg", product_id: 2 },
-  { name: "Crispy Curry-Roasted Chickpeas", url: "https://www.epicurious.com/recipes/food/views/crispy-curry-roasted-chickpeas-56389735", image_url: "https://www.edamam.com/web-img/5c5/5c5b3428f909ee81966e6cd9c78347e0.jpg", product_id: 11 },
-  { name: "Spicy lentil soup with curry pinwheel rolls", url: "http://www.bbcgoodfood.com/recipes/1651633/spicy-lentil-soup-with-curry-pinwheel-rolls", image_url: "https://www.edamam.com/web-img/82c/82c82f8b0fc843795676d2d2b104ca9d.jpg", product_id: 2 },
-  { name: "Curry Hummus recipes", url: "http://pinchofyum.com/curry-hummus", image_url: "https://www.edamam.com/web-img/e82/e822935fdbcdb9f19017c4cfd8f5bf06", product_id: 2 },
-  { name: "Cashew Curry Recipe", url: "http://www.101cookbooks.com/archives/cashew-curry-recipe.html", image_url: "https://www.edamam.com/web-img/925/92527ef3ef790965368bfe2076902299.jpg", product_id: 12 },
-  { name: "Summer courgette risotto", url: "http://www.bbcgoodfood.com/recipes/11194/summer-courgette-risotto", image_url: "https://www.edamam.com/web-img/6fe/6fe0ef5d68b7c2b677a0471cb5de52b1.jpg", product_id: 3 },
-  { name: "Mint and Green Pea Risotto, with Roasted Tomatoes", url: "https://food52.com/recipes/18155-mint-and-green-pea-risotto-with-roasted-tomatoes", image_url: "https://www.edamam.com/web-img/b95/b951b6874e51bd724d4777ced322ebaf.JPG", product_id: 3 },
-  { name: "Summer Courgette Risotto", url: "http://www.bbcgoodfood.com/recipes/11194/", image_url: "https://www.edamam.com/web-img/e08/e08fa9a34d7e4fe7f034c4d479d2ac21.jpg", product_id: 3 },
-  { name: "Squash Risotto", url: "http://www.thedailymeal.com/squash-risotto-recipe", image_url: "https://www.edamam.com/web-img/260/2600597a790b930f4f14b19c348ddfe4.jpg", product_id: 3 },
-  { name: "Birds Eye® Mushroom Risotto with Roasted Red Peppers & Peas", url: "http://www.myrecipes.com/recipe/mushroom-risotto-roasted-red-peppers-peas", image_url: "https://www.edamam.com/web-img/e42/e42d4eb467c9fc4f8845e758986eccbf.jpg", product_id: 13 },
-  { name: "Spring Vegetable Risotto With Asparagus, Zucchini, Fava Beans, Snap Peas, and Morels Recipe", url: "http://www.seriouseats.com/recipes/2012/05/spring-vegetable-risotto-asparagus-zucchini-fava-morel-snap-pea-recipe.html", image_url: "https://www.edamam.com/web-img/ada/ada4b038649d6596643ef20513e3880f.jpg", product_id: 3 },
-  { name: "Eggplant Bolognese", url: "http://www.thedailymeal.com/eggplant-bolognese-recipe", image_url: "https://www.edamam.com/web-img/7bf/7bf17e348c60416344c3de31464c4cdb.jpg", product_id: 4 },
-  { name: "Sabrina's Garden Bolognese", url: "http://www.myrecipes.com/recipe/sabrinas-garden-bolognese", image_url: "https://www.edamam.com/web-img/244/24493935075a63a06d7b5c8b8bcf483f.jpg", product_id: 14 },
-  { name: "Mushroom Bolognese", url: "http://www.bigoven.com/recipe/Mushroom-Bolognese/290035", image_url: "https://www.edamam.com/web-img/522/522a70def64f58e54caba7764dfc3015.jpg", product_id: 4 },
-  { name: "Spaghetti With Tomato Sauce recipes", url: "http://notwithoutsalt.com/simple-spaghetti-with-tomato-sauce/", image_url: "https://www.edamam.com/web-img/ce1/ce13a5fe3c09dacf8b2da8c8843d0481", product_id: 5 },
-  { name: "Dinner Tonight: Spaghetti with Zucchini and Squash Recipe", url: "http://www.seriouseats.com/recipes/2007/08/dinner-tonight-spaghetti-with.html", image_url: "https://www.edamam.com/web-img/99f/99f499f2667373268544ac1df3050f22.jpg", product_id: 10 },
-  { name: "Tomato-Garlic Spaghetti", url: "http://www.marthastewart.com/313199/tomato-garlic-spaghetti", image_url: "https://www.edamam.com/web-img/2f6/2f6eb3caf78486adf7faecc90484aad0.jpg", product_id: 5 },
-  { name: "Roasted Spaghetti Squash And Kale", url: "http://thepioneerwoman.com/cooking/2013/11/roasted-spaghetti-squash-with-kale/", image_url: "https://www.edamam.com/web-img/352/3521373b3e14bb8fb28d1d50bc061f57.jpg", product_id: 5 },
-  { name: "Spaghetti with Garlic recipes", url: "http://www.epicurious.com/recipes/food/views/Spaghetti-with-Garlic-230465", image_url: "https://www.edamam.com/web-img/946/946cdb7e5bf06b3432b47cf23a25721d", product_id: 5 },
-  { name: "Spaghetti Squash with Garlic and Chili", url: "https://food52.com/recipes/16829-spaghetti-squash-with-garlic-and-chili", image_url: "https://www.edamam.com/web-img/cd0/cd0200c7287298f2e6726a9ced63cac0.jpg", product_id: 5 },
+  { name: "Vegan Carbonara Sauce", url: "http://www.diylettante.com/527/", image_url: "https://images.ctfassets.net/uexfe9h31g3m/6ZxGzoctAOj7c019yyqBLL/729b0cbc982e88d1fefae4f19d86d0b6/Veganara__3640.jpg?w=1024&h=576&fm=jpg&fit=thumb&q=70&fl=progressive", product_id: 1 },
+  { name: "Creamy Coconut Carbonara (Without Milk!)", url: "https://www.allrecipes.com/recipe/247459/creamy-coconut-carbonara-without-milk/", image_url: "https://www.edamam.com/web-img/fe9/fe91e54771717b4aed8e279237b46b11.png", product_id: 2 },
+  { name: "Vegan Spaghetti Carbonara recipes", url: "http://fannythefoodie.wordpress.com/2014/05/30/vegan-spaghetti-carbonara/", image_url: "https://www.edamam.com/web-img/9c6/9c6d1e7fa15d0ba46963cb907db700dc", product_id: 5 },
+  { name: "Mushroom Carbonara Bowl recipes", url: "http://veganheritagepress.com/2015/12/vegan-mushroom-carbonara-bowl/", image_url: "https://www.edamam.com/web-img/e65/e656354f096b5527e985004246ca6b09", product_id: 6 },
+  { name: "Spaghetti Carbonara ala Roasted Cauliflower", url: "http://www.ieatgreen.com/spaghetti-carbonara-ala-roasted-cauliflower-and-sundried-tomatoes/", image_url: "https://www.edamam.com/web-img/bb1/bb1f19ade7011af4765bae734933fa1a.jpg", product_id: 9 },
+  { name: "Cauliflower and Tofu Curry Recipe", url: "http://www.seriouseats.com/recipes/2011/02/cauliflower-and-tofu-curry-recipe.html", image_url: "https://www.edamam.com/web-img/c24/c24d5879c21826517f3aa9bca10e4250.jpg", product_id: 14 },
+  { name: "Curry Pickled Ramps", url: "http://norecipes.com/blog/2011/07/24/curried-pickled-ramps/", image_url: "https://www.edamam.com/web-img/0c3/0c30f8d41ec00531f7d754f53622df60.jpg", product_id: 6 },
+  { name: "Crispy Curry-Roasted Chickpeas", url: "https://www.epicurious.com/recipes/food/views/crispy-curry-roasted-chickpeas-56389735", image_url: "https://www.edamam.com/web-img/5c5/5c5b3428f909ee81966e6cd9c78347e0.jpg", product_id: 8 },
+  { name: "Spicy lentil soup with curry pinwheel rolls", url: "http://www.bbcgoodfood.com/recipes/1651633/spicy-lentil-soup-with-curry-pinwheel-rolls", image_url: "https://www.edamam.com/web-img/82c/82c82f8b0fc843795676d2d2b104ca9d.jpg", product_id: 15 },
+  { name: "Curry Hummus recipes", url: "http://pinchofyum.com/curry-hummus", image_url: "https://www.edamam.com/web-img/e82/e822935fdbcdb9f19017c4cfd8f5bf06", product_id: 10 },
+  { name: "Cashew Curry Recipe", url: "http://www.101cookbooks.com/archives/cashew-curry-recipe.html", image_url: "https://www.edamam.com/web-img/925/92527ef3ef790965368bfe2076902299.jpg", product_id: 7 },
+  { name: "Eggplant Bolognese", url: "http://www.thedailymeal.com/eggplant-bolognese-recipe", image_url: "https://www.edamam.com/web-img/7bf/7bf17e348c60416344c3de31464c4cdb.jpg", product_id: 3 },
+  { name: "Sabrina's Garden Bolognese", url: "http://www.myrecipes.com/recipe/sabrinas-garden-bolognese", image_url: "https://www.edamam.com/web-img/244/24493935075a63a06d7b5c8b8bcf483f.jpg", product_id: 12 },
+  { name: "Mushroom Bolognese", url: "http://www.bigoven.com/recipe/Mushroom-Bolognese/290035", image_url: "https://www.edamam.com/web-img/522/522a70def64f58e54caba7764dfc3015.jpg", product_id: 16 },
   { name: "Chipotle Veggie Burger", url: "https://www.menshealth.com/recipes/chipotle-veggie-burger", image_url: "https://www.edamam.com/web-img/a69/a69cad6990431c2946a58ff17772995a.jpg", product_id: 9 },
   { name: "Basic Veggie Burgers", url: "https://www.epicurious.com/recipes/food/views/basic-veggie-burgers", image_url: "https://www.edamam.com/web-img/b04/b048a959cf63d5924a973afc6130cc9a.jpg", product_id: 7 },
-  { name: "Guacamole Veggie Burger recipes", url: "http://www.tastingtable.com/cook/recipes/guacamole-veggie-burger-best-vegan-vegetarian-recipes-by-chloe-nyc-chloe-coscarelli", image_url: "https://www.edamam.com/web-img/c64/c648372aef3141bd32d00debfa931bd5", product_id: 7 },
-  { name: "Southwest Veggie Burger", url: "https://www.menshealth.com/recipes/southwest-veggie-burger", image_url: "https://www.edamam.com/web-img/a69/a69cad6990431c2946a58ff17772995a.jpg", product_id: 6 },
+  { name: "Guacamole Veggie Burger recipes", url: "http://www.tastingtable.com/cook/recipes/guacamole-veggie-burger-best-vegan-vegetarian-recipes-by-chloe-nyc-chloe-coscarelli", image_url: "https://www.edamam.com/web-img/c64/c648372aef3141bd32d00debfa931bd5", product_id: 11 },
+  { name: "Southwest Veggie Burger", url: "https://www.menshealth.com/recipes/southwest-veggie-burger", image_url: "https://www.edamam.com/web-img/a69/a69cad6990431c2946a58ff17772995a.jpg", product_id: 4 },
   { name: "Spicy corn & chickpea burgers", url: "http://www.jamieoliver.com/recipes/vegetable-recipes/spicy-corn-chickpea-burgers/", image_url: "https://www.edamam.com/web-img/20f/20f1f3909266c3fbb8a1ca5834a22f65.jpg", product_id: 8 },
-  { name: "Hummus and Mint Veggie Burgers", url: "https://food52.com/recipes/30330-hummus-and-mint-veggie-burgers", image_url: "https://www.edamam.com/web-img/0e6/0e6307720fb016a24f77e12d868d30c8.jpg", product_id: 7 },
+  { name: "Hummus and Mint Veggie Burgers", url: "https://food52.com/recipes/30330-hummus-and-mint-veggie-burgers", image_url: "https://www.edamam.com/web-img/0e6/0e6307720fb016a24f77e12d868d30c8.jpg", product_id: 13 },
 
 ]
 
