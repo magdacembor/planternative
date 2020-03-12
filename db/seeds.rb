@@ -338,6 +338,9 @@ end
   { name: "Spicy corn & chickpea burgers", url: "http://www.jamieoliver.com/recipes/vegetable-recipes/spicy-corn-chickpea-burgers/", image_url: "https://www.edamam.com/web-img/20f/20f1f3909266c3fbb8a1ca5834a22f65.jpg", product_id: 8 },
   { name: "Hummus and Mint Veggie Burgers", url: "https://food52.com/recipes/30330-hummus-and-mint-veggie-burgers", image_url: "https://www.edamam.com/web-img/0e6/0e6307720fb016a24f77e12d868d30c8.jpg", product_id: 13 },
 
+  { name: "Vegan Fish and Chips", url: "https://www.quorn.co.uk/recipes/quorn-vegan-fish-chips", image_url: "https://images.ctfassets.net/uexfe9h31g3m/3zjIdudN3xVmhEojiLjnCc/9b2fc4184f54a76a0e9fb9edc45d700b/Quorn-Vegan-Fish-_-Chips-Dinner-FSRD.jpg?w=1024&h=576&fm=jpg&fit=thumb&q=70&fl=progressive", product_id: 12 },
+  { name: "Vegan Nugget Bowl", url: "https://www.quorn.co.uk/recipes/vegan-nugget-bowl", image_url: "https://images.ctfassets.net/uexfe9h31g3m/1wpxY1S5MESY8GGMWYAU8i/779888a152d369a51757e3d6efec1338/vegan-nugget-bowl-2.jpg?w=1024&h=576&fm=jpg&fit=thumb&q=70&fl=progressive", product_id: 10 },
+
 ]
 
 @recipes.each_with_index do |recipe, i|
