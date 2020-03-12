@@ -72,6 +72,8 @@
 
     <%= render '/products/product_card' %>
 
+    <h4 class="sub-heading container">BE INSPIRED BY</h4>
+
     <% @recipes = @product.recipes.any? ? [ @product.recipes.sample ] : [ Recipe.all.sample ] %>
 
     <%= render '/shared/recipe_card' %>
