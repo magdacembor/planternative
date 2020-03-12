@@ -10,7 +10,6 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { smoothScroll } from '../plugins/init_scroll';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
-
 document.addEventListener('turbolinks:load', () => {
   smoothScroll();
   initMapbox();
