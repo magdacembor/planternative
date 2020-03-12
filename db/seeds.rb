@@ -4,7 +4,7 @@ puts "Creating users..."
 
 @users = [
 
-  { email: "john@gmail.com", first_name: "John", last_name: "Smith", password: "User1234", nickname: "john" },
+  { email: "john.paul.smith360@gmail.com", first_name: "John", last_name: "Smith", password: "User1234", nickname: "john" },
   { email: "sarah@gmail.com", first_name: "Sarah", last_name: "Williams", password: "User1234", nickname: "sarah" },
   { email: "alex@gmail.com", first_name: "Alex", last_name: "Baker", password: "User1234", nickname: "alex" },
   { email: "phoebe@gmail.com", first_name: "Phoebe", last_name: "Yu", password: "User1234", nickname: "phoebe" },
