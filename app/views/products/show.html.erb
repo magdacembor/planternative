@@ -32,8 +32,14 @@
 
   <section class="product-review product-section">
     <h4 class="sub-heading">REVIEWS</h4>
+    <% if user_signed_in? %>
+      <%= render 'shared/review_form' %>
+    <% end %>
+    <br>
     <% @product.reviews.reverse.each do |review| %>
-      <h6>"<%= review.content %>"</h6>
+      <% if !review.content.empty? %>
+        <h6>"<%= review.content %>"</h6>
+      <% end %>
 
       <div class="avatar-rating">
         <% if review.user.avatar.attached? %>
@@ -45,16 +51,13 @@
         <div class="stars-nickname">
           <div class="rating-stars">
             <% review.rating.times do %>
-              <span>⭐</span>
+              <%= icon("fa", "star") %>
             <% end %>
           </div>
           <i><%= review.user.nickname %></i>
         </div>
       </div>
       <hr>
-    <% end %>
-    <% if user_signed_in? %>
-      <%= render 'shared/review_form' %>
     <% end %>
   </section>
 

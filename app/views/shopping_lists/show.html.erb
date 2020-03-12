@@ -1,31 +1,52 @@
 <div class="container shopping-list-page">
-  <%= link_to "Send shopping list", send_list_shopping_list_path(@shopping_list), method: :post %>
+  # <%= link_to "Send shopping list", send_list_shopping_list_path(@shopping_list), method: :post %>
   <h4 class="green-header">MY SHOPPING LIST</h4>
   <% if @shopping_list.quantities.empty? %>
     <div class="empty-list">
-      <p>It seems there are no products in your shopping list</p>
-      <p>
-        <%= link_to 'Start browsing', products_path %>
-      </p>
+      <p>There are no items in your shopping list</p>
+      <%= link_to products_path do %>
+        <button type="button" class='form-button'>Start browsing</button>
+      <% end %>
     </div>
   <% else %>
     <% if !@shopping_list.mark_as_done %>
       <table class="styled-table sl-table">
         <th class="table-header">Product name</th>
-        <th class="table-header" style="padding-right: 43px;">Quantity</th>
+        <th class="table-header" style="margin-left: 35px";>Quantity</th>
+        <th class="table-header"></th>
         <% @shopping_list.quantities.each do |quantity| %>
-          <tr>
+          <tr class="quantity-row">
             <td class="black name-table"><%= quantity.product.name %></td>
             <td>
               <%= simple_form_for quantity, method: :patch do |f| %>
-                <div class="d-flex align-items-start" style="margin-left: 18px">
-                <%= f.input :quantity, input_html: { min: '0', style: 'width: 40px !important; padding: 14px !important; height : 40px !important' }, label: false %>
+                <div >
+                  <%= f.input :quantity, input_html: { min: '0' }, class: "quantity-input", label: false %>
                 </div>
               <% end %>
             </td>
             <td class="table-bin green-link"><%= link_to quantity_path(quantity), method: :delete, data: { confirm: 'Are you sure?' } do %>
               <%= icon("fa", "trash") %>
             <% end %></td>
+          </tr>
+          <tr>
+            <td class='shopping-list-stores'>
+              <% nearest_store = quantity.product.stores.select { |store| store.latitude.is_a?(Float) && store.longitude.is_a?(Float) }.sort_by { |store| store.distance_to(@user_location) }.first || quantity.product.stores.sample %>
+              <p><%= nearest_store.name %> · <%= nearest_store.address.split(",").first %></p>
+              <div class="collapsible-tray">
+                <p class="collapsible">See more locations <%= icon("fa", "chevron-circle-down") %></p>
+                <div class="content">
+                  <% remaining_stores = quantity.product.stores.reject { |store| store == nearest_store } %>
+                  <% if remaining_stores.any? %>
+                    <% remaining_stores.each do |remaining_store| %>
+                      <%= remaining_store.name %> · <%= remaining_store.address.split(",").first %>
+                      <br>
+                    <% end %>
+                  <% else %>
+                    <p>This item is only available in <%= nearest_store.name %>.</p>
+                  <% end %>
+                </div>
+              </div>
+            </td>
           </tr>
         <% end %>
       </table>
@@ -70,10 +91,10 @@
 </div>
 
 
-<% if @shopping_list.mark_as_done == false %>
-  <footer class="results-footer-sl">
-    <%= link_to mark_as_done_path(@shopping_list), method: :patch do %>
-      <button type="button" class="quantity-button-sl">Mark this list as complete</button>
-    <% end %>
-  </footer>
+  <% if @shopping_list.mark_as_done == false %>
+    <footer class="results-footer-sl">
+      <%= link_to mark_as_done_path(@shopping_list), method: :patch do %>
+        <button type="button" class="quantity-button-sl">Mark this list as complete</button>
+    </footer>
+  <% end %>
 <% end %>
