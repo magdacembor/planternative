@@ -7,9 +7,9 @@ puts "Creating users..."
   { email: "john@gmail.com", first_name: "John", last_name: "Smith", password: "User1234", nickname: "john" },
   { email: "sarah@gmail.com", first_name: "Sarah", last_name: "Williams", password: "User1234", nickname: "sarah" },
   { email: "alex@gmail.com", first_name: "Alex", last_name: "Baker", password: "User1234", nickname: "alex" },
-  { email: "phoebe@gmail.com", first_name: "Phoebe", last_name: "Yu", password: "User1234", nickname: "phoebe" }
-  { email: "anna@gmail.com", first_name: "Anna", last_name: "Green", password: "User1234", nickname: "anna" }
-  { email: "simon@gmail.com", first_name: "Simon", last_name: "Lee", password: "User1234", nickname: "simon" }
+  { email: "phoebe@gmail.com", first_name: "Phoebe", last_name: "Yu", password: "User1234", nickname: "phoebe" },
+  { email: "anna@gmail.com", first_name: "Anna", last_name: "Green", password: "User1234", nickname: "anna" },
+  { email: "simon@gmail.com", first_name: "Simon", last_name: "Lee", password: "User1234", nickname: "simon" },
 
 ]
 
@@ -65,8 +65,8 @@ puts "\nCreating products..."
   { name: "Quorn Crunchy Tex-Mex Nuggets", price_range: "££", low_cal: false, high_protein: true, gluten_free: false, description: "These Vegan Crunchy Tex Mex Nuggets have a spicy breadcrumb coating and make a deliciously easy vegan meal. Whether a quick mid-week dinner, after school snack for the kids or as finger food for a party, these delicious nuggets are simply irresistible. Serve simply with crunchy vegetables and dips or wrap with salad in a soft tortilla.", ingredients: "Mycoprotein (52%), Wheat Flour (Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamine), Water, Rapeseed Oil, Quinoa (3%), Whole Barley Flakes (2%), Potato Protein, Oats (1%), Linseed (1%), Maize Starch, Firming Agents: Calcium Chloride, Calcium Acetate; Spices (Paprika, Turmeric, Cayenne Chilli, Black Pepper, White Pepper), Flavourings, Wheat Gluten, Pea Fibre, Yeast, Salt, Garlic Powder, Onion Powder, Yeast Extract, Malt Vinegar Powder (Barley), Acid: Citric Acid; Sugar, Dried Garlic, Spirit Vinegar Powder, Parsley, Colour: Paprika Extract.", protein_per_100g: 11, fat_per_100g: 11, calories_per_100g: 239, carbs_per_100g: 21, user_id: 1, water_saved: 166, energy_saved: 3.28 },
   { name: "Birds Eye 2 Meat Free Burgers", price_range: "£", low_cal: false, high_protein: true, gluten_free: false, description: "All Natural Plant Power. We pick selected peas from fields. Take all the protein goodness from the dried peas Then add delicious herbs and spices", ingredients: "Rehydrated Pea Protein (60%), Rapeseed Oil, Onion, Bamboo Fibre, Pea Flour, Spirit Vinegar, Stabiliser (Methylcellulose), Barley Malt Extract, Natural Flavourings, Tomato Paste, Salt, Pea Fibre, Wholegrain Oat Flour, Potato Starch, Antioxidant (Extract of Rosemary), Tomato Powder, Mushroom Powder, Onion Powder, Herbs", protein_per_100g: 14, fat_per_100g: 6.5, calories_per_100g: 238, carbs_per_100g: 3.9, user_id: 1, water_saved: 1480, energy_saved: 2.8 },
   { name: "Oatly Oat Cream Alternative", price_range: "£", low_cal: false, high_protein: false, gluten_free: true, description: "It's perfect for any type of cooking you'd like to do, and contains quality fat which means that it is rich in unsaturated fat, which if you don't know your fat means that it is the good fat instead of that bad fat, you don't want the bad fat.", ingredients: "Oat Base (Water, Oats* 9%), Rapeseed Oil*, Palm Oil*, Emulsifier: Rapeseed Lecithin, Stabiliser: Xanthan, Sea Salt", protein_per_100g: 0.9, fat_per_100g: 13, calories_per_100g: 146, carbs_per_100g: 5.8, user_id: 1, water_saved: 154, energy_saved: 0.55 },
-  { name: "Koko Dairy Free Spread", price_range: "££", low_cal: false, high_protein: false, gluten_free: true, description: "Made with pressed coconut oil, Coconut oil contains MCFAs, Only half the saturates of butter, Vitamin D contributes to the maintenance of normal bones and teeth.", ingredients: "Water, Vegetable Oils (Rapeseed Oil, Coconut Oil 26%, Palm Oil*, Sunflower Oil), Emulsifier: Mono & Diglycerides of Fatty Acids and Sunflower Lecithin, Colour: Carrot Extract, Lemon Juice, Sea Salt 1.1%, Natural Flavourings, Vitamins A, B12, D2, E", protein_per_100g: 0, fat_per_100g: 45, calories_per_100g: 405, carbs_per_100g: 0, user_id: 2, water_saved: 380, energy_saved: 1.55 }
-  { name: "Quorn Mince", price_range: "£", low_cal: true, high_protein: true, gluten_free: true, description: "Quorn Mince is brilliantly versatile; you can use it to make so many delicious meals, whether you fancy a hearty Bolognese, a spicy chilli or perhaps some juicy burgers. Plus it's a great source of protein and is low in saturated fat.", ingredients: "Mycoprotein (92%), Rehydrated Free Range Egg White, Natural Caramelised Sugar, Firming Agents: Calcium Chloride, Calcium Acetate; Gluten Free Barley Malt Extract.", protein_per_100g: 14.5, fat_per_100g: 2, calories_per_100g: 105, carbs_per_100g: 4.5, user_id: 5, water_saved: 342, energy_saved: 2.3 },
+  { name: "Koko Dairy Free Spread", price_range: "££", low_cal: false, high_protein: false, gluten_free: true, description: "Made with pressed coconut oil, Coconut oil contains MCFAs, Only half the saturates of butter, Vitamin D contributes to the maintenance of normal bones and teeth.", ingredients: "Water, Vegetable Oils (Rapeseed Oil, Coconut Oil 26%, Palm Oil*, Sunflower Oil), Emulsifier: Mono & Diglycerides of Fatty Acids and Sunflower Lecithin, Colour: Carrot Extract, Lemon Juice, Sea Salt 1.1%, Natural Flavourings, Vitamins A, B12, D2, E", protein_per_100g: 0, fat_per_100g: 45, calories_per_100g: 405, carbs_per_100g: 0, user_id: 2, water_saved: 380, energy_saved: 1.55 },
+  { name: "Quorn Mince", price_range: "£", low_cal: true, high_protein: true, gluten_free: true, description: "Quorn Mince is brilliantly versatile; you can use it to make so many delicious meals, whether you fancy a hearty Bolognese, a spicy chilli or perhaps some juicy burgers. Plus it's a great source of protein and is low in saturated fat.", ingredients: "Mycoprotein (92%), Rehydrated Free Range Egg White, Natural Caramelised Sugar, Firming Agents: Calcium Chloride, Calcium Acetate; Gluten Free Barley Malt Extract.", protein_per_100g: 14.5, fat_per_100g: 2, calories_per_100g: 105, carbs_per_100g: 4.5, user_id: 5, water_saved: 342, energy_saved: 2.3 }
 
 ]
 
@@ -116,8 +116,8 @@ puts "\nCreating shopping lists..."
   { date: Date.today - 1, user_id: 2, mark_as_done: true },
   { date: Date.today - 5, user_id: 2, mark_as_done: true },
   { date: Date.today - 2, user_id: 3, mark_as_done: true },
-  { date: Date.today - 10, user_id: 3, mark_as_done: true }
-  { date: Date.today - 13, user_id: 5, mark_as_done: true }
+  { date: Date.today - 10, user_id: 3, mark_as_done: true },
+  { date: Date.today - 13, user_id: 5, mark_as_done: true },
   { date: Date.today - 3, user_id: 6, mark_as_done: true }
 
 ]
@@ -199,7 +199,7 @@ puts "\nCreating substitutions..."
   { name: "Butter", meal_id: 4, product_id: 15 },
 
   { name: "Nuggets", meal_id: 5, product_id: 10 },
-  { name: "Nuggets", meal_id: 5, product_id: 12 }
+  { name: "Nuggets", meal_id: 5, product_id: 12 },
   { name: "Fish", meal_id: 5, product_id: 7 },
   { name: "Chicken", meal_id: 5, product_id: 8 },
 
@@ -304,8 +304,8 @@ puts "\nCreating availabilities..."
   { product_id: 14, store_id: 2 },
   { product_id: 14, store_id: 5 },
   { product_id: 15, store_id: 1 },
-  { product_id: 15, store_id: 6 }
-  { product_id: 16, store_id: 4 }
+  { product_id: 15, store_id: 6 },
+  { product_id: 16, store_id: 4 },
   { product_id: 16, store_id: 5 }
 
 ]
