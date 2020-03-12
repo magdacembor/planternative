@@ -6,13 +6,13 @@
           <div class="product-info">
             <h4>
               <% if product.gluten_free == true %>
-                <icon class="product-icon">🌾</icon>
+                <icon class="product-icon">GF</icon>
               <% end %>
               <% if product.high_protein == true %>
-                <icon class="product-icon">🥜</icon>
+                <icon class="product-icon">💪</icon>
               <% end %>
               <% if product.low_cal == true %>
-                <icon class="product-icon">🍿</icon>
+                <icon class="product-icon">🥕</icon>
               <% end %>
               <%= product.name %>
             </h4>
