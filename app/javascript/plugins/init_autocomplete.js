@@ -1,9 +1,10 @@
 const initAutocomplete = () => {
   const input = document.getElementById("query");
+  const resultsDiv = document.getElementById("autocomplete-suggestions");
+  const navbar = document.querySelector(".navbar");
 
-  if (input && location.pathname === "/") {
+  if (input && resultsDiv && navbar && location.pathname === "/") {
     input.addEventListener("keyup", (event) => {
-      const resultsDiv = document.getElementById("autocomplete-suggestions");
       resultsDiv.innerHTML = "";
       const searchString = event.currentTarget.value;
       const url = `/autocomplete/${searchString}`;
@@ -26,6 +27,12 @@ const initAutocomplete = () => {
           });
         }
       });
+    });
+    input.addEventListener("focus", (event) => {
+      resultsDiv.style.display = "";
+    });
+    navbar.addEventListener("click", (event) => {
+      resultsDiv.style.display = "none";
     });
   }
 }
