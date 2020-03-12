@@ -9,6 +9,9 @@ import { smoothScroll } from '../plugins/init_scroll';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initStarRating } from '../plugins/init_star_rating';
 
+import "jquery-bar-rating/dist/themes/fontawesome-stars.css";
+
+
 document.addEventListener('turbolinks:load', () => {
   const collapsible = document.querySelectorAll(".collapsible");
   smoothScroll();

@@ -28,7 +28,7 @@
                   <span>No reviews yet</span>
                 <% else %>
                   <% average_rating = ratings.sum/ratings.length%>
-                  <span><%= "⭐"* average_rating%></span>
+                  <%= icon("fa", "star") * average_rating%>
                 <% end %>
                 <% if product.reviews.count > 0 %>
                   <span>(<%= product.reviews.count %>)</span>
