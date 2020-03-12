@@ -1,39 +1,41 @@
-<div class="container">
-  <h2>Your planternative list from <%= @shopping_list.date.strftime("%b. %d %Y") %></h2>
+<article style="margin: 0 20px; color: rgb(80,80,80); font-family: Nunito, Helvetica, sans-serif;">
+  <section style="display: flex;">
+    <img src="http://res.cloudinary.com/dqtmlpkmm/image/upload/default_avatar_yubqpb" alt="Leafy" style="height: 80px; width: 80px;">
+    <h1 style="color: #8FB171; font-size: 50px; margin-left: 20px;">Planternative</h1>
+  </section>
+  <h2 style="">Hello, <%= @shopping_list.user.first_name %>! </h2>
+  <h3 style="font-weight: normal;">Here's your <strong style="color: #8FB171;">Planternative</strong> summary below from <%= @shopping_list.date.strftime("%b. %d %Y") %>...</h3>
 
   <table style="">
-    <th class="">Product name</th>
-    <th class="" style="padding-right: 15px;">Quantity</th>
+    <th style="text-align: center"></th>
+    <th style="text-align: center">Item</th>
+    <th style="text-align: center;">Quantity</th>
+    <th style="text-align: center;">Store</th>
+    <th style="text-align: center;">Address</th>
     <% @shopping_list.quantities.each do |quantity| %>
       <tr>
-        <td class=""><%= quantity.product.name %></td>
-        <td class="" style="padding-right: 30px;"><%= quantity.quantity %></td>
+        <td style="text-align: center; border-radius: 50%;"> <%= cl_image_tag(quantity.product.images.first.key, crop: :fill, width: 80, :radius => 20) %> </td>
+        <td style="text-align: center; width: 150px;"><%= quantity.product.name %></td>
+        <td style="text-align: center;"><%= quantity.quantity %></td>
+        <% user_location = [ 51.5198, -0.0940 ] %>
+        <% nearest_store = quantity.product.stores.select { |store| store.latitude.is_a?(Float) && store.longitude.is_a?(Float) }.sort_by { |store| store.distance_to(user_location) }.first || quantity.product.stores.sample %>
+        <td style="text-align: center; width: 150px;"><%= nearest_store.name %></td>
+        <td style="text-align: center; width: 150px;"><%= nearest_store.address.split(",").first %></td>
+
       </tr>
     <% end %>
   </table>
 
-  <h4 class="green-header">LIST ECO-SCORE</h4>
-  <section class="my-eco-score">
+  <h4 style="color: #8FB171;">YOUR ECO-SCORE</h4>
+  <section style="margin: 0 15px; display: flex; justify-content: space-between;">
     <% water = 0 %>
     <% energy = 0 %>
     <% @shopping_list.quantities.each do |q| %>
       <% water += q.product.water_saved * q.quantity %>
       <% energy += q.product.energy_saved * q.quantity %>
     <% end %>
-    <div class="eco-score">
-      <div class="emoji"><p id="drop">💧</p></div>
-      <div class="sum-saved">
-        <h5 class="black"> <strong> <%= water %> L </strong></h5>
-        <p> of water </p>
-      </div>
-    </div>
-    <div class="eco-score">
-      <div class="emoji"><p>✈️</p></div>
-      <div class="sum-saved">
-        <h5 class="black"> <strong> <%= energy %> kg </strong></h5>
-        <p> of CO2 </p>
-      </div>
-    </div>
+      <h5 style="font-size: 20px;">💧 <strong> <%= water %> L </strong> of water</h5>
+      <h5 style="font-size: 20px;">✈️ <strong> <%= energy %> kg </strong> of CO2</h5>
   </section>
 
-</div>
+</article>
