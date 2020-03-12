@@ -20,15 +20,13 @@
             <h5><%= nearest_store.name %> · <%= nearest_store.distance_to(@user_location).nil? ? rand(0.1..2.0).round(1) : (nearest_store.distance_to(@user_location)).round(1) %> mi</h5>
             <div class="product-review-price">
               <div class="product-review">
-                <% ratings = [] %>
-                <% product.reviews.each do |review| %>
-                  <% ratings << review.rating %>
-                <% end %>
-                <% if ratings.length == 0 %>
+                <% if product.reviews.length == 0 %>
                   <span>No reviews yet</span>
                 <% else %>
-                  <% average_rating = ratings.sum/ratings.length%>
-                  <span><%= "⭐"* average_rating%></span>
+
+                  <% average_rating = product.reviews.map { |review| review.rating }.reduce(:+) / product.reviews.count %>
+                  <%= icon("fa", "star") * average_rating%>
+
                 <% end %>
                 <% if product.reviews.count > 0 %>
                   <span>(<%= product.reviews.count %>)</span>

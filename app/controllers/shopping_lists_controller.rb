@@ -26,8 +26,10 @@ class ShoppingListsController < ApplicationController
   end
 
   def send_list
+    @shopping_list.mark_as_done = true
+    @shopping_list.save
     ShoppingListMailer.with(shopping_list: @shopping_list).shopping_list.deliver_now
-    redirect_to shopping_list_path(@shopping_list), notice: "Email sent"
+    redirect_to myprofile_path(current_user), notice: "Email sent"
   end
 
   def destroy

@@ -24,25 +24,26 @@
 
 </article>
 
-
-<div id="map" class="product-map"
-
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
+<div id="map" class="product-map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
  <article class="container">
+
   <%= render 'products/product_show_tabs' %>
 
   <section class="product-review product-section">
     <h4 class="sub-heading">REVIEWS</h4>
+    <% if user_signed_in? %>
+      <%= render 'shared/review_form' %>
+    <% end %>
+    <br>
     <% @product.reviews.reverse.each do |review| %>
-      <h6>"<%= review.content %>"</h6>
+      <% if !review.content.empty? %>
+        <h6>"<%= review.content %>"</h6>
+      <% end %>
 
       <div class="avatar-rating">
-        <% if user_signed_in? && current_user.avatar.attached? %>
-          <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% if review.user.avatar.attached? %>
+          <%= cl_image_tag review.user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% else %>
           <%= cl_image_tag "default_avatar_yubqpb", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
@@ -50,7 +51,7 @@
         <div class="stars-nickname">
           <div class="rating-stars">
             <% review.rating.times do %>
-              <span>⭐</span>
+              <%= icon("fa", "star") %>
             <% end %>
           </div>
           <i><%= review.user.nickname %></i>
@@ -58,13 +59,9 @@
       </div>
       <hr>
     <% end %>
-    <% if user_signed_in? %>
-      <%= render 'shared/review_form' %>
-    <% end %>
   </section>
 
- </article>
-
+</article>
 
 <article class="may-like-container">
   <section class="may-like">
@@ -73,12 +70,13 @@
     <% @products = Product.all.select { |product| product != @product && product.high_protein == @product.high_protein && product.gluten_free ==  @product.gluten_free && product.low_cal == @product.low_cal } %>
     <% @products = @products.any? ? [ @products.sample ] : [ Product.all.reject { |product| product == @product }.sample ] %>
 
-    <%= render 'products/product_card' %>
+    <%= render '/products/product_card' %>
+
+    <h4 class="sub-heading container">BE INSPIRED BY</h4>
+
+    <% @recipes = @product.recipes.any? ? [ @product.recipes.sample ] : [ Recipe.all.sample ] %>
+
+    <%= render '/shared/recipe_card' %>
+
   </section>
 </article>
-
-
-
-
-
-
