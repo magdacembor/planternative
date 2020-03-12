@@ -9,7 +9,9 @@ puts "Creating users..."
   { email: "alex@gmail.com", first_name: "Alex", last_name: "Baker", password: "User1234", nickname: "alex" },
   { email: "phoebe@gmail.com", first_name: "Phoebe", last_name: "Yu", password: "User1234", nickname: "phoebe" },
   { email: "anna@gmail.com", first_name: "Anna", last_name: "Green", password: "User1234", nickname: "anna" },
-  { email: "simon@gmail.com", first_name: "Simon", last_name: "Lee", password: "User1234", nickname: "simon" },
+  { email: "johnnypepper@gmail.com", first_name: "Johnny", last_name: "Pepper", password: "User1234", nickname: "Johnny" },
+  { email: "maciek.olejniczak@gmail.com", first_name: "Maciej", last_name: "Ollie", password: "User1234", nickname: "ollie" },
+  { email: "carlorn.wan@gmail.com", first_name: "Kyle", last_name: "Wan", password: "User1234", nickname: "kylie" }
 
 ]
 
@@ -347,5 +349,62 @@ end
   recipe_created = Recipe.create!(recipe)
   puts "#{i + 1}. Recipe \"#{recipe_created.name }\" created for #{recipe_created.product.name}"
 end
+
+puts "\nCreating chatrooms ..."
+
+@chatrooms = [
+
+  { name: "Need some advice about jackfruit!", user_id: "1", created_at: DateTime.new(2020, 2, 27, 18, 16, 13) },
+  { name: "which oil best for this isn't bacon?! 🥓", user_id: "6", created_at: DateTime.new(2020, 2, 29, 13, 1, 12) },
+  { name: "Hi! What's a good brand for tofu?", user_id: "2", created_at: DateTime.new(2020, 3, 4, 10, 25, 47) },
+  { name: "Need good vegan cookie recipe!!", user_id: "3", created_at: DateTime.new(2020, 3, 8, 20, 34, 22) },
+  { name: "Sharing my bounty brownie recipe ;)", user_id: "7", created_at: DateTime.new(2020, 3, 9, 13, 32, 22) },
+  { name: "👋 Hi, I'm new here", user_id: "8", created_at: DateTime.new(2020, 3, 11, 11, 20, 22) },
+  { name: "Any quality mozzarella? 😎", user_id: "1", created_at: DateTime.now - 1.25 },
+  { name: "Thoughts on M&S's new oat milk?", user_id: "5", created_at: DateTime.now - 0.5 }
+
+]
+
+@chatrooms.each_with_index do |chatroom, i|
+  chatroom_created = Chatroom.create!(chatroom)
+  puts "#{i + 1}. Chatroom #{chatroom_created.name} created"
+end
+
+puts "\nCreating messages ..."
+
+@messages = [
+
+  { content: "Hey guys any tips on how best to cook jackfruit?", chatroom_id: "1", user_id: "1", created_at: DateTime.new(2020, 2, 27, 18, 17, 13) },
+  { content: "take a look at pulled pork recipes and using the same marinade, it tastes almost identical!", chatroom_id: "1", user_id: "2", created_at: DateTime.new(2020, 2, 27, 19, 20, 0) },
+  { content: "Agree with Sarah, try using Teriyaki :-) YUM!", chatroom_id: "1", user_id: "3", created_at: DateTime.new(2020, 2, 27, 20, 3, 20) },
+  { content: "What's a cool oil to you for the brand This Isn't Bacon?", chatroom_id: "2", user_id: "6", created_at: DateTime.new(2020, 2, 29, 13, 1, 30) },
+  { content: "i mean... the bacon itself will produce some oil too ;)", chatroom_id: "2", user_id: "7", created_at: DateTime.new(2020, 2, 29, 15, 1, 30) },
+  { content: "good point! thanks for the tip 😊", chatroom_id: "2", user_id: "6", created_at: DateTime.new(2020, 2, 29, 16, 12, 30) },
+  { content: "what's everybody's favourite tofu brands?", chatroom_id: "3", user_id: "2", created_at: DateTime.new(2020, 3, 4, 10, 26, 47) },
+  { content: "cauldron is alright", chatroom_id: "3", user_id: "7", created_at: DateTime.new(2020, 3, 4, 13, 30, 47) },
+  { content: "love taifun", chatroom_id: "3", user_id: "5", created_at: DateTime.new(2020, 3, 5, 11, 2, 0) },
+  { content: "Tofoo!! SO GOOD", chatroom_id: "3", user_id: "2", created_at: DateTime.new(2020, 3, 6, 9, 1, 47) },
+  { content: "aw thanks for the help planternative community!!", chatroom_id: "3", user_id: "2", created_at: DateTime.new(2020, 3, 6, 10, 26, 47) },
+  { content: "I'm making vegan cookies for my friends tmr, does anyone have any good recipes they've tried and tested?", chatroom_id: "4", user_id: "3", created_at: DateTime.new(2020, 3, 8, 20, 35, 22) },
+  { content: "If anyone wants to check out my new recipe for bounty-covered brownies here it is... http://medium.com/best_bounty_cake_ever", chatroom_id: "5", user_id: "7", created_at: DateTime.new(2020, 3, 9, 13, 33, 22) },
+  { content: "amaaaaaaazeballs", chatroom_id: "5", user_id: "8", created_at: DateTime.new(2020, 3, 9, 15, 20, 22) },
+  { content: "my fiancée has a similar recipe!", chatroom_id: "5", user_id: "1", created_at: DateTime.new(2020, 3, 10, 9, 10, 1) },
+  { content: "TYSM! <3", chatroom_id: "5", user_id: "2", created_at: DateTime.new(2020, 3, 11, 23, 10, 1) },
+  { content: "awesome thanks :)", chatroom_id: "5", user_id: "3", created_at: DateTime.new(2020, 3, 12, 11, 12, 1) },
+  { content: "Hey guys, i'm new to the community, just wanted to say hi 👋", chatroom_id: "6", user_id: "8", created_at: DateTime.new(2020, 3, 11, 11, 20, 22) },
+  { content: "welcome kyle!", chatroom_id: "6", user_id: "5", created_at: DateTime.new(2020, 3, 11, 11, 20, 22) },
+  { content: "Hiiii", chatroom_id: "6", user_id: "6", created_at: DateTime.new(2020, 3, 11, 11, 20, 22) },
+  { content: "you'll love it here!", chatroom_id: "6", user_id: "1", created_at: DateTime.new(2020, 3, 11, 11, 20, 22) },
+  { content: "hey dude =)", chatroom_id: "6", user_id: "7", created_at: DateTime.new(2020, 3, 11, 11, 20, 22) },
+  { content: "Hey folks, I'm making a pizza and need some quality mozzarella, anyone have any yummy recommendations?", chatroom_id: "7", user_id: "1", created_at: DateTime.now - 1.25 },
+  { content: "Violife is a great brand 😎", chatroom_id: "7", user_id: "6", created_at: DateTime.now - 0.5 },
+  { content: "What's everybody's thoughts on marks and spencers new oat milk?", chatroom_id: "8", user_id: "5", created_at: DateTime.now - 0.5 }
+]
+
+@messages.each_with_index do |message, i|
+  message_created = Message.create!(message)
+  puts "#{i + 1}. Message #{message_created.content} created"
+end
+
 
 puts "\nDone!"
