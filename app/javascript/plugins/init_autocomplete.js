@@ -19,7 +19,7 @@ const initAutocomplete = () => {
         if (data.length > 0) {
           const suggestedResults = data;
           suggestedResults.forEach((result) => {
-            resultsList += `<a href="/products/?query=${result}">\n`;
+            resultsList += `<a href="/products?query=${result}">\n`;
             resultsList += `<div class="autocomplete-suggestion">${result}</div>\n`;
             resultsList += `</a>\n`;
             resultsDiv.innerHTML = resultsList;
