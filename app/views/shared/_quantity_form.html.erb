@@ -6,6 +6,6 @@
 <%= simple_form_for [ @product, Quantity.new ], method: :post do |f| %>
   <div class="product-quantity">
     <%= f.input :quantity, input_html: { value: 1 }, label: false %>
-    <%= f.submit 'Add to cart', class: 'quantity-button' %>
+    <%= f.submit 'Add to list', class: 'quantity-button' %>
   </div>
 <% end %>

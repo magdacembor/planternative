@@ -59,14 +59,16 @@
       <div class="activity-box">
         <div class="count"> <%= @reviews.count %> </div>
         <div class="activity">
-          <p class="verb"> <strong> review</strong> </p>
+          <p class="verb"> <strong> reviews</strong> </p>
           <p>posted </p>
         </div>
       </div>
       <div class="activity-box">
         <div class="count"> 4 </div>
         <div class="activity">
-          <p class="verb"> <strong> chatrooms</strong> </p>
+          <%= link_to chatrooms_path do %>
+            <p class="verb"> <strong> threads</strong> </p>
+          <% end %>
           <p>created </p>
         </div>
       </div>
