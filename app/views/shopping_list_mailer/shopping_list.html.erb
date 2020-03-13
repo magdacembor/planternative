@@ -4,9 +4,9 @@
     <h1 style="color: #8FB171; font-size: 50px; margin-left: 20px;">Planternative</h1>
   </section>
   <h2 style="">Hello, <%= @shopping_list.user.first_name %>! </h2>
-  <h3 style="font-weight: normal;">Here's your <strong style="color: #8FB171;">Planternative</strong> summary below from <%= @shopping_list.date.strftime("%b. %d %Y") %>...</h3>
+  <h3 style="font-weight: normal;">Here's your <strong style="color: #8FB171;">Planternative</strong> summary below from <%= @shopping_list.date.strftime("%b. %d %Y") %></h3>
 
-  <table style="">
+  <table style="margin-bottom: 40px;">
     <th style="text-align: center"></th>
     <th style="text-align: center">Item</th>
     <th style="text-align: center;">Quantity</th>
@@ -26,10 +26,9 @@
     <% end %>
   </table>
 
-  <h4 style="color: #8FB171;">YOUR ECO-SCORE</h4>
-  <section style="margin: 0 15px; display: flex; justify-content: space-between;">
-    <% water = 0 %>
-    <% energy = 0 %>
+  <h4 style="color: #8FB171; padding-bottom: 0px; line-height: 0;">YOUR ECO-SCORE</h4>
+  <section style="margin: 0 15px; width: 100%; line-height: 0; display: flex; justify-content: space-between;">
+    <% water = 0 %> <% energy = 0 %>
     <% @shopping_list.quantities.each do |q| %>
       <% water += q.product.water_saved * q.quantity %>
       <% energy += q.product.energy_saved * q.quantity %>
